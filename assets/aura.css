@@ -504,7 +504,7 @@ main > section:first-child { border-top: none; }
 .compare-apps-table tbody .col-feat { background: rgba(123,183,255,0.10); }
 
 /* ============================================================
-   FOUNDERS / BUILD IN PUBLIC
+   FOUNDER / BUILD IN PUBLIC
    ============================================================ */
 .founders-inner { max-width: 760px; margin: 0 auto; text-align: center; display: grid; gap: 24px; }
 .founders-lead {
