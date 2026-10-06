@@ -18,8 +18,8 @@ compiled app artifacts. See `ARCHITECTURE.md` for the split-domain architecture.
 - `/` - Ora marketing homepage copied from the main repo's public `web_seo/` bundle.
 - `/privacy/` - public privacy policy.
 - `/support/` - beta support page.
-- SEO routes: `/workout-tracker/`, `/nutrition-tracker/`, `/progress-tracker/`,
-  `/reports/`, `/coach-console/`, `/ai-fitness-coach/`, `/biomechanics-lab/`,
+- SEO routes: `/workout-tracker/`, `/progress-tracker/`, `/reports/`,
+  `/coach-console/`, `/ai-fitness-coach/`, `/biomechanics-lab/`,
   `/local-first-fitness-app/`, and `/mobile-check/`.
 - `/robots.txt` and `/sitemap.xml`.
 - App access links point to `https://app.oracoach.app`, which should be deployed
