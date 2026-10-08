@@ -1,8 +1,8 @@
 /* Ora beta waitlist.
-   Sign-ups POST to the Ora waitlist form on Formspree (owner's account).
-   If that fails, the visitor is asked to email support instead; with no
-   endpoint set, the form falls back to opening the user's email app. */
-const FORM_ENDPOINT = 'https://formspree.io/f/myekwbzq';
+   Sign-ups POST to Ora's own joinWaitlist endpoint (Ora's Firebase), which
+   stores them for the admin dashboard's Waitlist card. If that fails, the
+   visitor is asked to email support instead. */
+const FORM_ENDPOINT = 'https://us-central1-ora-app-ericzhu.cloudfunctions.net/joinWaitlist';
 
 const form = document.querySelector('#waitlist-form');
 const emailInput = document.querySelector('#email');
@@ -67,10 +67,11 @@ if (form && emailInput && companyInput && submitButton) {
     setStatus('Joining the beta queue…');
 
     try {
-      const data = new FormData();
+      // URL-encoded, so the browser sends it without a CORS preflight.
+      const data = new URLSearchParams();
       data.append('email', email);
       data.append('primary_goal', getPrimaryGoal());
-      data.append('page', window.location.href);
+      data.append('page', window.location.pathname);
 
       const res = await fetch(FORM_ENDPOINT, {
         method: 'POST',
