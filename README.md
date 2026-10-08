@@ -19,7 +19,7 @@ compiled app artifacts. See `ARCHITECTURE.md` for the split-domain architecture.
 - `/privacy/` - public privacy policy.
 - `/support/` - beta support page.
 - SEO routes: `/workout-tracker/`, `/progress-tracker/`, `/reports/`,
-  `/coach-console/`, `/ai-fitness-coach/`, `/biomechanics-lab/`,
+  `/coach-console/`, `/ai-fitness-coach/`,
   `/local-first-fitness-app/`, and `/mobile-check/`.
 - `/robots.txt` and `/sitemap.xml`.
 - App access links point to `https://app.oracoach.app`, which should be deployed
