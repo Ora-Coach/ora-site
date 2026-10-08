@@ -480,5 +480,13 @@ export function createOrbi(parent, opts = {}) {
     ext = f;
     if (!f && land) landStart = clock.getElapsedTime();
   }
-  return { hop, setFlight, setLook: (x, y) => { lookX = x; lookY = y; }, canvas: el };
+  /** The page shows the canvas scaled by [s]; render only the pixels that needs
+   *  (in quarter steps, so a flight between slots doesn't resize every frame). */
+  function setDisplayScale(s) {
+    const pr = Math.min(2, Math.max(0.5, Math.ceil(Math.min(devicePixelRatio, 3) * s * 4) / 4));
+    if (pr === renderer.getPixelRatio()) return;
+    renderer.setPixelRatio(pr);
+    resize();
+  }
+  return { hop, setFlight, setDisplayScale, setLook: (x, y) => { lookX = x; lookY = y; }, canvas: el };
 }
