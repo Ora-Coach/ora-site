@@ -15,7 +15,10 @@ compiled app artifacts. See `ARCHITECTURE.md` for the split-domain architecture.
 
 ## Site shape
 
-- `/` - Ora marketing homepage copied from the main repo's public `web_seo/` bundle.
+- `/` - Ora marketing homepage: one plain HTML page with the 3D Orbi coach
+  (`assets/home/orbi3d.js`), full-page section navigation on desktop, and the
+  beta waitlist (`assets/waitlist.js`). three.js and GSAP load from jsDelivr at
+  pinned versions; every other asset is in `assets/home/`.
 - `/privacy/` - public privacy policy.
 - `/support/` - beta support page.
 - SEO routes: `/workout-tracker/`, `/progress-tracker/`, `/reports/`,
