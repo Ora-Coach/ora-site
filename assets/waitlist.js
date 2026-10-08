@@ -1,15 +1,8 @@
 /* Ora beta waitlist.
-   Captures signups via a real form endpoint when configured, with a
-   graceful mailto: fallback so the form always does *something*.
-
-   ┌──────────────────────────────────────────────────────────────┐
-   │ TO ACTIVATE REAL CAPTURE (recommended — ~2 min):              │
-   │ 1. Create a free form at https://formspree.io (or Buttondown, │
-   │    ConvertKit, Getform, a Google Form, etc.).                  │
-   │ 2. Paste its POST endpoint URL into FORM_ENDPOINT below.       │
-   │ Until then, the form falls back to opening the user's email.  │
-   └──────────────────────────────────────────────────────────────┘ */
-const FORM_ENDPOINT = ''; // e.g. 'https://formspree.io/f/xxxxxxxx'
+   Sign-ups POST to the Ora waitlist form on Formspree (owner's account).
+   If that fails, the visitor is asked to email support instead; with no
+   endpoint set, the form falls back to opening the user's email app. */
+const FORM_ENDPOINT = 'https://formspree.io/f/myekwbzq';
 
 const form = document.querySelector('#waitlist-form');
 const emailInput = document.querySelector('#email');
