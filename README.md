@@ -19,14 +19,11 @@ compiled app artifacts. See `ARCHITECTURE.md` for the split-domain architecture.
   (`assets/home/orbi3d.js`), full-page section navigation on desktop, and the
   beta waitlist (`assets/waitlist.js`). three.js and GSAP load from jsDelivr at
   pinned versions; every other asset is in `assets/home/`.
-- `/privacy/` - public privacy policy.
-- `/support/` - beta support page.
-- SEO routes: `/workout-tracker/`, `/progress-tracker/`, `/reports/`,
-  `/coach-console/`, `/ai-fitness-coach/`,
-  `/local-first-fitness-app/`, and `/mobile-check/`.
+- `/privacy/` - privacy policy. `/support/` - support and FAQ. `404.html`.
+  These share `assets/home/page.css`.
 - `/robots.txt` and `/sitemap.xml`.
-- App access links point to `https://app.oracoach.app`, which should be deployed
-  from the private app repo or another private web app repo.
+
+The old SEO pages, guides and sponsor page were removed on 2026-10-08.
 
 ## Build and package manager
 
@@ -84,8 +81,8 @@ records as the source of truth.
 - `git diff --check`
 - Confirm `CNAME` contains exactly `oracoach.app`.
 - Confirm app-access links point to `https://app.oracoach.app`.
-- Confirm `/`, `/privacy/`, `/support/`, `/robots.txt`, `/sitemap.xml`, and SEO
-  routes return HTTP 200 from a local static server.
+- Confirm `/`, `/privacy/`, `/support/`, `/robots.txt` and `/sitemap.xml`
+  return HTTP 200 from a local static server.
 - Confirm no private app code, backend functions, credentials, environment files,
   or backend config are present.
 - Confirm `https://oracoach.app/`, `https://oracoach.app/privacy/`, and
