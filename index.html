@@ -132,17 +132,20 @@ nav img{height:26px;display:block}nav a{color:var(--sub);text-decoration:none;fo
 .cta{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;background:linear-gradient(180deg,#3D8BFF,#156CF6);color:#fff!important;font-weight:700;text-decoration:none;box-shadow:0 8px 30px #156cf666,inset 0 1px 0 #ffffff55;transition:transform .2s;border:0;font-size:15px;cursor:pointer}
 .cta:hover{transform:translateY(-2px) scale(1.03)}.ghost{background:#ffffff10;box-shadow:inset 0 0 0 1px #ffffff2a}
 /* Orbi: one canvas, placed every frame on the current section's slot */
-#orbi{position:fixed;left:0;top:0;width:560px;height:560px;z-index:5;transform-origin:0 0;will-change:transform}
+#orbi{position:absolute;left:0;top:0;width:560px;height:560px;z-index:5;transform-origin:0 0;will-change:transform}
 .slot{pointer-events:none}
 .hint{font:600 13px Fredoka;color:#cfe0ff;background:#ffffff14;border:1px solid #ffffff22;padding:6px 12px;border-radius:999px;display:inline-block;margin-top:18px;transition:opacity .6s}
 section{position:relative;min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:4vw;padding:130px 7vw}
 .copy{max-width:540px;position:relative;z-index:6}
 .slot.big{width:100%;aspect-ratio:1;max-width:560px;justify-self:center}
-.slot.mid{width:80%;aspect-ratio:1;max-width:440px;justify-self:center}
+/* Orbi grows with the screen: each slot takes the smaller of a share of the
+   width and of the height, so big monitors get a big Orbi and short laptop
+   screens still fit him. */
+.slot.mid{width:min(100%,max(260px,min(34vw,52vh)));aspect-ratio:1;justify-self:center}
 h1{font:700 clamp(42px,4.7vw,74px)/1 Fredoka;letter-spacing:-1px;margin:0 0 20px}
 h1 .line{white-space:nowrap}
 #hero{grid-template-columns:1.25fr .75fr}
-#hero .slot.big{width:min(560px,38vw);max-width:none}
+#hero .slot.big{width:max(300px,min(38vw,62vh));max-width:none}
 h1 .w{display:inline-block}
 .grad{padding-bottom:.14em;margin-bottom:-.14em}
 .grad{background:linear-gradient(90deg,#fff,#9cc6ff 40%,#3D8BFF);-webkit-background-clip:text;background-clip:text;color:transparent}
@@ -175,7 +178,7 @@ p.lead{font-size:19px;line-height:1.55;color:var(--sub);margin:0 0 28px}
 .glare:after{content:'';position:absolute;top:-10%;bottom:-10%;width:40%;left:-60%;background:linear-gradient(100deg,transparent,#ffffff2a,transparent);transform:skewX(-12deg)}
 .glare.go:after{animation:glare .9s ease-in-out}
 @keyframes glare{to{left:130%}}
-.slot.logslot{width:260px;aspect-ratio:1;margin:10px 0 -40px 30px}
+.slot.logslot{--w:max(200px,min(19vw,30vh));width:var(--w);aspect-ratio:1;margin:10px 0 calc(var(--w) * -.15) 30px}
 .screens{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}
 .screens span{font-size:13px;font-weight:700;padding:7px 12px;border-radius:999px;background:#ffffff0d;border:1px solid #ffffff1a;color:var(--sub);transition:all .3s}
 .screens span.on{background:#156CF6;color:#fff;border-color:#3D8BFF;box-shadow:0 6px 20px #156cf655}
@@ -211,9 +214,8 @@ p.lead{font-size:19px;line-height:1.55;color:var(--sub);margin:0 0 28px}
 .friend .cheer:first-of-type:not(:only-child){margin-left:0}
 .emoji{position:fixed;z-index:60;font-size:26px;pointer-events:none}
 footer{min-height:100vh;padding:110px 7vw 50px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center}
-footer .slot{width:300px;aspect-ratio:1;margin-bottom:-10px}
+footer .slot{width:max(180px,min(20vw,28vh));aspect-ratio:1;margin-bottom:-10px}
 .small{color:#6f84a6;font-size:13px;margin-top:10px}
-footer .slot{width:min(300px,28vh)}
 nav a.home{display:block}
 .wl{width:100%;max-width:520px;margin:0 auto}
 .wlrow{display:flex;gap:8px;padding:6px;border-radius:999px;background:#ffffff0d;border:1px solid #ffffff22}
@@ -246,7 +248,7 @@ nav a.home{display:block}
 @keyframes halo{from{opacity:.7}to{opacity:1}}
 /* Orbi peeks over the ranks card: the card sits in front of him (#orbi is z 5),
    hiding everything below his eye screen, as if he's checking the standings. */
-.slot.crew{width:300px;aspect-ratio:1;margin-bottom:-70px;position:relative;z-index:1}
+.slot.crew{--w:max(240px,min(22vw,33vh));width:var(--w);aspect-ratio:1;margin-bottom:calc(var(--w) * -.233);position:relative;z-index:1}
 #social .board{position:relative;z-index:6;isolation:isolate}
 /* The card catches Orbi's light: a glowing lip under his screen, a light spill
    across the header, and a slow light running round the border. */
@@ -382,7 +384,6 @@ nav a.home{display:block}
   .stats{margin-top:22px}.stat{padding:10px 8px}.stat img{height:36px}.stat b{font-size:26px}
   footer{padding:90px 6vw 30px}.faq{margin-top:20px}.faq details{padding:10px 4px}
   .ladder .lt{margin-bottom:40px}.track{margin-bottom:60px}
-  .slot.logslot{width:min(260px,26vh)}
 }
 @media (max-width:860px){
   /* Phones: keep the look, drop the per-frame work Safari struggles with. */
@@ -393,18 +394,21 @@ nav a.home{display:block}
   #waitlist-status{margin-top:14px}
   nav{gap:12px}nav a.l{display:none}
   section{grid-template-columns:1fr;padding:110px 6vw 70px;min-height:auto;gap:0}
-  .slot.big{order:-1;width:min(70vw,300px);margin:0 auto 6px}
+  .slot.big,#hero .slot.big{order:-1;width:min(66vw,300px);margin:0 auto 6px}
   #hero{grid-template-columns:1fr}h1 .line{white-space:normal}
   /* After the hero, Orbi sits small beside each section's title. */
-  .slot.mid{position:absolute;right:5vw;top:92px;width:112px;margin:0}
-  .slot.side{position:absolute;right:0;top:-18px;width:112px}
-  section h2{padding-right:104px}
+  section{--side:clamp(112px,36vw,160px)}
+  footer .slot{width:min(62vw,28vh)}
+  .slot.mid{position:absolute;right:4vw;top:86px;width:var(--side);margin:0}
+  .slot.side{position:absolute;right:0;top:-18px;width:var(--side)}
+  /* His drawing fills the middle ~55% of the slot, so titles leave room for that. */
+  section h2{padding-right:calc(var(--side) * .78)}
   .stage{height:404px;max-width:380px;margin-top:30px}.phone{width:165px}.phone.p1{left:0}.phone.p2{top:46px}
   .phone{border-radius:30px;padding:8px}.scr{border-radius:23px;clip-path:inset(0 round 23px)}
   .phone.p1{transform:rotateY(8deg) rotateZ(-3deg)}.phone.p2{transform:rotateY(-8deg) rotateZ(3deg)}
-  .slot.logslot{position:absolute;right:0;top:-18px;width:112px;margin:0}
-  #log h2{padding-right:104px!important}
-  .crewside{margin-top:24px;position:static}.crewside:before{display:none}.board .lip{display:none}.slot.crew{position:absolute;right:5vw;top:92px;width:112px;margin:0}
+  .slot.logslot{position:absolute;right:0;top:-24px;width:var(--side);margin:0}
+  #log h2{padding-right:calc(var(--side) * .78)!important}
+  .crewside{margin-top:24px;position:static}.crewside:before{display:none}.board .lip{display:none}.slot.crew{position:absolute;right:4vw;top:86px;width:var(--side);margin:0}
   .stats{gap:8px}.stat b{font-size:24px}.stat img{height:38px}
   .shelf{grid-template-columns:repeat(3,minmax(0,1fr))}
   .stats{gap:22px}
@@ -616,30 +620,39 @@ let hue = '';
 function tint(i) { const h = sections[i].dataset.hue; if (h && h !== hue) { hue = h; document.documentElement.style.setProperty('--hue', h); } }
 
 // ---- Orbi jumps from slot to slot ---------------------------------------------
-// He sits on the current section's slot (moving with the page). On a section
-// change he crouches, takes off, flies an arc while turning, and lands on the
-// new slot, timed with the page's glide. If the visitor changes their mind
-// mid-air, the flight bends toward the new slot from where he is, keeping
-// his arc and turn going, so nothing ever snaps.
-const CROUCH = 0.1, AIR = 0.75;
+// He sits on the current section's slot. #orbi is placed in page coordinates
+// (position:absolute), so at rest he scrolls with the page itself, with no
+// per-frame catch-up, even during a phone's native momentum scroll. On a
+// section change he crouches, takes off, flies an arc while turning, and lands
+// on the new slot. If the visitor changes their mind mid-air, the flight bends
+// toward the new slot from where he is, keeping his arc and turn going, so
+// nothing ever snaps.
+const CROUCH = 0.1, AIR = 0.75, AIR_PHONE = 0.6;
 let animating = false, lastWheel = 0;
 let at = sectionAtMiddle(null), flight = null, shown = slotPos(at), arcU = 0;
-const arcHeight = () => Math.max(110, innerHeight * 0.16);
+const arcHeight = () => narrow.matches ? Math.max(80, innerHeight * 0.12) : Math.max(110, innerHeight * 0.16);
 function jumpTo(i) {
   if (i === at) return;
   at = i; tint(i);
   const now = performance.now() / 1000;
   const inAir = flight && arcU > 0;
-  // Phones scroll natively, so his take-off point is held on screen, not on the page.
-  const from = narrow.matches ? { x: shown.x - scrollX, y: shown.y - scrollY, s: shown.s } : { ...shown };
+  const from = { ...shown };
+  // Phones scroll natively and fast: if his old slot has already scrolled
+  // away, he takes off from just off the screen's edge, not from far away.
+  if (narrow.matches) {
+    const size = from.s * BOX, y = from.y - scrollY;
+    from.y = Math.min(Math.max(y, -size), innerHeight) + scrollY;
+  }
   flight = { from, start: now, u0: inAir ? arcU : 0, crouch: inAir ? 0 : CROUCH };
 }
-function placeWide() {
+function place() {
   const dest = slotPos(at);
   let base = dest, u = 0;
+  if (flight && reduce && narrow.matches) flight = null;
   if (flight) {
     const e = performance.now() / 1000 - flight.start;
-    const air = AIR * (1 - flight.u0) + 0.15 * flight.u0; // a redirect still takes a moment
+    const full = narrow.matches ? AIR_PHONE : AIR;
+    const air = full * (1 - flight.u0) + 0.15 * flight.u0; // a redirect still takes a moment
     if (e < flight.crouch) { base = flight.from; orbi.setFlight({ crouch: e / flight.crouch }); }
     else if (e < flight.crouch + air) {
       const p = easeInOut((e - flight.crouch) / air);
@@ -651,40 +664,14 @@ function placeWide() {
   shown = base; arcU = u;
   orbi.setDisplayScale(flight ? Math.max(flight.from.s, dest.s) : dest.s);
   const lift = Math.sin(Math.PI * u) * arcHeight();
-  box.style.transform = `translate3d(${(base.x - scrollX).toFixed(2)}px,${(base.y - lift - scrollY).toFixed(2)}px,0) scale(${base.s.toFixed(4)})`;
-}
-
-// Phones: the page scrolls natively, so the flight runs in screen space. He
-// takes off from where he is on screen (or from just off its edge, if his old
-// slot has scrolled away) and lands on the new title's slot, tracking it as it moves.
-const AIR_PHONE = 0.6;
-function placeNarrow() {
-  const d = slotPos(at), dest = { x: d.x - scrollX, y: d.y - scrollY, s: d.s };
-  let base = dest, u = 0;
-  if (flight && reduce) flight = null;
-  if (flight) {
-    const e = performance.now() / 1000 - flight.start;
-    const air = AIR_PHONE * (1 - flight.u0) + 0.15 * flight.u0;
-    const f = flight.from, size = f.s * BOX;
-    const from = { ...f, y: Math.min(Math.max(f.y, -size), innerHeight) }; // just off screen at most
-    if (e < flight.crouch) { base = from; orbi.setFlight({ crouch: e / flight.crouch }); }
-    else if (e < flight.crouch + air) {
-      const p = easeInOut((e - flight.crouch) / air);
-      u = flight.u0 + (1 - flight.u0) * p;
-      base = { x: lerp(from.x, dest.x, p), y: lerp(from.y, dest.y, p), s: lerp(from.s, dest.s, p) };
-      orbi.setFlight({ u });
-    } else { flight = null; orbi.setFlight(null, true); }
-  }
-  shown = { x: base.x + scrollX, y: base.y + scrollY, s: base.s }; arcU = u;
-  orbi.setDisplayScale(flight ? Math.max(flight.from.s, dest.s) : dest.s);
-  const lift = Math.sin(Math.PI * u) * Math.max(80, innerHeight * 0.12);
-  box.style.transform = `translate3d(${base.x.toFixed(2)}px,${(base.y - lift).toFixed(2)}px,0) scale(${base.s.toFixed(4)})`;
+  const t = `translate3d(${base.x.toFixed(2)}px,${(base.y - lift).toFixed(2)}px,0) scale(${base.s.toFixed(4)})`;
+  if (t !== box.style.transform) box.style.transform = t;
 }
 
 (function loop() {
   // Scrolling by other means (scrollbar, touch, find-in-page) still moves him.
   if (!animating) { const i = sectionAtMiddle(at); if (i !== at) jumpTo(i); }
-  narrow.matches ? placeNarrow() : placeWide();
+  place();
   requestAnimationFrame(loop);
 })();
 tint(at);
