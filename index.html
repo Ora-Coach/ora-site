@@ -21,8 +21,9 @@
 <!-- MEASUREMENT: activate when ready. Search Console verification tag and
      analytics (e.g. Plausible: <script defer data-domain="oracoach.app"
      src="https://plausible.io/js/script.js"></script>) go here. -->
-<link rel="icon" type="image/png" href="/assets/ora-mark-192.png">
-<link rel="apple-touch-icon" href="/assets/ora-mark-192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/ora-icon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/ora-icon-192.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -53,7 +54,7 @@
    "@id": "https://oracoach.app/#org",
    "name": "Ora",
    "url": "https://oracoach.app/",
-   "logo": "https://oracoach.app/assets/ora-mark-192.png"
+   "logo": "https://oracoach.app/assets/ora-icon-192.png"
   },
   {
    "@type": "SoftwareApplication",
@@ -302,7 +303,7 @@ nav a.home{display:block}
 .change .acts{display:flex;gap:8px;margin-top:9px}
 .change button{border:0;border-radius:10px;padding:7px 12px;font:700 12.5px Roboto;cursor:pointer;background:#3D8BFF;color:#fff;transition:transform .15s}.change button:hover{transform:translateY(-1px)}
 .change button.ghost2{background:#ffffff14}.change button.done{background:#2fd17a;color:#04220f}
-.week{display:flex;gap:5px;margin-top:8px}.week span{flex:1;text-align:center;font-size:11px;font-weight:700;padding:6px 0;border-radius:8px;background:#ffffff0c;color:#7f93b4}.week span.on{background:#156CF6;color:#fff}.week span.pr{background:#ffd45c;color:#3a2500}
+.week{display:flex;gap:5px;margin-top:8px}.week span{flex:1;text-align:center;font-size:11px;font-weight:700;padding:6px 0;border-radius:8px;background:#ffffff0c;color:#7f93b4}.week span.on{background:#156CF6;color:#fff}.week span.pr{background:#ffd45c;color:#3a2500}.week b{font-weight:inherit}.week i{display:block;font-style:normal;font-size:9.5px;font-weight:600;letter-spacing:.3px;opacity:.75;margin-bottom:2px}
 .asks{display:flex;gap:6px;flex-wrap:nowrap;padding:10px 12px 12px;border-top:1px solid #ffffff12}
 .asks button{white-space:nowrap;flex:1 1 auto;border:1px solid #3d8bff66;background:#3d8bff14;color:#dce8ff;border-radius:999px;padding:7px 12px;font:600 12.5px Roboto;cursor:pointer;transition:all .2s}
 .asks button:hover{background:#3d8bff33;transform:translateY(-1px)}.asks button:disabled{opacity:.35;cursor:default;transform:none}
@@ -390,6 +391,8 @@ nav a.home{display:block}
   .bg i{animation:none;filter:blur(50px)}
   .grain{display:none}
   .board:before{display:none}
+  /* Seven days in a chat bubble: tighter, and "PR day" becomes "PR". */
+  .week{gap:3px}.week span{font-size:9.5px;padding:5px 0;letter-spacing:-.2px}.week i{font-size:8.5px}.week b{display:none}
   .goals{gap:10px;margin-top:18px}.goals .gl{flex-basis:100%;text-align:center;margin:0}.goals label span{padding:8px 18px}
   #waitlist-status{margin-top:14px}
   nav{gap:12px}nav a.l{display:none}
@@ -430,7 +433,12 @@ nav a.home{display:block}
   .step>span{position:static;transform:none;margin-top:6px}
 }
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}.card .rays{animation:none}.phone{animation:none}.scr img{transition:opacity .3s}}
+/* Big screens: the app screens and the ranks card grow with the screen.
+   --big is 1 up to laptop size and up to 1.8 on large monitors (set below). */
+.stage{scale:var(--big,1)}
+#social .board{scale:var(--big,1);transform-origin:50% 0}
 </style></head><body>
+<script>(function(){function f(){var b=innerWidth<=860?1:Math.max(1,Math.min(innerWidth/1500,innerHeight/940,1.8));document.documentElement.style.setProperty('--big',b.toFixed(3))}f();addEventListener('resize',f)})()</script>
 <div class="bg" aria-hidden="true"><i class="b1"></i><i class="b2"></i><i class="b3"></i></div><canvas id="dust" aria-hidden="true"></canvas><div class="grain" aria-hidden="true"></div>
 <nav><a href="/" class="home"><img src="/assets/home/ora_logo.webp" alt="Ora"></a><a class="l" href="#coach">Orbi</a><a class="l" href="#science">Science</a><a class="l" href="#rewards">Rewards</a><a class="l" href="#pro">Pricing</a><a class="cta" href="#join">Get early access</a></nav>
 <div id="orbi" role="img" aria-label="Orbi, Ora's coach. Drag to spin him, tap to make him hop."></div>
@@ -870,7 +878,9 @@ document.querySelectorAll('.clock').forEach(el => {
     gsap.to('#gain', { opacity: 1, y: 0, duration: .4, ease: 'back.out(2)' });
     fill(me, +me.dataset.xp + +me.dataset.gain, .9);
     await new Promise(r => setTimeout(r, 700));
-    const a = me.getBoundingClientRect().top, b = jordan.getBoundingClientRect().top;
+    // Screen distances, in the board's own units (it is scaled on big screens).
+    const k = me.getBoundingClientRect().height / me.offsetHeight || 1;
+    const a = me.getBoundingClientRect().top / k, b = jordan.getBoundingClientRect().top / k;
     me.parentNode.insertBefore(me, jordan);
     gsap.fromTo(me, { y: a - b }, { y: 0, duration: .6, ease: 'back.out(1.6)' });
     gsap.fromTo(jordan, { y: b - a }, { y: 0, duration: .6, ease: 'power2.out' });
@@ -883,7 +893,7 @@ document.querySelectorAll('.clock').forEach(el => {
     for (let i = 0; i < 18; i++) {
       const sp = document.createElement('i'); sp.className = 'spark';
       const c = i % 3 ? '#ffd45c' : '#a8e4ff'; sp.style.background = c; sp.style.boxShadow = `0 0 8px ${c}`;
-      sp.style.left = (mb.left - bb.left + 50 + Math.random() * (mb.width - 100)) + 'px'; sp.style.top = (mb.top - bb.top + 8 + Math.random() * (mb.height - 16)) + 'px';
+      sp.style.left = ((mb.left - bb.left) / k + 50 + Math.random() * (mb.width / k - 100)) + 'px'; sp.style.top = ((mb.top - bb.top) / k + 8 + Math.random() * (mb.height / k - 16)) + 'px';
       board.appendChild(sp);
       gsap.fromTo(sp, { scale: .4 + Math.random() * .8, opacity: 1 }, { y: -40 - Math.random() * 70, x: (Math.random() - .5) * 40, opacity: 0, duration: .9 + Math.random() * .6, ease: 'power2.out', onComplete: () => sp.remove() });
     }
@@ -941,7 +951,7 @@ const convos = [
     card: `<div class="change"><div class="t">${ic('training')}Back Squat · 5 × 5</div><div class="v"><s>315 lb</s> → <b>295 lb</b> · RPE 8</div><div class="acts"><button data-apply>Apply</button><button class="ghost2">Not today</button></div></div>`,
     after: "Done. If the bar moves well, we'll build back up next week." },
   { chip: 'Plan my week', ask: 'Plan my week', reply: "You hit 3 of 4 sessions last week. Your bench is close to a PR, so I put a heavy single on Thursday.",
-    card: `<div class="change"><div class="t">${ic('calendar')}This week</div><div class="week"><span class="on">Upper</span><span class="on">Lower</span><span>Rest</span><span class="pr">PR day</span><span>Rest</span><span class="on">Lower</span><span>Rest</span></div></div>` },
+    card: `<div class="change"><div class="t">${ic('calendar')}This week</div><div class="week"><span class="on"><i>Mon</i>Upper</span><span class="on"><i>Tue</i>Lower</span><span><i>Wed</i>Rest</span><span class="pr"><i>Thu</i>PR<b> day</b></span><span><i>Fri</i>Rest</span><span class="on"><i>Sat</i>Lower</span><span><i>Sun</i>Rest</span></div></div>` },
   { chip: 'Shoulder hurts on bench', ask: 'My shoulder hurts on bench', reply: "Let's not push through pain. Swap to a neutral-grip dumbbell press today and keep it easy, around RPE 7. If it still hurts next time, get it checked by a physio.",
     card: `<div class="change"><div class="t">${ic('safety')}Swap for today</div><div class="v"><s>Bench Press</s> → <b>Neutral-Grip DB Press</b></div><div class="acts"><button data-apply>Apply</button><button class="ghost2">Keep bench</button></div></div>` },
 ];
