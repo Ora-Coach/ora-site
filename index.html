@@ -216,7 +216,7 @@ p.lead{font-size:19px;line-height:1.55;color:var(--sub);margin:0 0 28px}
 footer{min-height:100vh;padding:110px 7vw 50px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center}
 footer .slot{width:max(180px,min(20vw,28vh));aspect-ratio:1;margin-bottom:-10px}
 .small{color:#6f84a6;font-size:13px;margin-top:10px}
-nav a.home{display:block}
+nav a.home{display:block}nav a.coach{padding:10px 16px;border-radius:999px;background:#ffffff10;box-shadow:inset 0 0 0 1px #ffffff2a;color:#fff;font-weight:600}nav a.coach:hover{background:#ffffff1c}
 .wl{width:100%;max-width:520px;margin:0 auto}
 .wlrow{display:flex;gap:8px;padding:6px;border-radius:999px;background:#ffffff0d;border:1px solid #ffffff22}
 .wlrow input{flex:1;min-width:0;border:0;background:none;color:var(--ink);font:500 16px Roboto,sans-serif;padding:0 14px;outline:none}
@@ -394,7 +394,7 @@ nav a.home{display:block}
   .week{gap:3px}.week span{font-size:9.5px;padding:5px 0;letter-spacing:-.2px}.week i{font-size:8.5px}.week b{display:none}
   .goals{gap:10px;margin-top:18px}.goals .gl{flex-basis:100%;text-align:center;margin:0}.goals label span{padding:8px 18px}
   #waitlist-status{margin-top:14px}
-  nav{gap:12px}nav a.l{display:none}
+  nav{gap:8px}nav a.l{display:none}nav a.coach{padding:9px 12px;font-size:13px}nav .cta{padding:10px 14px;font-size:13px}
   section{grid-template-columns:1fr;padding:110px 6vw 70px;min-height:auto;gap:0}
   .slot.big,#hero .slot.big{order:-1;width:min(66vw,300px);margin:0 auto 6px}
   #hero{grid-template-columns:1fr}h1 .line{white-space:normal}
@@ -439,7 +439,7 @@ nav a.home{display:block}
 </style></head><body>
 <script>(function(){function f(){var b=innerWidth<=860?1:Math.max(1,Math.min(innerWidth/1500,innerHeight/940,1.8));document.documentElement.style.setProperty('--big',b.toFixed(3))}f();addEventListener('resize',f)})()</script>
 <div class="bg" aria-hidden="true"><i class="b1"></i><i class="b2"></i><i class="b3"></i></div><canvas id="dust" aria-hidden="true"></canvas><div class="grain" aria-hidden="true"></div>
-<nav><a href="/" class="home"><img src="/assets/home/ora_logo.webp" alt="Ora"></a><a class="l" href="#coach">Orbi</a><a class="l" href="#science">Science</a><a class="l" href="#rewards">Rewards</a><a class="l" href="#pro">Pricing</a><a class="cta" href="#join">Get early access</a></nav>
+<nav><a href="/" class="home"><img src="/assets/home/ora_logo.webp" alt="Ora"></a><a class="l" href="#coach">Orbi</a><a class="l" href="#science">Science</a><a class="l" href="#rewards">Rewards</a><a class="l" href="#pro">Pricing</a><a class="coach" href="https://app.oracoach.app/app/">For coaches</a><a class="cta" href="#join">Get early access</a></nav>
 <div id="orbi" role="img" aria-label="Orbi, Ora's coach. Drag to spin him, tap to make him hop."></div>
 
 <section id="hero" data-hue="#0b2a6b"><div class="copy">
@@ -584,7 +584,7 @@ nav a.home{display:block}
   <details><summary>Do I need Ora Pro?</summary><p>No. Logging, progress, rewards and friends are free. Pro adds Orbi's coaching, smart programs and weekly check-ins.</p></details>
   <details><summary>What about my data?</summary><p>Your training lives on your phone first. You can export it or delete it at any time, and Orbi only sees what it needs to coach you.</p></details>
 </div>
-<div class="links" role="navigation" aria-label="Footer"><a href="/privacy/">Privacy</a><a href="/support/">Support</a><a href="mailto:support@oracoach.app">support@oracoach.app</a></div>
+<div class="links" role="navigation" aria-label="Footer"><a href="https://app.oracoach.app/app/">For coaches</a><a href="/privacy/">Privacy</a><a href="/support/">Support</a><a href="mailto:support@oracoach.app">support@oracoach.app</a></div>
 <div class="small">© 2026 Ora · oracoach.app</div></footer>
 <script src="/assets/waitlist.js?v=2026-10-09" defer></script>
 
