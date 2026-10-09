@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Coach invite | Ora</title>
+<meta name="description" content="Connect with your coach in the Ora app.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://oracoach.app/join/">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Ora">
+<meta property="og:title" content="Your coach invited you to Ora"><meta property="og:description" content="Connect with your coach in the Ora app.">
+<meta property="og:image" content="https://oracoach.app/assets/gen/og-home.png">
+<meta name="theme-color" content="#05080F">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/ora-icon-32.png?v=2"><link rel="icon" type="image/png" sizes="192x192" href="/assets/ora-icon-192.png?v=2"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Roboto:wght@400;500;700&family=Luckiest+Guy&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/home/page.css?v=2026-10-08">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Ora Coach Invite", "url": "https://oracoach.app/join/"}</script>
+<style>
+[hidden]{display:none!important}
+.invite{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px}
+.invite code{display:block;margin-top:6px;font:700 30px/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:3px;color:#fff;word-break:break-all}
+.invite .btns{display:flex;gap:10px;flex-wrap:wrap}
+ol.steps{padding-left:22px;line-height:1.8}
+</style>
+</head><body>
+<nav><a href="/"><img src="/assets/home/ora_logo.webp" alt="Ora home"></a><a class="l" href="/privacy/">Privacy</a><a class="l" href="/support/">Support</a><a class="cta" href="/#join">Get early access</a></nav><a class="login" href="https://app.oracoach.app/app/">Login</a>
+<main id="main">
+<div class="head"><img src="/assets/home/chibi_thumbsup.webp" alt="" width="120" height="120"><div>
+<div class="kicker">Coach invite</div>
+<h1>Your coach invited you <span class="grad">to Ora.</span></h1>
+<p class="lead">Connect in the Ora app and your coach sees the training you choose to share: sessions, volume and strength trends. Never your notes or anything outside training.</p></div></div>
+
+<div class="card invite" id="invite"><div><b>Your invite code</b><code id="code">&nbsp;</code></div>
+<div class="btns"><a class="cta" id="open" href="#">Open in Ora</a><button class="cta ghost" id="copy" type="button">Copy code</button></div></div>
+<p id="bad" hidden>This invite link is missing its code. Ask your coach to send it again, or type the code they gave you in Ora under Settings, then Coach Access.</p>
+
+<h2>Connect in three steps</h2>
+<ol class="steps"><li>Open Ora on your iPhone.</li><li>Go to Settings, then Coach Access.</li><li>Enter the code above and tap Accept invite.</li></ol>
+<p>Open in Ora fills in the code for you. If nothing happens, enter it yourself. You can disconnect your coach at any time in the same place.</p>
+
+<h2>Don't have Ora yet?</h2>
+<p>Ora is in private beta on iPhone. <a href="/#join">Join the waitlist</a> and we'll email you when your spot opens. Invite codes last 14 days, so ask your coach for a new one if this one runs out.</p>
+</main>
+<footer><span>© 2026 Ora · oracoach.app</span><div><a href="/">Home</a><a href="/privacy/">Privacy</a><a href="/support/">Support</a></div></footer>
+<script>
+(() => {
+  // The code stays on this page: stats.js sends only the path.
+  const code = (new URLSearchParams(location.search).get('code') || '').trim();
+  if (!/^[A-Za-z0-9_-]{6,64}$/.test(code)) {
+    document.getElementById('invite').hidden = true;
+    document.getElementById('bad').hidden = false;
+    return;
+  }
+  document.getElementById('code').textContent = code;
+  document.getElementById('open').href = 'ora://coach-access?code=' + encodeURIComponent(code);
+  const copy = document.getElementById('copy');
+  copy.addEventListener('click', async () => {
+    try { await navigator.clipboard.writeText(code); copy.textContent = 'Copied'; }
+    catch (_) { copy.textContent = 'Select the code to copy'; }
+  });
+})();
+</script>
+<script src="/assets/stats.js" defer></script></body></html>
