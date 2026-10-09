@@ -9,6 +9,8 @@ nav{position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:20;displ
 nav img{height:26px;display:block}nav a{color:var(--sub);text-decoration:none;font-weight:500;font-size:14px}nav a:hover,nav a[aria-current]{color:#fff}
 .cta{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;background:linear-gradient(180deg,#3D8BFF,#156CF6);color:#fff!important;font-weight:700;text-decoration:none;box-shadow:0 8px 30px #156cf666,inset 0 1px 0 #ffffff55;font-size:15px}
 nav .cta{padding:9px 16px;font-size:14px}
+nav a.coach{padding:9px 14px;border-radius:999px;background:#ffffff10;box-shadow:inset 0 0 0 1px #ffffff2a;color:#fff;font-weight:600}
+nav a.coach:hover{background:#ffffff1c}
 main{max-width:780px;margin:0 auto;padding:130px 24px 40px}
 .head{display:flex;align-items:center;gap:20px;margin-bottom:26px}
 .head img{width:120px;height:auto;flex:none;filter:drop-shadow(0 12px 24px #156cf655)}
@@ -36,7 +38,7 @@ footer{max-width:780px;margin:30px auto 0;padding:24px 24px 40px;border-top:1px 
 footer div{display:flex;gap:18px}footer a{color:var(--sub);text-decoration:none}footer a:hover{color:#fff}
 .center{text-align:center}.center .head{flex-direction:column}
 @media (max-width:640px){
-  nav{gap:14px;padding-left:14px}nav .l{display:none}
+  nav{gap:8px;padding-left:14px}nav a.coach{padding:9px 12px;font-size:13px}nav .cta{padding:9px 13px;font-size:13px}nav .l{display:none}
   main{padding:110px 18px 30px}
   .head{flex-direction:column;align-items:flex-start;gap:10px}.head img{width:96px}
   .card{padding:18px}
