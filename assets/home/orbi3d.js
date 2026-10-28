@@ -483,7 +483,8 @@ export function createOrbi(parent, opts = {}) {
   /** The page shows the canvas scaled by [s]; render only the pixels that needs
    *  (in quarter steps, so a flight between slots doesn't resize every frame). */
   function setDisplayScale(s) {
-    const pr = Math.min(2, Math.max(0.5, Math.ceil(Math.min(devicePixelRatio, 3) * s * 4) / 4));
+    // Up to 3x, so he stays sharp when a big screen scales him past his box.
+    const pr = Math.min(3, Math.max(0.5, Math.ceil(Math.min(devicePixelRatio, 3) * s * 4) / 4));
     if (pr === renderer.getPixelRatio()) return;
     renderer.setPixelRatio(pr);
     resize();
