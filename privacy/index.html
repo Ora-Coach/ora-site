@@ -11,14 +11,14 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/ora-icon-32.png?v=2"><link rel="icon" type="image/png" sizes="192x192" href="/assets/ora-icon-192.png?v=2"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Roboto:wght@400;500;700&family=Luckiest+Guy&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/home/page.css?v=2026-10-08">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Ora Privacy Policy", "url": "https://oracoach.app/privacy/", "dateModified": "2026-10-28"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Ora Privacy Policy", "url": "https://oracoach.app/privacy/", "dateModified": "2026-10-30"}</script>
 </head><body>
 <nav><a href="/"><img src="/assets/home/ora_logo.webp" alt="Ora home"></a><a class="l" href="/privacy/" aria-current="page">Privacy</a><a class="l" href="/support/">Support</a><a class="cta" href="/#join">Get early access</a></nav><a class="login" href="https://app.oracoach.app/app/">Login</a>
 <main id="main">
 <div class="kicker">Privacy policy</div>
 <h1>Your training, <span class="grad">your data.</span></h1>
 <p class="lead">What Ora collects, why, who else handles it, and how to delete it.</p>
-<p class="meta">Effective October 28, 2026</p>
+<p class="meta">Effective October 30, 2026</p>
 
 <div class="card tldr"><strong>The short version</strong>
 <ul>
@@ -39,8 +39,8 @@
 <p>You need an account to use Ora. You can sign in with email and password, Google, or Apple. We store your email, how you sign in, your username, your display name and the avatar you pick from Ora's built-in set. Ora doesn't let you upload photos. Ora's owner can see account emails and sign-up dates to run the service.</p>
 
 <h2 id="training">Your training</h2>
-<p>Your workouts, programs, sets, check-ins, notes, Orbi chats, and the age, height and weight you enter are stored on your phone, and Ora works offline.</p>
-<p><strong>Cloud backup is optional and off by default.</strong> If you turn it on (Settings, Account &amp; Profile, Cloud Backup), a copy of that data, including your Orbi chats, is stored in Ora's database on Google Firebase so you can restore it. Steps and health data are not backed up.</p>
+<p>Your workouts, programs, sets, check-ins, notes (including any pain you log), Orbi chats, and the age, height and weight you enter are stored on your phone, and Ora works offline.</p>
+<p><strong>Cloud backup is optional and off by default.</strong> If you turn it on (Settings, Account &amp; Profile, Cloud Backup), a copy of that data, including your Orbi chats, is stored in Ora's database on Google Firebase so you can restore it. Steps and other readings from Apple Health or Health Connect are not backed up.</p>
 
 <h2 id="orbi">Orbi, the AI coach</h2>
 <p>Orbi is off until you agree to turn it on, and you can turn it off again. When you message Orbi, Ora's servers send <a href="https://www.anthropic.com/">Anthropic</a>, which runs the Claude AI model, what Orbi needs to answer:</p>
@@ -49,21 +49,28 @@
 <li>a training profile built on your phone: your goals, experience, schedule and any injuries or limits you entered</li>
 <li>summaries of your recent training and recovery check-ins</li>
 </ul>
-<p>Ora's servers keep only usage counts, not your messages or Orbi's replies, and your data is not used to train AI models. To answer research questions, Orbi can search a short list of trusted research and training sites. Orbi gives training guidance, not medical advice.</p>
+<p>Three other tools use the same AI model, only when you use them:</p>
+<ul>
+<li><strong>Program import:</strong> the text of the program you import</li>
+<li><strong>Voice commands:</strong> the text of what you said, not the audio</li>
+<li><strong>Workout log import:</strong> lines from your log that Ora's own rules couldn't read</li>
+</ul>
+<p>Ora's servers keep only usage counts, not your messages, what you import or the AI's replies, and your data is not used to train AI models. To answer research questions, Orbi can search a short list of trusted research and training sites. Orbi gives training guidance, not medical advice.</p>
 
 <h2 id="social">Friends and groups</h2>
-<p>Ora is built for training with friends. Every signed-in member can see your username, display name, avatar, level, title and anything you add to your profile card, and can find you by username. Your email is never shown.</p>
+<p>Ora is built for training with friends. Every signed-in member can see your username, display name, avatar, level, title and anything you add to your profile card, including a bio, and can find you by username. Your email is never shown.</p>
 <ul>
 <li><strong>Friends and private groups</strong> see your gym check-ins ("training now"), which end after 3 hours and never include your location.</li>
 <li><strong>Weekly ranks</strong> show friends and groups your name, avatar, level, title and weekly XP, never your workouts or health data.</li>
 <li><strong>Cheers and nudges</strong> send your friends a notification.</li>
 <li><strong>Posts to groups</strong> about finished workouts or step goals are off until you turn them on.</li>
+<li><strong>Comments and reactions</strong> you leave in a group are seen by that group's members.</li>
 </ul>
 <p>You can block or report anyone.</p>
 
 <h2 id="device">Steps, notifications and voice</h2>
 <ul>
-<li><strong>Steps:</strong> with your permission, Ora reads steps and active calories from Apple Health or Health Connect, and uses your phone's motion sensor for live steps. Ora doesn't write to Apple Health. This data stays on your phone unless you turn on step-goal posts to your groups.</li>
+<li><strong>Apple Health and Health Connect:</strong> with your permission, Ora reads steps, active and total calories, distance, workouts recorded by other apps, and your weight. It also uses your phone's motion sensor for live steps. Ora only reads this data, and uses it only to show it to you in the app and for your step goals. It stays on your phone unless you turn on step-goal posts to your groups. Ora never uses it for ads, and never sells it.</li>
 <li><strong>Notifications:</strong> push notifications go through Firebase Cloud Messaging, which stores a device token for your account.</li>
 <li><strong>Voice logging:</strong> on Android, speech is recognized on your phone. On iPhone, Ora uses Apple's speech recognition, which may send audio to Apple.</li>
 </ul>
@@ -81,7 +88,8 @@
 <h2 id="providers">Who handles your data</h2>
 <ul>
 <li><strong>Google Firebase:</strong> accounts, the cloud database and backup, Ora's servers, push notifications and this website's visit counts</li>
-<li><strong>Anthropic:</strong> Orbi's AI model</li>
+<li><strong>Anthropic:</strong> the AI model behind Orbi, program import, voice commands and workout log import</li>
+<li><strong>RevenueCat:</strong> manages Ora Pro subscriptions. It receives your Ora account ID and purchase history, never your card details</li>
 <li><strong>Apple and Google:</strong> sign-in, and Apple's speech recognition on iPhone</li>
 <li><strong>GitHub Pages:</strong> hosts this website</li>
 </ul>
@@ -99,8 +107,8 @@
 <h2 id="retired">Features Ora retired</h2>
 <p>Earlier versions of Ora had nutrition logging, physique and body photos, injury checks, a movement analysis lab, and Strava, Fitbit and Garmin connections. The current app deletes that data from your phone. Nutrition and physique copies in cloud backup are deleted at your next backup. Anything else left in the cloud, including uploaded photos or videos and connection tokens, is deleted when you delete your account, or sooner if you ask us.</p>
 
-<h2>Children</h2>
-<p>Ora is not meant for children under 13, and we don't knowingly collect their data. If you think a child has an account, email us and we'll delete it.</p>
+<h2>Age</h2>
+<p>Ora is only for people 18 and over, and we don't knowingly collect data from anyone younger. If you think someone under 18 has an account, email us and we'll delete it.</p>
 
 <h2>Changes</h2>
 <p>If this policy changes, we'll update it here and change the date at the top. For big changes, we'll tell you in the app.</p>
@@ -108,5 +116,5 @@
 <h2 id="contact">Contact</h2>
 <p>Ora is made and operated by Orbi Labs LLC, a Florida limited liability company. Questions or requests: <a href="mailto:support@oracoach.app">support@oracoach.app</a>.</p>
 </main>
-<footer><span>© 2026 Orbi Labs LLC · oracoach.app</span><div><a href="/">Home</a><a href="/privacy/">Privacy</a><a href="/support/">Support</a></div></footer>
+<footer><span>© 2026 Orbi Labs LLC · oracoach.app</span><div><a href="/">Home</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/support/">Support</a></div></footer>
 <script src="/assets/stats.js" defer></script></body></html>
