@@ -155,3 +155,26 @@ footer div{display:flex;flex-wrap:wrap;gap:8px 18px}footer a{color:var(--sub);te
 /* Eric, 2026-11-11: no panel behind article headers; blur the season art instead */
 .ahd:before{display:none}
 .bd{filter:blur(5px);transform:scale(1.06);transform-origin:top center}
+/* wiki v2 sections (generated) */
+html,body{overflow-x:clip}
+.tldr{margin:4px 0 16px;padding:12px 16px;border-radius:12px;background:#0d1a33e6;border:1px solid #3d8bff55;border-left:4px solid var(--acc)}
+.tldr>b{font:700 14px Fredoka;letter-spacing:.5px;color:#9cc6ff}.tldr li b{color:#fff}.tldr ul{margin:4px 0 0;padding-left:20px}.tldr li{margin:3px 0;color:#fff}
+h2.cq{font:700 21px Fredoka;color:#fff;margin:28px 0 8px;padding-bottom:6px;border-bottom:1px solid var(--line);clear:both}
+.indet{border:1px solid var(--line);border-radius:10px;background:#0b1222cc;margin:8px 0}
+.indet summary{cursor:pointer;padding:10px 14px;font-weight:700;color:#fff;list-style:none;display:flex;justify-content:space-between;gap:10px}
+.indet summary::-webkit-details-marker{display:none}.indet summary:after{content:'+';color:var(--acc);font-weight:900}.indet[open] summary:after{content:'\2013'}
+.indet>div{padding:0 14px 10px;color:var(--ink)}.indet p{margin:4px 0 8px}
+.ex{margin:24px 0 8px;padding:14px 16px;border-radius:12px;background:#132654cc;border:1px solid #3d8bff44;clear:both}
+.ex h3{margin:0 0 8px}.ex h3 span{display:block;font:700 11px Roboto;letter-spacing:1.2px;text-transform:uppercase;color:#9cc6ff;margin-bottom:2px}
+.calc{list-style:none;margin:6px 0;padding:0}.calc li{display:flex;justify-content:space-between;gap:14px;padding:6px 0;border-bottom:1px solid var(--line)}
+.calc li b{color:#fff;white-space:nowrap;font-variant-numeric:tabular-nums}.calc li.tot{border-bottom:0;font-weight:700;color:#fff}.calc li.tot b{font:700 18px Fredoka;color:#ffd76a}
+.note{color:var(--sub);font-size:14px}
+.qa summary{list-style:none}.qa summary::-webkit-details-marker{display:none}
+.soon{display:inline-block;vertical-align:2px;margin-left:8px;font:700 11px Roboto;letter-spacing:.4px;padding:3px 8px;border-radius:6px;background:#ffd76a26;color:#ffd76a;border:1px solid #ffd76a55}
+.bonus{margin:12px 0}.bonus h3{margin:16px 0 4px}
+.achs{list-style:none;padding:0;margin:8px 0 4px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.achs li{display:flex;gap:10px;align-items:center;padding:8px 10px;border-radius:10px;background:#0b1222cc;border:1px solid var(--line);border-left:3px solid var(--tc,#7f93b4)}
+.achs img{width:56px;height:56px;flex:none}.achs b{display:block;color:#fff;font-size:14px}.achs small{display:block;color:var(--sub);font-size:12.5px;line-height:1.35}
+.achs .tier{display:inline-block;margin-top:3px;font-size:11.5px;font-weight:700;color:var(--tc,#cfd8e6)}
+.achs .t-bronze{--tc:#E59A63}.achs .t-silver{--tc:#DDE3EC}.achs .t-gold{--tc:#F5C542}.achs .t-platinum{--tc:#6FE3F0}.achs .t-limited{--tc:#C08BFF}
+@media (max-width:700px){.achs{grid-template-columns:1fr}.tldr{padding:10px 12px}}
