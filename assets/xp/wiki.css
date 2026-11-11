@@ -216,3 +216,15 @@ footer{max-width:none;margin-left:240px;padding-left:40px;padding-right:40px}
 .nav-off footer{margin-left:0}
 .nav-off main>article{max-width:1700px}
 @media (max-width:700px){.navtog{display:none}.nav-off .side{display:flex}}
+/* scrollbars: thin, dark, no white track */
+html{scrollbar-color:#2a3a5c var(--bg)}
+.side{scrollbar-width:thin;scrollbar-color:transparent transparent}
+.side:hover{scrollbar-color:#3d8bff55 transparent}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:#2a3a5c;border-radius:10px;border:2px solid var(--bg)}
+::-webkit-scrollbar-thumb:hover{background:#3d5a8c}
+.side::-webkit-scrollbar{width:6px}
+.side::-webkit-scrollbar-track{background:transparent}
+.side::-webkit-scrollbar-thumb{background:transparent;border:0}
+.side:hover::-webkit-scrollbar-thumb{background:#3d8bff55}
