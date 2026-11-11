@@ -152,3 +152,6 @@ footer div{display:flex;flex-wrap:wrap;gap:8px 18px}footer a{color:var(--sub);te
 .save .btn{display:inline-block;margin-top:8px;padding:8px 14px;border-radius:999px;background:linear-gradient(180deg,#3D8BFF,#156CF6);color:#fff;font-weight:700;text-decoration:none;font-size:13.5px}
 .nores{display:none;color:var(--sub);font-size:13px;padding:6px 8px}
 @media (max-width:700px){.top .home{display:none}}
+/* Eric, 2026-11-11: no panel behind article headers; blur the season art instead */
+.ahd:before{display:none}
+.bd{filter:blur(5px);transform:scale(1.06);transform-origin:top center}
