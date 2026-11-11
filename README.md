@@ -21,8 +21,8 @@ compiled app artifacts. See `ARCHITECTURE.md` for the split-domain architecture.
   pinned versions; every other asset is in `assets/home/`.
 - `/privacy/` - privacy policy. `/support/` - support and FAQ. `404.html`. These share
   `assets/home/page.css`.
-- `/xp/` - the Ora Wiki (How XP Works): a Main Page plus one page per article
-  (`/xp/session-score/`, `/xp/leagues/` and so on). The pages share
+- `/wiki/` - the Ora Wiki (moved from `/xp/` on 2026-11-11; `/xp/` pages are redirects): a Main Page plus one page per article
+  (`/wiki/session-score/`, `/wiki/leagues/` and so on). The pages share
   `assets/xp/wiki.css`; their art is in `assets/xp/wiki/` and the summary image
   is `assets/xp/ora-xp-summary.png`. Search is a small inline script.
 - `/robots.txt` and `/sitemap.xml`.
