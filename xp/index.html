@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How XP Works | Ora</title>
+<meta name="description" content="How Ora's XP works: the Session Score, your weekly goal and streak, levels, Season XP, leagues and duels, and why every training style gets an equal chance.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://oracoach.app/xp/">
+<meta property="og:type" content="article"><meta property="og:site_name" content="Ora">
+<meta property="og:title" content="How XP Works | Ora"><meta property="og:description" content="The Session Score, your weekly goal and streak, levels, leagues and duels, explained in plain words.">
+<meta property="og:image" content="https://oracoach.app/assets/xp/ora-xp-summary.png">
+<meta name="theme-color" content="#05080F">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/ora-icon-32.png?v=2"><link rel="icon" type="image/png" sizes="192x192" href="/assets/ora-icon-192.png?v=2"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Roboto:wght@400;500;700&family=Luckiest+Guy&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/home/page.css?v=2026-10-08">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "How XP Works in Ora", "url": "https://oracoach.app/xp/", "dateModified": "2026-11-11"}</script>
+<style>
+/* XP guide only. Colors: Show Up, Work, Plan, Progress (checked for color-vision separation on this background). */
+:root{--su:#3D8BFF;--wk:#1FA88E;--pl:#BA7C0C;--pr:#E8557A;--mute:#7f93b4;--track:#ffffff14}
+.ico{width:40px;height:40px;flex:none}
+.sec-h{display:flex;align-items:center;gap:12px;margin:44px 0 8px}.sec-h h2{margin:0}.sec-h img{width:44px;height:44px;flex:none}
+figure{margin:18px 0;padding:20px 22px;border-radius:22px;background:linear-gradient(180deg,#ffffff0d,#ffffff05);border:1px solid var(--line)}
+figcaption{font-size:14px;color:var(--sub);margin-top:14px}
+.fig-t{font:700 18px/1.3 Fredoka;margin:0 0 14px;color:#fff}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.note{font-size:14.5px;color:var(--sub)}
+.pill{display:inline-block;font-size:12.5px;font-weight:700;padding:2px 10px;border-radius:999px;background:#ffffff12;border:1px solid var(--line);color:var(--sub)}
+/* 1. Session Score */
+.stack{display:flex;gap:2px;height:46px;border-radius:12px;overflow:hidden}
+.stack div{display:flex;align-items:center;justify-content:center;color:#fff;font:700 17px Fredoka}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px}
+.tile{padding:12px;border-radius:16px;background:#ffffff08;border:1px solid var(--line);border-top:4px solid var(--c)}
+.tile b{display:block;font:700 26px/1 Fredoka;color:#fff}.tile span{display:block;font-weight:700;margin:4px 0 2px}.tile small{display:block;font-size:13px;color:var(--sub);line-height:1.4}
+/* 2. Work gauge */
+.gauge{margin:6px 0 16px}.gauge-l{display:flex;justify-content:space-between;font-size:13.5px;color:var(--sub);margin-bottom:6px}.gauge-l b{color:#fff}
+.cells{display:grid;gap:3px}.cells.s12{grid-template-columns:repeat(12,1fr)}.cells.s10{grid-template-columns:repeat(10,1fr)}
+.cell{height:34px;border-radius:6px;background:var(--wk);display:flex;align-items:flex-end;justify-content:center;font-size:11px;font-weight:700;color:#fff;padding-bottom:3px}
+.cell.off{background:transparent;border:1.5px dashed #ffffff33;color:var(--mute)}
+.ticks{display:grid;gap:3px;margin-top:4px;font-size:11px;color:var(--mute);text-align:center}.ticks.s12{grid-template-columns:repeat(12,1fr)}.ticks.s10{grid-template-columns:repeat(10,1fr)}
+/* 3. Weekly curve */
+.week{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;align-items:end;height:190px;padding-top:6px}
+.col{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;gap:6px}
+.bar{width:100%;border-radius:8px 8px 3px 3px;background:var(--su)}
+.bar.half{background:repeating-linear-gradient(135deg,var(--su) 0 6px,#2f6fd6 6px 12px)}
+.bar.none{height:6px;background:#ffffff22;border-radius:3px}
+.col b{font:700 15px Fredoka;color:#fff}.col span{font-size:12px;color:var(--sub);text-align:center;line-height:1.25}
+.restbox{display:flex;align-items:center;gap:14px;margin-top:16px;padding:12px 14px;border-radius:16px;background:#156cf61a;border:1px solid #3d8bff44}
+.restbox img{width:64px;height:auto;flex:none}
+/* 4. Goal ladder and streak */
+.ladder{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;align-items:end;height:200px}
+.rung{display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%;gap:6px}
+.rung .bar{background:linear-gradient(180deg,#d6981f,var(--pl))}
+.rung b{font:700 16px Fredoka;color:#fff}.rung span{font-size:12px;color:var(--sub);text-align:center;line-height:1.25}
+.steps{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;align-items:end;height:150px;margin-top:6px}
+.steps .bar{background:linear-gradient(180deg,#ff8a3d,#e8552f)}
+.steps .miss .bar{background:transparent;border:1.5px dashed #ffffff44}
+/* 5. Level curve, 7. duel, 8. tiers */
+svg{display:block;width:100%;height:auto}
+.chart{max-width:540px;margin:0 auto}
+.svgtxt{font:500 11px Roboto,system-ui,sans-serif;fill:var(--sub)}
+.tiers{display:flex;flex-direction:column;gap:6px}
+.tier{display:flex;align-items:center;gap:12px;padding:10px 14px;border-radius:14px;background:#ffffff08;border:1px solid var(--line);border-left:6px solid var(--c)}
+.tier b{font:700 18px Fredoka;color:#fff;min-width:92px}.tier span{font-size:13.5px;color:var(--sub)}
+.moves{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+.move{padding:12px;border-radius:16px;background:#ffffff08;border:1px solid var(--line);font-size:13.5px;color:var(--sub);line-height:1.4}
+.move svg{width:28px;height:28px;margin-bottom:6px}.move b{display:block;color:#fff;font-size:15px}
+.track{position:relative;height:12px;border-radius:999px;background:var(--track);margin:28px 6px 34px}
+.track i{position:absolute;top:50%;width:18px;height:18px;margin:-9px 0 0 -9px;border-radius:50%;background:#0b1424;border:3px solid var(--blue2)}
+.track em{position:absolute;top:-24px;transform:translateX(-50%);font:700 13px Fredoka;font-style:normal;color:#fff}
+.track small{position:absolute;top:18px;transform:translateX(-50%);font-size:11.5px;color:var(--mute);white-space:nowrap}
+.duel{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:center}
+.side{padding:14px;border-radius:16px;background:#ffffff08;border:1px solid var(--line);text-align:center}
+.side img{width:56px;height:56px}.side b{display:block;font:700 18px Fredoka;color:#fff}.side span{font-size:13px;color:var(--sub)}
+.vs{font:400 22px 'Luckiest Guy';color:var(--blue2)}
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:16px 0 4px;counter-reset:f}
+.flow div{position:relative;padding:10px;border-radius:14px;background:#156cf61a;border:1px solid #3d8bff33;font-size:13px;color:var(--sub);line-height:1.35}
+.flow div b{display:block;color:#fff;font-size:14px;margin-bottom:2px}
+.out{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
+.out div{padding:12px;border-radius:14px;background:#ffffff08;border:1px solid var(--line);text-align:center;font-size:13px;color:var(--sub)}
+.out b{display:block;font:700 24px Fredoka;color:#fff}
+/* 8. Fairness */
+.hbars{display:flex;flex-direction:column;gap:12px}
+.hrow{display:grid;grid-template-columns:220px 1fr;gap:12px;align-items:center}
+.hrow .who b{display:block;color:#fff;font-size:15px}.hrow .who span{font-size:12.5px;color:var(--sub);line-height:1.3;display:block}
+.hbar{display:flex;align-items:center}
+.hbar .seg{height:26px}.hbar .s1{background:var(--su);border-radius:6px 0 0 6px}.hbar .s2{background:var(--pl);border-radius:0 6px 6px 0;margin-left:2px}
+.hbar b{font:700 17px Fredoka;color:#fff;white-space:nowrap;margin-left:8px}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13px;color:var(--sub);margin-bottom:14px}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.days{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;align-items:end;height:230px}
+.dcol{display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%;gap:6px}
+.dcol .sk{width:100%;display:flex;flex-direction:column;gap:2px}
+.dcol .sk .g{background:var(--pl);border-radius:8px 8px 0 0}.dcol .sk .p{background:var(--su);border-radius:0 0 3px 3px}
+.dcol b{font:700 17px Fredoka;color:#fff}.dcol span{font-size:12px;color:var(--sub);text-align:center;line-height:1.25}
+.dcol small{font-size:11.5px;color:var(--mute)}
+table{width:100%;border-collapse:collapse;font-size:14px;margin-top:12px}
+th,td{text-align:left;padding:7px 8px;border-bottom:1px solid var(--line)}th{color:var(--sub);font-weight:500;font-size:13px}td{color:var(--ink)}td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+.tbl{overflow-x:auto}
+.save{display:flex;flex-wrap:wrap;gap:20px;align-items:center}
+.save img.thumb{width:150px;height:auto;border-radius:16px;border:1px solid var(--line);box-shadow:0 12px 30px #0008}
+.save div{flex:1;min-width:220px}
+@media (max-width:640px){
+  figure{padding:16px 14px}
+  .tiles{grid-template-columns:repeat(2,1fr)}
+  .cell{height:28px;font-size:10px;border-radius:4px}.cells,.ticks{gap:2px}
+  .week{gap:5px;height:170px}.col span{font-size:11px}
+  .ladder,.steps{gap:5px}.rung span{font-size:11px}
+  .moves{grid-template-columns:1fr}
+  .flow{grid-template-columns:repeat(2,1fr)}
+  .hrow{grid-template-columns:1fr;gap:4px}
+  .days{gap:6px}.dcol span{font-size:11px}
+  .tier b{min-width:80px}
+}
+</style>
+</head><body>
+<nav><a href="/"><img src="/assets/home/ora_logo.webp" alt="Ora home"></a><a class="l" href="/privacy/">Privacy</a><a class="l" href="/support/">Support</a><a class="cta" href="/#join">Get early access</a></nav><a class="login" href="https://app.oracoach.app/app/">Login</a>
+<main id="main">
+<div class="head"><img src="/assets/xp/chibi_celebrate.webp" alt="" width="120" height="120"><div>
+<div class="kicker">XP Guide</div>
+<h1>How XP <span class="grad">Works</span></h1>
+<p class="lead">Every workout in Ora earns a Session Score. Here's how it adds up to your level, your league and your duels, and why it's fair to every way of training.</p>
+<p class="meta">Rules live since November 11, 2026.</p></div></div>
+
+<div class="card tldr"><b>The Short Version</b>
+<ul>
+<li>Each finished workout earns a <strong>Session Score of up to 100</strong>: 40 for showing up, 30 for the work, 15 for following your plan and 15 for a PR.</li>
+<li>The score tops out at <strong>8 working sets or 25 minutes</strong> of timed work, so more volume doesn't earn more.</li>
+<li>Hit your <strong>weekly goal</strong> for a bonus, and keep hitting it for a growing <strong>streak</strong> bonus.</li>
+<li><strong>Level XP</strong> is your Session Score × 3, plus bonuses and achievements. Leagues never change it.</li>
+<li><strong>Season XP</strong> ranks you in your league. Your first 4 training days count in full, days 5 and 6 count half, and day 7 is for rest.</li>
+</ul></div>
+
+<ul class="toc" aria-label="On this page">
+<li><a href="#counts">What Counts</a></li><li><a href="#score">Session Score</a></li><li><a href="#week">Your Week</a></li><li><a href="#goal">Goal and Streak</a></li><li><a href="#level">Levels</a></li><li><a href="#season">Season XP</a></li><li><a href="#leagues">Leagues</a></li><li><a href="#duels">Duels</a></li><li><a href="#fair">Fair for Everyone</a></li><li><a href="#faq">FAQ</a></li>
+</ul>
+
+<div class="sec-h" id="counts"><img src="/assets/home/icons/training.webp" alt="" width="44" height="44"><h2>What Counts as a Session</h2></div>
+<p>A workout earns XP when you finish it and it has <strong>at least 3 working sets</strong> or <strong>at least 15 minutes of timed work</strong> (timed sets like holds, intervals or a conditioning block).</p>
+<div class="tbl"><table>
+<thead><tr><th scope="col">Counts</th><th scope="col">Doesn't count</th></tr></thead>
+<tbody>
+<tr><td>Working sets you logged and confirmed</td><td>Warm-up sets</td></tr>
+<tr><td>Sets on an exercise you swapped in</td><td>Failed, estimated or unconfirmed sets</td></tr>
+<tr><td>Timed work you logged in the workout</td><td>Workouts imported from other apps (they stay in your history and stats)</td></tr>
+</tbody></table></div>
+
+<div class="sec-h" id="score"><img src="/assets/xp/level.webp" alt="" width="44" height="44"><h2>The Session Score</h2></div>
+<p>Every counted session gets a score out of 100, built from four parts. Showing up is worth the most, because consistency is what builds results.</p>
+<figure aria-labelledby="f1">
+<p class="fig-t" id="f1">The Session Score: Up to 100 Points</p>
+<div class="stack" role="img" aria-label="Show Up 40, Work up to 30, Plan 15, Progress 15, for a total of 100.">
+<div style="flex:40;background:var(--su)">40</div><div style="flex:30;background:var(--wk)">30</div><div style="flex:15;background:var(--pl)">15</div><div style="flex:15;background:var(--pr)">15</div>
+</div>
+<div class="tiles">
+<div class="tile" style="--c:var(--su)"><b>40</b><span>Show Up</span><small>Any counted session.</small></div>
+<div class="tile" style="--c:var(--wk)"><b>30</b><span>Work</span><small>Full at 8 working sets or 25 minutes of timed work.</small></div>
+<div class="tile" style="--c:var(--pl)"><b>15</b><span>Plan</span><small>Program day: 80% of planned sets. Free workout: 30+ minutes and 6+ sets.</small></div>
+<div class="tile" style="--c:var(--pr)"><b>15</b><span>Progress</span><small>At least one PR in the session.</small></div>
+</div>
+</figure>
+
+<h3>Work: Full at 8 Sets or 25 Minutes</h3>
+<p>Work fills up as you train and is full at <strong>8 working sets</strong> or <strong>25 minutes of timed work</strong>, whichever you reach first. Past that, extra sets earn nothing more. A 12-set strength day and a 25-set hypertrophy day both get the full 30.</p>
+<figure aria-labelledby="f2">
+<p class="fig-t" id="f2">The Work Gauge</p>
+<div class="gauge" role="img" aria-label="Work points by working sets: 1 set 3, 2 sets 7, 3 sets 11, 4 sets 15, 5 sets 18, 6 sets 22, 7 sets 26, 8 sets 30. More sets add nothing.">
+<div class="gauge-l"><span>Working Sets</span><span><b>Full at 8</b> · more add +0</span></div>
+<div class="cells s12" aria-hidden="true"><div class="cell">3</div><div class="cell">7</div><div class="cell">11</div><div class="cell">15</div><div class="cell">18</div><div class="cell">22</div><div class="cell">26</div><div class="cell">30</div><div class="cell off">+0</div><div class="cell off">+0</div><div class="cell off">+0</div><div class="cell off">+0</div></div>
+<div class="ticks s12" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span></div>
+</div>
+<div class="gauge" role="img" aria-label="Work points by minutes of timed work: 5 minutes 6, 10 minutes 12, 15 minutes 18, 20 minutes 24, 25 minutes 30. More minutes add nothing.">
+<div class="gauge-l"><span>Minutes of Timed Work</span><span><b>Full at 25</b> · more add +0</span></div>
+<div class="cells s10" aria-hidden="true"><div class="cell">6</div><div class="cell">12</div><div class="cell">18</div><div class="cell">24</div><div class="cell">30</div><div class="cell off">+0</div><div class="cell off">+0</div><div class="cell off">+0</div><div class="cell off">+0</div><div class="cell off">+0</div></div>
+<div class="ticks s10" aria-hidden="true"><span>5</span><span>10</span><span>15</span><span>20</span><span>25</span><span>30</span><span>35</span><span>40</span><span>45</span><span>50</span></div>
+</div>
+<figcaption>Numbers in the cells are your Work points. Ora uses whichever gauge is higher, so mixing sets and timed work never hurts.</figcaption>
+</figure>
+
+<h3>Plan: Do What You Set Out to Do</h3>
+<p>On a <strong>program day</strong>, finish at least 80% of the planned sets. On a <strong>free workout</strong>, train for at least 30 minutes with at least 6 working sets. Either way, it's 15 points.</p>
+
+<h3>Progress: One PR Is Enough</h3>
+<p>Set at least one personal record and you get 15 points. Ora counts a PR when you hit a new best estimated one-rep max, lift your heaviest weight on an exercise, or do more reps than ever at a weight (or heavier). Bodyweight reps count too. One PR earns the full 15, and more PRs in the same session add nothing, so there's no reason to chase small records on every accessory.</p>
+
+<div class="sec-h" id="week"><img src="/assets/home/icons/calendar.webp" alt="" width="44" height="44"><h2>Your Week: Rest Is Part of Training</h2></div>
+<p>For Season XP, your best session each day counts, and your training days in a week (Monday to Sunday) earn less as they add up. Your first 4 training days count in full, the 5th and 6th count half, and a 7th counts nothing. Training more still pays, but never so much that skipping rest looks like a good idea.</p>
+<figure aria-labelledby="f3">
+<p class="fig-t" id="f3">Season XP by Training Day of the Week</p>
+<div class="week" role="img" aria-label="Training days 1 to 4 count 100%, days 5 and 6 count 50%, day 7 counts 0%.">
+<div class="col"><b>100%</b><div class="bar" style="height:110px"></div><span>Day 1</span></div>
+<div class="col"><b>100%</b><div class="bar" style="height:110px"></div><span>Day 2</span></div>
+<div class="col"><b>100%</b><div class="bar" style="height:110px"></div><span>Day 3</span></div>
+<div class="col"><b>100%</b><div class="bar" style="height:110px"></div><span>Day 4</span></div>
+<div class="col"><b>50%</b><div class="bar half" style="height:55px"></div><span>Day 5</span></div>
+<div class="col"><b>50%</b><div class="bar half" style="height:55px"></div><span>Day 6</span></div>
+<div class="col"><b>0</b><div class="bar none"></div><span>Day 7<br>Rest</span></div>
+</div>
+<div class="restbox"><img src="/assets/xp/chibi_rest.webp" alt="" width="64" height="64"><p class="note" style="margin:0">"Day 1" is your first training day of the week, whichever day of the week it falls on. Level XP works a little differently: see <a href="#level">Levels</a>.</p></div>
+</figure>
+
+<div class="sec-h" id="goal"><img src="/assets/xp/goals.webp" alt="" width="44" height="44"><h2>Weekly Goal and Streak</h2></div>
+<p>You choose how many days a week you plan to train, from 1 to 6. (A 7-day goal counts as 6.) Hit it and you earn a bonus that grows with the goal. Your goal locks for the week on Monday, so changing it mid-week doesn't change this week's target.</p>
+<figure aria-labelledby="f4">
+<p class="fig-t" id="f4">The Goal Bonus</p>
+<div class="ladder" role="img" aria-label="Goal bonus in Season XP: 1 day 50, 2 days 75, 3 days 100, 4 days 150, 5 days 200, 6 days 250. Level XP is 3 times these.">
+<div class="rung"><b>50</b><div class="bar" style="height:26px"></div><span>1 day</span></div>
+<div class="rung"><b>75</b><div class="bar" style="height:39px"></div><span>2 days</span></div>
+<div class="rung"><b>100</b><div class="bar" style="height:52px"></div><span>3 days</span></div>
+<div class="rung"><b>150</b><div class="bar" style="height:78px"></div><span>4 days</span></div>
+<div class="rung"><b>200</b><div class="bar" style="height:104px"></div><span>5 days</span></div>
+<div class="rung"><b>250</b><div class="bar" style="height:130px"></div><span>6 days</span></div>
+</div>
+<p class="fig-t" style="margin-top:26px">The Streak Bonus</p>
+<div class="steps" role="img" aria-label="Streak bonus in Season XP by goal weeks in a row: week 1 0, week 2 25, week 3 50, week 4 75, week 5 and later 100. A missed week steps the streak down one level.">
+<div class="rung"><b>+0</b><div class="bar none"></div><span>Week 1</span></div>
+<div class="rung"><b>+25</b><div class="bar" style="height:25px"></div><span>Week 2</span></div>
+<div class="rung"><b>+50</b><div class="bar" style="height:50px"></div><span>Week 3</span></div>
+<div class="rung"><b>+75</b><div class="bar" style="height:75px"></div><span>Week 4</span></div>
+<div class="rung"><b>+100</b><div class="bar" style="height:100px"></div><span>Week 5</span></div>
+<div class="rung"><b>+100</b><div class="bar" style="height:100px"></div><span>Week 6+</span></div>
+</div>
+<figcaption>Bonuses shown in Season XP. For Level XP, multiply by 3 (a 4-day goal pays 450 level XP, a full streak 300). Miss a week and your streak steps down one level instead of resetting to zero.</figcaption>
+</figure>
+
+<div class="sec-h" id="level"><img src="/assets/xp/achievement.webp" alt="" width="44" height="44"><h2>Level XP</h2></div>
+<p>Your level is the long game. Level XP adds up from:</p>
+<div class="tbl"><table>
+<thead><tr><th scope="col">Source</th><th scope="col">Level XP</th></tr></thead>
+<tbody>
+<tr><td>Each counted session</td><td>Session Score × 3 (up to 300)</td></tr>
+<tr><td>A second session the same day</td><td>Half</td></tr>
+<tr><td>A third session the same day</td><td>Nothing</td></tr>
+<tr><td>A 7th training day in a week</td><td>Nothing</td></tr>
+<tr><td>Weekly goal met</td><td>Goal bonus × 3 (150 to 750)</td></tr>
+<tr><td>Streak</td><td>Streak bonus × 3 (up to 300)</td></tr>
+<tr><td>Achievements</td><td>Bronze 50, Silver 150, Gold 400, Platinum 1,000</td></tr>
+</tbody></table></div>
+<p>Level <i>n</i> needs <strong>50 × <i>n</i> × (<i>n</i> + 1)</strong> total XP. Each level takes a bit longer than the last.</p>
+<figure aria-labelledby="f5">
+<p class="fig-t" id="f5">Total XP Needed for Each Level</p>
+<svg class="chart" viewBox="0 0 360 220" role="img" aria-label="Level curve from level 1 to 30. Level 2 needs 300 XP, level 5 1,500, level 10 5,500, level 20 21,000 and level 30 46,500.">
+<g stroke="#ffffff14" stroke-width="1"><line x1="40" y1="154.6" x2="350" y2="154.6"/><line x1="40" y1="119.2" x2="350" y2="119.2"/><line x1="40" y1="83.8" x2="350" y2="83.8"/><line x1="40" y1="48.3" x2="350" y2="48.3"/></g>
+<line x1="40" y1="190" x2="350" y2="190" stroke="#ffffff40"/>
+<g class="svgtxt" text-anchor="end"><text x="34" y="193">0</text><text x="34" y="158">10k</text><text x="34" y="123">20k</text><text x="34" y="87">30k</text><text x="34" y="52">40k</text></g>
+<g class="svgtxt" text-anchor="middle"><text x="40" y="206">L1</text><text x="82.8" y="206">L5</text><text x="136.2" y="206">L10</text><text x="189.7" y="206">L15</text><text x="243.1" y="206">L20</text><text x="296.6" y="206">L25</text><text x="350" y="206">L30</text></g>
+<polygon points="40,190 40.0,190.0 50.7,188.9 61.4,187.9 72.1,186.5 82.8,184.7 93.4,182.6 104.1,180.1 114.8,177.2 125.5,174.1 136.2,170.5 146.9,166.6 157.6,162.4 168.3,157.8 179.0,152.8 189.7,147.5 200.3,141.8 211.0,135.8 221.7,129.4 232.4,122.7 243.1,115.6 253.8,108.2 264.5,100.4 275.2,92.3 285.9,83.8 296.6,74.9 307.2,65.7 317.9,56.1 328.6,46.2 339.3,35.9 350.0,25.3 350,190" fill="#3D8BFF" fill-opacity=".14"/>
+<polyline points="40.0,190.0 50.7,188.9 61.4,187.9 72.1,186.5 82.8,184.7 93.4,182.6 104.1,180.1 114.8,177.2 125.5,174.1 136.2,170.5 146.9,166.6 157.6,162.4 168.3,157.8 179.0,152.8 189.7,147.5 200.3,141.8 211.0,135.8 221.7,129.4 232.4,122.7 243.1,115.6 253.8,108.2 264.5,100.4 275.2,92.3 285.9,83.8 296.6,74.9 307.2,65.7 317.9,56.1 328.6,46.2 339.3,35.9 350.0,25.3" fill="none" stroke="#3D8BFF" stroke-width="2.5" stroke-linejoin="round"/>
+<g fill="#3D8BFF" stroke="#0b1424" stroke-width="2"><circle cx="82.8" cy="184.7" r="4.5"/><circle cx="136.2" cy="170.5" r="4.5"/><circle cx="243.1" cy="115.6" r="4.5"/><circle cx="350" cy="25.3" r="4.5"/></g>
+<g font-family="Roboto,system-ui,sans-serif" font-weight="700" font-size="11" fill="#EAF2FF"><text x="131" y="158" text-anchor="end">L10 · 5,500</text><text x="236" y="104" text-anchor="end">L20 · 21,000</text><text x="342" y="22" text-anchor="end">L30 · 46,500</text></g>
+</svg>
+<figcaption>Level 2 needs 300 XP. At 4 training days a week (about 1,500 level XP a week in the example below, before achievements), level 10 takes about 4 weeks and level 20 about 14.</figcaption>
+</figure>
+<p>All the XP you earned before these rules started on November 11, 2026 carried over, so <strong>nobody's level went down</strong>.</p>
+
+<div class="sec-h" id="season"><img src="/assets/home/icons/leaderboard.webp" alt="" width="44" height="44"><h2>Season XP</h2></div>
+<p>Season XP is a separate weekly score that ranks you in your league. It <strong>never changes your level</strong>. Each week it adds up:</p>
+<ul>
+<li><strong>Your best session each day</strong>, by its Session Score: training days 1 to 4 in full, days 5 and 6 at half, day 7 nothing (most: 500).</li>
+<li><strong>Your goal bonus and streak bonus</strong>, not multiplied (most: 250 + 100).</li>
+<li><strong>Duels</strong>, up to 100 more.</li>
+</ul>
+<p>So the most anyone can earn in a week is <strong>850</strong>, plus up to 100 from duels.</p>
+<figure aria-labelledby="f6t">
+<p class="fig-t" id="f6t">The Season Reward Track</p>
+<p class="note" style="margin-top:-6px">A season lasts 4 weeks. Your Season XP adds up across those weeks and unlocks rewards along the way.</p>
+<div class="track" role="img" aria-label="Season rewards unlock at 225, 500, 825, 1,150 and 1,550 Season XP.">
+<i style="left:14.5%"></i><em style="left:14.5%">225</em>
+<i style="left:32.3%"></i><em style="left:32.3%">500</em>
+<i style="left:53.2%"></i><em style="left:53.2%">825</em>
+<i style="left:74.2%"></i><em style="left:74.2%">1,150</em>
+<i style="left:100%"></i><em style="left:100%;transform:translateX(-80%)">1,550</em>
+<small style="left:0;transform:none">Season start</small><small style="left:100%;transform:translateX(-100%)">Season total</small>
+</div>
+</figure>
+
+<div class="sec-h" id="leagues"><img src="/assets/home/icons/trophy.webp" alt="" width="44" height="44"><h2>Leagues and Tiers</h2></div>
+<p>Each week you compete with about 30 members in your tier. Your week runs Monday to Sunday in your own time zone, and results come out for everyone on <strong>Monday at 9 AM Eastern</strong>.</p>
+<figure aria-labelledby="f6">
+<p class="fig-t" id="f6">The Tier Ladder</p>
+<div class="tiers" role="list" aria-label="Tiers from highest to lowest">
+<div class="tier" role="listitem" style="--c:#B07CFF"><b>Legend</b><span>The top tier</span></div>
+<div class="tier" role="listitem" style="--c:#7EA8FF"><b>Diamond</b></div>
+<div class="tier" role="listitem" style="--c:#59C9D6"><b>Platinum</b></div>
+<div class="tier" role="listitem" style="--c:#E2B53B"><b>Gold</b></div>
+<div class="tier" role="listitem" style="--c:#AEB8C6"><b>Silver</b></div>
+<div class="tier" role="listitem" style="--c:#C07A45"><b>Bronze</b><span>Where everyone starts</span></div>
+</div>
+<div class="moves">
+<div class="move"><svg viewBox="0 0 28 28" aria-hidden="true"><circle cx="14" cy="14" r="13" fill="#1FA88E"/><path d="M14 20V8M8.5 13.5 14 8l5.5 5.5" stroke="#fff" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><b>Top 5 Move Up</b>Finish in the top 5 of your league for the week.</div>
+<div class="move"><svg viewBox="0 0 28 28" aria-hidden="true"><circle cx="14" cy="14" r="13" fill="#E8557A"/><path d="M14 8v12M8.5 14.5 14 20l5.5-5.5" stroke="#fff" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><b>Bottom 5 Drop</b>The bottom 5 move down a tier. Bronze can't drop.</div>
+<div class="move"><svg viewBox="0 0 28 28" aria-hidden="true"><circle cx="14" cy="14" r="13" fill="#156CF6"/><path d="M8 9h12M14 13v8M10 17l4 4 4-4" stroke="#fff" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><b>Season End</b>Every 4 weeks, everyone drops one tier (never below Bronze) and climbs again.</div>
+</div>
+</figure>
+
+<div class="sec-h" id="duels"><img src="/assets/xp/friends.webp" alt="" width="44" height="44"><h2>Duels</h2></div>
+<p>A duel is a 1-on-1 race with a friend inside one league week. Your duel score is the session points you each earn <strong>after you both accept</strong>. Goal and streak bonuses don't count, so it's purely about the training you do from that point.</p>
+<figure aria-labelledby="f7">
+<p class="fig-t" id="f7">How a Duel Plays Out</p>
+<div class="duel" aria-hidden="true">
+<div class="side"><img src="/assets/home/icons/training.webp" alt="" width="56" height="56"><b>You</b><span>Session points after accepting</span></div>
+<div class="vs">VS</div>
+<div class="side"><img src="/assets/xp/friends.webp" alt="" width="56" height="56"><b>Your Friend</b><span>Session points after accepting</span></div>
+</div>
+<div class="flow">
+<div><b>1. Challenge</b>Send a duel to a friend.</div>
+<div><b>2. Accept</b>The race starts when it's accepted.</div>
+<div><b>3. Train</b>Sessions from now on count.</div>
+<div><b>4. Results</b>Settled with the Monday league results.</div>
+</div>
+<div class="out">
+<div><b>+100</b>Winner</div>
+<div><b>+50</b>Each, on a tie</div>
+<div><b>+20</b>Loser, if they trained after accepting</div>
+</div>
+<figcaption>Duel rewards are Season XP and are capped at 100 a week. They never change your level.</figcaption>
+</figure>
+
+<div class="sec-h" id="fair"><img src="/assets/xp/personal_record.webp" alt="" width="44" height="44"><h2>Fair for Every Style of Training</h2></div>
+<p>Powerlifters do a few heavy sets. Bodybuilders do lots of sets. Calisthenics athletes count reps and holds, CrossFit athletes work against the clock, and plenty of people just want to stay healthy. Ora scores <strong>showing up, doing the work and following your plan</strong>, and the Work part fills up at a level every style reaches. So at the same number of training days, everyone lands close together.</p>
+<figure aria-labelledby="f8">
+<p class="fig-t" id="f8">One Week, 4 Training Days, Goal of 4</p>
+<div class="legend" aria-hidden="true"><span><i style="background:var(--su)"></i>Session Points</span><span><i style="background:var(--pl)"></i>Goal Bonus</span></div>
+<div class="hbars">
+<div class="hrow"><div class="who"><b>Powerlifter</b><span>Program, 12 sets a day</span></div><div class="hbar" role="img" aria-label="Powerlifter: 355 session points plus 150 goal bonus, 505 Season XP"><div class="seg s1" style="width:41.8%"></div><div class="seg s2" style="width:17.6%"></div><b>505</b></div></div>
+<div class="hrow"><div class="who"><b>Bodybuilder</b><span>Program, 25 sets a day</span></div><div class="hbar" role="img" aria-label="Bodybuilder: 355 session points plus 150 goal bonus, 505 Season XP"><div class="seg s1" style="width:41.8%"></div><div class="seg s2" style="width:17.6%"></div><b>505</b></div></div>
+<div class="hrow"><div class="who"><b>Calisthenics</b><span>Free workouts, 10 sets, 45 min</span></div><div class="hbar" role="img" aria-label="Calisthenics: 355 session points plus 150 goal bonus, 505 Season XP"><div class="seg s1" style="width:41.8%"></div><div class="seg s2" style="width:17.6%"></div><b>505</b></div></div>
+<div class="hrow"><div class="who"><b>General Fitness</b><span>Free workouts, 7 sets, 35 min</span></div><div class="hbar" role="img" aria-label="General fitness: 339 session points plus 150 goal bonus, 489 Season XP"><div class="seg s1" style="width:39.9%"></div><div class="seg s2" style="width:17.6%"></div><b>489</b></div></div>
+<div class="hrow"><div class="who"><b>CrossFit</b><span>Free workouts, 50 min: 5 strength sets + a 20-min timed block</span></div><div class="hbar" role="img" aria-label="CrossFit: 331 session points plus 150 goal bonus, 481 Season XP"><div class="seg s1" style="width:38.9%"></div><div class="seg s2" style="width:17.6%"></div><b>481</b></div></div>
+</div>
+<figcaption>Bars are drawn against the weekly most of 850. Each person sets one PR during the week and is in their first goal week (no streak bonus yet).</figcaption>
+<details><summary>Show the Math</summary>
+<div class="tbl"><table>
+<thead><tr><th scope="col">Style</th><th scope="col" class="n">Show Up</th><th scope="col" class="n">Work</th><th scope="col" class="n">Plan</th><th scope="col" class="n">Session</th><th scope="col" class="n">Week</th></tr></thead>
+<tbody>
+<tr><td>Powerlifter</td><td class="n">40</td><td class="n">30</td><td class="n">15</td><td class="n">85</td><td class="n">505</td></tr>
+<tr><td>Bodybuilder</td><td class="n">40</td><td class="n">30</td><td class="n">15</td><td class="n">85</td><td class="n">505</td></tr>
+<tr><td>Calisthenics</td><td class="n">40</td><td class="n">30</td><td class="n">15</td><td class="n">85</td><td class="n">505</td></tr>
+<tr><td>General Fitness</td><td class="n">40</td><td class="n">26</td><td class="n">15</td><td class="n">81</td><td class="n">489</td></tr>
+<tr><td>CrossFit</td><td class="n">40</td><td class="n">24</td><td class="n">15</td><td class="n">79</td><td class="n">481</td></tr>
+</tbody></table></div>
+<p>Week = 4 sessions + 15 for the one PR + the 150 goal bonus. For example, the powerlifter: 85 × 4 + 15 + 150 = 505. General fitness: 7 sets fill Work to 26 (30 × 7 ÷ 8, rounded down). CrossFit: the 20-minute block fills Work to 24 (30 × 20 ÷ 25), higher than its 6 sets would. In Level XP the same weeks are worth 1,443 to 1,515.</p>
+</details>
+</figure>
+
+<h3>What More Days Add</h3>
+<p>Training more often still earns more, but each extra day adds less, and a 7th day adds nothing. Here's the powerlifter from above, with a weekly goal that matches the days trained.</p>
+<figure aria-labelledby="f9">
+<p class="fig-t" id="f9">Season XP by Training Days a Week</p>
+<div class="legend" aria-hidden="true"><span><i style="background:var(--su)"></i>Session Points</span><span><i style="background:var(--pl)"></i>Goal Bonus</span></div>
+<div class="days" role="img" aria-label="3 days 370, 4 days 505, 5 days 597, 6 days 689, 7 days 689 Season XP.">
+<div class="dcol"><b>370</b><div class="sk"><div class="g" style="height:20px"></div><div class="p" style="height:54px"></div></div><span>3 days</span><small>&nbsp;</small></div>
+<div class="dcol"><b>505</b><div class="sk"><div class="g" style="height:30px"></div><div class="p" style="height:71px"></div></div><span>4 days</span><small>+135</small></div>
+<div class="dcol"><b>597</b><div class="sk"><div class="g" style="height:40px"></div><div class="p" style="height:79px"></div></div><span>5 days</span><small>+92</small></div>
+<div class="dcol"><b>689</b><div class="sk"><div class="g" style="height:50px"></div><div class="p" style="height:88px"></div></div><span>6 days</span><small>+92</small></div>
+<div class="dcol"><b>689</b><div class="sk"><div class="g" style="height:50px"></div><div class="p" style="height:88px"></div></div><span>7 days</span><small>+0</small></div>
+</div>
+<figcaption>3 days: 270 + 100 goal. 4 days: 355 + 150. 5 days: 397 + 200 (the 5th session counts 42, half of 85). 6 days: 439 + 250. 7 days: same as 6, because the 7th day counts nothing and a 7-day goal pays like a 6-day goal.</figcaption>
+</figure>
+
+<h2>Why It's Built This Way</h2>
+<ul>
+<li><strong>Every style gets an equal chance.</strong> Scoring caps out at 8 working sets or 25 minutes, so high-volume training doesn't outscore heavy, low-volume or timed training. Your score comes from your own plan and your own records, not from how much weight anyone else lifts.</li>
+<li><strong>Showing up matters most.</strong> Show Up is the biggest part of every score, because consistency over weeks is what builds strength and health.</li>
+<li><strong>Rest is part of training.</strong> Extra days are worth less and a 7th day is worth nothing, so climbing never means skipping recovery.</li>
+<li><strong>No tricks pay off.</strong> Splitting one workout into several, piling on junk sets, or chasing tiny PRs on every exercise doesn't earn more.</li>
+</ul>
+<p class="note">More ways to earn are on the way.</p>
+
+<div class="card save">
+<a href="/assets/xp/ora-xp-summary.png"><img class="thumb" src="/assets/xp/ora-xp-summary.png" alt="The Ora XP summary image: the Session Score, the weekly curve, goal and streak bonuses, and Season XP." width="150" height="267" loading="lazy"></a>
+<div><b style="font:700 20px Fredoka">Save the Summary Image</b>
+<p class="note">One image with the Session Score, the weekly curve, the goal and streak bonuses, and Season XP. Sized for stories.</p>
+<p><a class="cta" href="/assets/xp/ora-xp-summary.png" download="ora-xp-summary.png">Save the Summary Image</a></p></div>
+</div>
+
+<h2 id="faq">Common Questions</h2>
+<details><summary>Why didn't my 40 sets earn more?</summary><p>Work is full at 8 working sets (or 25 minutes of timed work). Past that, more sets earn nothing extra. That keeps a 40-set session from outscoring a focused 10-set session, so every style of training has an equal chance.</p></details>
+<details><summary>Why does my 7th day earn nothing?</summary><p>Rest is part of training. In Season XP your 5th and 6th training days count half and a 7th counts nothing, and in Level XP a 7th training day in a week earns nothing. Your weekly goal still counts that day toward the goal.</p></details>
+<details><summary>Did my level go down when the rules changed?</summary><p>No. All the XP you earned before November 11, 2026 carried over, so nobody's level dropped.</p></details>
+<details><summary>Do imported workouts count?</summary><p>No. Workouts imported from other apps like Strong or Hevy stay in your history and training stats, but they don't earn XP.</p></details>
+<details><summary>Do warm-up sets count?</summary><p>No. Only working sets you logged and confirmed count. Warm-ups, failed sets and estimated or unconfirmed sets don't.</p></details>
+<details><summary>I swapped an exercise. Do those sets count?</summary><p>Yes. Sets you log on a swapped-in exercise count like any other working sets.</p></details>
+<details><summary>I trained twice today. What happens?</summary><p>For Level XP, your second session earns half and a third earns nothing. For Season XP, only your best session of the day counts.</p></details>
+<details><summary>I set 5 PRs today. Why only 15 points?</summary><p>One PR earns the full Progress points. More PRs in the same session don't add more, so there's no reason to chase small records on every exercise.</p></details>
+<details><summary>I missed a week. Did I lose my streak?</summary><p>Not all of it. A missed week steps your streak down one level instead of resetting it to zero, so one off week doesn't undo months of consistency.</p></details>
+<details><summary>Why did I drop a tier when the season ended?</summary><p>Everyone drops one tier at the end of each 4-week season (never below Bronze). It gives every season a fresh climb.</p></details>
+<p class="note" style="margin-top:22px">Questions about your XP? Email <a href="mailto:support@oracoach.app">support@oracoach.app</a>.</p>
+</main>
+<footer><span>© 2026 Orbi Labs LLC · oracoach.app</span><div><a href="/">Home</a><a href="/xp/">How XP Works</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/support/">Support</a></div></footer>
+<script src="/assets/stats.js" defer></script></body></html>

@@ -19,8 +19,9 @@ compiled app artifacts. See `ARCHITECTURE.md` for the split-domain architecture.
   (`assets/home/orbi3d.js`), full-page section navigation on desktop, and the
   beta waitlist (`assets/waitlist.js`). three.js and GSAP load from jsDelivr at
   pinned versions; every other asset is in `assets/home/`.
-- `/privacy/` - privacy policy. `/support/` - support and FAQ. `404.html`.
-  These share `assets/home/page.css`.
+- `/privacy/` - privacy policy. `/support/` - support and FAQ. `/xp/` - How XP
+  Works, the public XP guide (its art and summary image are in `assets/xp/`).
+  `404.html`. These share `assets/home/page.css`.
 - `/robots.txt` and `/sitemap.xml`.
 
 The old SEO pages, guides and sponsor page were removed on 2026-10-08.
