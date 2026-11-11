@@ -206,3 +206,13 @@ main>article{max-width:1500px}
 footer{max-width:none;margin-left:240px;padding-left:40px;padding-right:40px}
 @media (max-width:700px){.side{position:static;height:auto;overflow-y:visible;overflow-x:auto}main{padding:14px 16px 30px}footer{margin-left:0;padding:24px 16px 40px}}
 @media (min-width:1250px){.tps{grid-template-columns:repeat(auto-fill,minmax(500px,1fr))}}
+/* collapsible sidebar (desktop) */
+.navtog{display:flex;align-items:center;justify-content:center;width:36px;height:36px;margin-left:-8px;border:1px solid var(--line);border-radius:8px;background:#ffffff08;color:var(--sub);cursor:pointer;flex:none}
+.navtog:hover{background:#ffffff14;color:#fff}
+.navtog:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.navtog svg{width:20px;height:20px}
+.nav-off .wrap{grid-template-columns:minmax(0,1fr)}
+.nav-off .side{display:none}
+.nav-off footer{margin-left:0}
+.nav-off main>article{max-width:1700px}
+@media (max-width:700px){.navtog{display:none}.nav-off .side{display:flex}}
