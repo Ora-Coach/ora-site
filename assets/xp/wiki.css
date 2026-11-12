@@ -199,7 +199,7 @@ img{-webkit-user-drag:none;user-select:none}
 .tp small{display:block;color:var(--sub);font-size:13px}
 @media (max-width:560px){.tp{flex-direction:column;align-items:flex-start}.tp img{width:100%;max-width:300px}}
 /* full-width layout: sidebar pinned to the left edge, content uses the rest */
-.wrap{max-width:none;margin:0;grid-template-columns:240px minmax(0,1fr)}
+.wrap{max-width:none;margin:0}@media (min-width:701px){.wrap{grid-template-columns:240px minmax(0,1fr)}}
 .side{position:sticky;top:50px;align-self:start;height:calc(100vh - 50px);overflow-y:auto;scrollbar-width:thin}
 main{padding:20px 40px 40px}
 main>article{max-width:1500px}
