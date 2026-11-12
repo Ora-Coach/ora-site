@@ -155,6 +155,8 @@ footer div{display:flex;flex-wrap:wrap;gap:8px 18px}footer a{color:var(--sub);te
 /* Eric, 2026-11-11: no panel behind article headers; blur the season art instead */
 .ahd:before{display:none}
 .bd{filter:blur(5px);transform:scale(1.06);transform-origin:top center}
+/* the current season's art (Eric, 2026-11-12: F32 Iron Autumn, W34 Frost Forge) */
+.bd.s01{background-image:url(/assets/xp/wiki/seasons_frost_forge.webp)}
 /* wiki v2 sections (generated) */
 html,body{overflow-x:clip}
 .tldr{margin:4px 0 16px;padding:12px 16px;border-radius:12px;background:#0d1a33e6;border:1px solid #3d8bff55;border-left:4px solid var(--acc)}
