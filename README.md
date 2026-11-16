@@ -19,7 +19,9 @@ compiled app artifacts. See `ARCHITECTURE.md` for the split-domain architecture.
   (`assets/home/orbi3d.js`), full-page section navigation on desktop, and the
   beta waitlist (`assets/waitlist.js`). three.js and GSAP load from jsDelivr at
   pinned versions; every other asset is in `assets/home/`.
-- `/privacy/` - privacy policy. `/support/` - support and FAQ. `404.html`. These share
+- `/privacy/` - privacy policy. `/terms/` - terms of use. `/health-data/` - Consumer
+  Health Data Privacy Policy (Washington MHMDA, Nevada SB 370). `/accessibility/` -
+  accessibility statement. `/support/` - support and FAQ. `404.html`. These share
   `assets/home/page.css`.
 - `/wiki/` - the Ora Wiki (moved from `/xp/` on 2026-11-11; `/xp/` pages are redirects): a Main Page plus one page per article
   (`/wiki/session-score/`, `/wiki/leagues/` and so on). The pages share

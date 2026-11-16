@@ -34,7 +34,9 @@ summary{cursor:pointer;font-weight:700;list-style:none;display:flex;justify-cont
 summary:after{content:'+';color:var(--blue2);font-weight:900}details[open] summary:after{content:'–'}
 details p{color:var(--sub);margin:10px 0 0}
 footer{max-width:780px;margin:30px auto 0;padding:24px 24px 40px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between;font-size:13.5px;color:#7f93b4}
-footer div{display:flex;gap:18px}footer a{color:var(--sub);text-decoration:none}footer a:hover{color:#fff}
+footer div{display:flex;flex-wrap:wrap;gap:6px 18px}footer a{color:var(--sub);text-decoration:none}footer a:hover{color:#fff}
+.skip{position:absolute;left:-999px;top:8px;z-index:50;background:#fff;color:#000;padding:8px 12px;border-radius:8px;font-weight:700;text-decoration:none}.skip:focus{left:8px}
+main:focus{outline:none}
 .center{text-align:center}.center .head{flex-direction:column}
 @media (max-width:640px){
   nav{gap:10px;padding-left:14px;left:12px;transform:none}nav .cta{padding:9px 13px;font-size:13px}a.login{top:27px;right:12px;padding:10px 16px;font-size:13px}nav .l{display:none}
