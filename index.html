@@ -66,12 +66,47 @@
     "@id": "https://oracoach.app/#org"
    },
    "description": "Ora pairs Orbi, an AI training coach built on sports-science research, with a lifting app that makes progress addictive: two-tap logging, XP, ranks, badges and friends. Free in private beta on iPhone.",
-   "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "USD",
-    "description": "Free during the private beta. Ora Pro with Orbi opens at launch at a $9.99/mo founding price."
-   }
+   "offers": [
+    {
+     "@type": "Offer",
+     "name": "Ora",
+     "price": "0",
+     "priceCurrency": "USD",
+     "description": "Free during the private beta. Logging, progress, rewards and friends stay free."
+    },
+    {
+     "@type": "Offer",
+     "name": "Ora Pro, monthly",
+     "price": "19.99",
+     "priceCurrency": "USD",
+     "description": "Ora Pro with Orbi, billed monthly. No free trial. Renews automatically until you cancel."
+    },
+    {
+     "@type": "Offer",
+     "name": "Ora Pro, yearly",
+     "price": "119.99",
+     "priceCurrency": "USD",
+     "description": "Ora Pro with Orbi, billed yearly, with a 14-day free trial. Renews automatically until you cancel."
+    },
+    {
+     "@type": "Offer",
+     "name": "Ora Pro Founding Member, monthly",
+     "price": "12.99",
+     "priceCurrency": "USD",
+     "validFrom": "2026-11-30",
+     "validThrough": "2026-12-31",
+     "description": "Founding Member offer for the first 1,000 founders, Nov 30 to Dec 31, 2026: billed monthly with a 14-day free trial, a Founding badge, and the price kept for as long as the subscription stays active."
+    },
+    {
+     "@type": "Offer",
+     "name": "Ora Pro Founding Member, yearly",
+     "price": "79.99",
+     "priceCurrency": "USD",
+     "validFrom": "2026-11-30",
+     "validThrough": "2026-12-31",
+     "description": "Founding Member offer for the first 1,000 founders, Nov 30 to Dec 31, 2026: billed yearly with a 14-day free trial, a Founding badge, and the price kept for as long as the subscription stays active."
+    }
+   ]
   },
   {
    "@type": "FAQPage",
@@ -222,7 +257,7 @@ nav a.home{display:block}a.login{position:fixed;top:28px;right:24px;z-index:21;p
 .wlrow{display:flex;gap:8px;padding:6px;border-radius:999px;background:#ffffff0d;border:1px solid #ffffff22}
 .wlrow input{flex:1;min-width:0;border:0;background:none;color:var(--ink);font:500 16px Roboto,sans-serif;padding:0 14px;outline:none}
 .wlrow input::placeholder{color:#7f93b4}
-.wlrow:focus-within{border-color:var(--blue2);box-shadow:0 0 0 3px #3d8bff33}
+.wlrow:focus-within{border-color:var(--blue2);box-shadow:0 0 0 2px var(--blue2)}
 .goals{border:0;padding:0;margin:12px 0 0;display:flex;justify-content:center;align-items:center;gap:8px;flex-wrap:wrap}
 /* The visible label is a plain span: Safari won't lay a legend out inline. */
 .goals .gl{margin-right:2px;color:var(--sub);font-size:13px}
@@ -233,6 +268,11 @@ nav a.home{display:block}a.login{position:fixed;top:28px;right:24px;z-index:21;p
 .form-status{margin-top:10px;font-size:13px;color:#7f93b4;min-height:1.3em}.form-status.success{color:#7CF2B0}.form-status.error{color:#ff8a8a}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.skip{position:absolute;left:-999px;top:8px;z-index:100;background:#fff;color:#000;padding:8px 12px;border-radius:8px;font-weight:700;text-decoration:none}.skip:focus{left:8px}
+main:focus{outline:none}
+.consent{margin-top:4px;font-size:12px;color:#7f93b4}.consent a{color:var(--sub)}.consent a:hover{color:#fff}
+.demo{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.3px;color:var(--sub);padding:2px 8px;border-radius:999px;border:1px solid #ffffff2a;background:#ffffff0a;vertical-align:middle}
+.gym .demo{align-self:flex-start}.bh .demo{margin-left:6px}
 .links{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 18px;margin-top:26px;font-size:13px}.links a{color:var(--sub);text-decoration:none}.links a:hover{color:#fff}
 
 /* funnel sections */
@@ -438,11 +478,13 @@ nav a.home{display:block}a.login{position:fixed;top:28px;right:24px;z-index:21;p
 .stage{scale:var(--big,1)}
 #social .board{scale:var(--big,1);transform-origin:50% 0}
 </style></head><body>
+<a class="skip" href="#main">Skip to content</a>
 <script>(function(){function f(){var b=innerWidth<=860?1:Math.max(1,Math.min(innerWidth/1500,innerHeight/940,1.8));document.documentElement.style.setProperty('--big',b.toFixed(3))}f();addEventListener('resize',f)})()</script>
 <div class="bg" aria-hidden="true"><i class="b1"></i><i class="b2"></i><i class="b3"></i></div><canvas id="dust" aria-hidden="true"></canvas><div class="grain" aria-hidden="true"></div>
 <nav><a href="/" class="home"><img src="/assets/home/ora_logo.webp" alt="Ora"></a><a class="l" href="#coach">Orbi</a><a class="l" href="#science">Science</a><a class="l" href="#rewards">Rewards</a><a class="l" href="#pro">Pricing</a><a class="cta" href="#join">Get early access</a></nav><a class="login" href="https://app.oracoach.app/app/">Login</a>
 <div id="orbi" role="img" aria-label="Orbi, Ora's coach. Drag to spin him, tap to make him hop."></div>
 
+<main id="main" tabindex="-1">
 <section id="hero" data-hue="#0b2a6b"><div class="copy">
   <div class="kicker">AI training coach · workout app · game</div>
   <h1><span class="line"><span class="w">Coached</span> <span class="w">like</span> <span class="w">a</span> <span class="w grad">pro.</span></span><br><span class="line"><span class="w">Hooked</span> <span class="w">like</span> <span class="w">a</span> <span class="w grad">game.</span></span></h1>
@@ -471,7 +513,7 @@ nav a.home{display:block}a.login{position:fixed;top:28px;right:24px;z-index:21;p
 
 <section id="science" data-hue="#123d7a"><div class="copy wide">
   <div class="kicker">Evidence, not bro-science</div>
-  <h2>Every call, <span class="grad">backed by research.</span></h2>
+  <h2>Built on <span class="grad">published research.</span></h2>
   <p class="lead">Orbi's rules come from published strength-training research. The math is done by tested rules, not guessed by AI, and Orbi shows you the reason behind every number.</p>
   <div class="sci" id="sci">
     <div class="sc reveal"><div class="ic"><img class="oi" src="/assets/home/icons/progress.webp" alt=""></div><b>Progressive overload</b><p>Adds weight or reps only when your last sets earned it.</p></div>
@@ -494,9 +536,9 @@ nav a.home{display:block}a.login{position:fixed;top:28px;right:24px;z-index:21;p
 <tr><th scope="row">Explains the why</th><td><span class="ic n" aria-label="No">✕</span></td><td><span class="ic y" aria-label="Yes">✓</span></td><td class="us"><span class="ic y" aria-label="Yes">✓</span></td></tr>
 <tr><th scope="row">Available 24/7</th><td><span class="ic y" aria-label="Yes">✓</span></td><td><span class="ic n" aria-label="No">✕</span></td><td class="us"><span class="ic y" aria-label="Yes">✓</span></td></tr>
 <tr><th scope="row">Makes training fun</th><td><span class="ic n" aria-label="No">✕</span></td><td><span class="ic n" aria-label="No">✕</span></td><td class="us"><span class="ic y" aria-label="Yes">✓</span></td></tr>
-<tr class="price"><th scope="row">Price</th><td>$0–15<small>/mo</small></td><td>$100+<small>/mo, often</small></td><td class="us">$9.99<small>/mo</small></td></tr>
+<tr class="price"><th scope="row">Price</th><td>$0–15<small>/mo</small></td><td>$100+<small>/mo, often</small></td><td class="us">$12.99<small>/mo</small></td></tr>
 </tbody></table></div>
-  <div class="fine">Typical of each category; not every app or coach works the same way. Ora Pro shown at the Founding price.</div>
+  <div class="fine">Typical of each category; not every app or coach works the same way. Ora Pro shown at the Founding Member monthly price.</div>
 </div><div class="slot mid cmp-slot" data-slot></div></section>
 
 <section id="log" data-hue="#14306e"><div class="copy">
@@ -536,7 +578,7 @@ nav a.home{display:block}a.login{position:fixed;top:28px;right:24px;z-index:21;p
   <div class="kicker">Train together</div>
   <h2>Your crew, <span class="grad">at the gym now.</span></h2>
   <p class="lead">See who's training, send a cheer, and climb your friends' weekly XP ranks. Accountability that keeps you showing up, without a feed to scroll.</p>
-  <div class="gym" id="gym">
+  <div class="gym" id="gym"><span class="demo">Example</span>
     <div class="friend reveal"><div class="avr"><img class="a" src="/assets/home/av/fox.webp" alt=""><img class="r" src="/assets/home/av/ring_rank_veteran.webp" alt="" style="--x:1.4167"></div>
       <div class="meta"><b>Maya</b><div>Push day · <span class="clock" data-start="2280">38:00</span></div></div><span class="live">Training now</span><button class="cheer" data-icon="streak"><img class="oi" src="/assets/home/icons/streak.webp" alt="">Cheer</button></div>
     <div class="friend reveal"><div class="avr"><img class="a" src="/assets/home/av/lion.webp" alt=""><img class="r" src="/assets/home/av/ring_rank_elite.webp" alt="" style="--x:1.5312"></div>
@@ -546,7 +588,7 @@ nav a.home{display:block}a.login{position:fixed;top:28px;right:24px;z-index:21;p
   </div>
 </div><div class="crewside"><div class="slot crew" data-slot></div>
   <div class="board reveal" id="board"><i class="lip"></i>
-    <div class="bh"><img class="oi" src="/assets/home/icons/leaderboard.webp" alt=""><b>This week's ranks</b><span>Friends</span></div>
+    <div class="bh"><img class="oi" src="/assets/home/icons/leaderboard.webp" alt=""><b>This week's ranks</b><span class="demo">Example</span><span>Friends</span></div>
     <div class="rows" id="rows">
       <div class="lr" data-xp="2340"><span class="n">1</span><img src="/assets/home/av/capybara.webp" alt=""><b>Sam</b><i><u></u></i><em>0</em></div>
       <div class="lr" data-xp="1980"><span class="n">2</span><img src="/assets/home/av/lion.webp" alt=""><b>Jordan</b><i><u></u></i><em>0</em></div>
@@ -564,13 +606,14 @@ nav a.home{display:block}a.login{position:fixed;top:28px;right:24px;z-index:21;p
     <div class="plan reveal"><div class="pn">Ora</div><div class="pp">Free</div>
       <ul><li>Two-tap logging and 1,700+ exercises</li><li>Progress, PRs and strength trends</li><li>XP, ranks, badges, titles and gear</li><li>Friends, check-ins and weekly ranks</li></ul></div>
     <div class="plan pro reveal"><div class="tag">Founding offer</div><div class="pn">Ora Pro <span>with Orbi</span></div>
-      <div class="pp">$9.99<small>/mo, locked for life</small></div>
+      <div class="pp">$79.99<small>/yr or $12.99/mo</small></div>
       <ul><li><b>Everything in Free</b></li><li>Orbi, your AI training coach</li><li>Smart programs that adapt to how training goes</li><li>Weekly check-ins and in-session adjustments</li><li>Founding Member badge</li></ul>
-      <div class="alt">Or $12.99/mo · $99/yr · 7-day free trial</div>
+      <div class="alt">14-day free trial on both. Your price is kept while your subscription stays active. Available Nov 30 – Dec 31, 2026, while the first 1,000 spots last.</div>
       <a class="cta" href="#join">Get early access</a></div>
   </div>
-  <div class="fine">Purchases open at launch. Beta testers get first access to Founding pricing.</div>
+  <div class="fine">After the Founding offer: Ora Pro is $19.99/mo (no trial) or $119.99/yr with a 14-day free trial. Purchases open at launch, and beta testers get first access to Founding pricing. Subscriptions renew automatically until you cancel. A free trial becomes a paid subscription unless you cancel at least 24 hours before it ends.</div>
 </div><div class="slot mid pro-slot" data-slot></div></section>
+</main>
 
 <footer id="join" data-hue="#0b2a6b"><div class="slot" data-slot></div><h2>Your next PR <span class="grad">starts here.</span></h2>
 <p class="lead">Ora is in private beta on iPhone. Get early access, and Orbi will save you a Founding spot.</p>
@@ -579,13 +622,14 @@ nav a.home{display:block}a.login{position:fixed;top:28px;right:24px;z-index:21;p
   <fieldset class="goals"><legend class="sr">Training for</legend><span class="gl" aria-hidden="true">Training for</span><label><input type="radio" name="primary_goal" value="powerlifting"><span>Strength</span></label><label><input type="radio" name="primary_goal" value="bodybuilding"><span>Size</span></label><label><input type="radio" name="primary_goal" value="powerbuilding"><span>Both</span></label></fieldset>
   <div class="hp" aria-hidden="true"><label for="company">Company</label><input id="company" name="company" type="text" tabindex="-1" autocomplete="off"></div>
   <div class="form-status" id="waitlist-status" role="status" aria-live="polite">Email only. No spam.</div>
+  <p class="consent">By joining, you agree to get emails about Ora's beta and launch. Unsubscribe anytime. <a href="/privacy/#waitlist">Privacy</a></p>
 </form>
 <div class="faq">
   <details><summary>Is Orbi a real coach?</summary><p>Orbi is an AI coach. It reads your logged training and goals, and every number it suggests comes from Ora's tested training rules, which are built on published research. It explains its reasoning and never changes your plan without your OK.</p></details>
   <details><summary>Do I need Ora Pro?</summary><p>No. Logging, progress, rewards and friends are free. Pro adds Orbi's coaching, smart programs and weekly check-ins.</p></details>
   <details><summary>What about my data?</summary><p>Your training lives on your phone first. You can export it or delete it at any time, and Orbi only sees what it needs to coach you.</p></details>
 </div>
-<div class="links" role="navigation" aria-label="Footer"><a href="https://app.oracoach.app/app/">For coaches</a><a href="/wiki/">Wiki</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/support/">Support</a><a href="mailto:support@oracoach.app">support@oracoach.app</a></div>
+<div class="links" role="navigation" aria-label="Footer"><a href="https://app.oracoach.app/app/">For coaches</a><a href="/wiki/">Wiki</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/health-data/">Consumer Health Data Privacy Policy</a><a href="/accessibility/">Accessibility</a><a href="/support/">Support</a><a href="mailto:support@oracoach.app">support@oracoach.app</a></div>
 <div class="small">© 2026 Orbi Labs LLC · oracoach.app</div></footer>
 <script src="/assets/waitlist.js?v=2026-10-09" defer></script>
 
