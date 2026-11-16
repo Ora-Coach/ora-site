@@ -93,3 +93,7 @@ records as the source of truth.
   or backend config are present.
 - Confirm `https://oracoach.app/`, `https://oracoach.app/privacy/`, and
   `https://oracoach.app/support/` load over HTTPS after deployment.
+
+## Copyright
+
+Copyright © 2026 Orbi Labs LLC. All rights reserved. The site is public so GitHub Pages can serve it; that is not a license to reuse it. See [NOTICE](NOTICE).
