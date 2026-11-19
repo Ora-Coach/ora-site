@@ -21,7 +21,8 @@ compiled app artifacts. See `ARCHITECTURE.md` for the split-domain architecture.
   pinned versions; every other asset is in `assets/home/`.
 - `/privacy/` - privacy policy. `/terms/` - terms of use. `/health-data/` - Consumer
   Health Data Privacy Policy (Washington MHMDA, Nevada SB 370). `/accessibility/` -
-  accessibility statement. `/support/` - support and FAQ. `404.html`. These share
+  accessibility statement. `/support/` - support and FAQ. `/team/` - founder and
+  company details (Google for Startups needs the team listed publicly). `404.html`. These share
   `assets/home/page.css`.
 - `/wiki/` - the Ora Wiki (moved from `/xp/` on 2026-11-11; `/xp/` pages are redirects): a Main Page plus one page per article
   (`/wiki/session-score/`, `/wiki/leagues/` and so on). The pages share
