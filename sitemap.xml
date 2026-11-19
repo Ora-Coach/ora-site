@@ -166,4 +166,10 @@
     <loc>https://oracoach.app/wiki/lore/seasons/</loc>
     <lastmod>2026-11-11</lastmod>
   </url>
+  <url>
+    <loc>https://oracoach.app/team/</loc>
+    <lastmod>2026-11-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
 </urlset>
