@@ -36,7 +36,7 @@ compiled app artifacts. See `ARCHITECTURE.md` for the split-domain architecture.
   `assets/tools/tools.css`, `assets/tools/barbell.js` (plate math and the barbell
   drawing) and, for the six 1RM pages, `assets/tools/1rm.js`. The six 1RM pages
   share their calculator markup, so a change to it goes into all six.
-- `/robots.txt` and `/sitemap.xml`.
+- `/robots.txt` (AI-training crawlers may not collect `/assets/`; images for the exercise pages are served from app.oracoach.app/media/, which blocks them entirely) and `/sitemap.xml`.
 
 The old SEO pages, guides and sponsor page were removed on 2026-10-08.
 
