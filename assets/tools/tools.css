@@ -185,9 +185,8 @@ table.scale td:first-child{font:700 17px Fredoka}
 @media (max-width:680px){.cmp.scores{grid-template-columns:repeat(3,1fr);gap:8px}.cmp.scores div{padding:10px 6px}.cmp.scores b{font-size:19px}.cmp.scores span{font-size:11.5px}}
 /* Exercise guides */
 .crumbs{font-size:13.5px;color:#7f93b4;margin-bottom:10px}.crumbs a{color:#9cc6ff;text-decoration:none}
-.exfig{margin:20px 0 14px;padding:10px;border-radius:22px;background:#fff;text-align:center}
-.exfig img{display:block;width:100%;max-width:560px;height:auto;margin:0 auto}
-.exfig figcaption{font-size:12.5px;color:#5b6677;margin-top:2px}
+.exfig{margin:20px auto 14px;padding:8px;border-radius:22px;background:#fff;max-width:340px}
+.exfig img{display:block;width:100%;height:auto;margin:0 auto}
 .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:0 0 6px}
 .facts div{padding:12px 14px;border-radius:14px;background:#ffffff0a;border:1px solid var(--line)}
 .facts span{display:block;font-size:12px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--sub)}
@@ -203,10 +202,10 @@ ol.steps li:first-child{border-top:0}
 ol.steps li:before{content:counter(s);position:absolute;left:0;top:8px;width:30px;height:30px;border-radius:50%;background:#156cf633;border:1px solid #3d8bff66;color:#fff;font:700 15px/28px Fredoka;text-align:center}
 .more .alt{display:block;padding:14px 16px;border-radius:16px;background:#ffffff06;border:1px dashed var(--line);color:#fff;font-weight:700}
 .more .alt span{display:block;color:var(--sub);font-weight:400;font-size:13px}
-.exgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:22px 0}
+.exgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:22px 0}
 .exgrid a{display:block;padding:10px 10px 14px;border-radius:18px;background:#ffffff08;border:1px solid var(--line);text-decoration:none;color:var(--ink)}
 .exgrid a:hover{border-color:#3d8bff88}
 .exgrid img{display:block;width:100%;height:auto;border-radius:12px;background:#fff;margin-bottom:10px}
 .exgrid b{display:block;font:700 18px Fredoka;color:#fff;padding:0 4px}.exgrid span{display:block;font-size:13.5px;color:var(--sub);padding:0 4px}
 .exgrid.small{grid-template-columns:repeat(4,1fr)}.exgrid.small b{font-size:15px}
-@media (max-width:680px){.facts{grid-template-columns:1fr}.exgrid.small{grid-template-columns:repeat(2,1fr)}.exgrid{grid-template-columns:1fr}}
+@media (max-width:680px){.facts{grid-template-columns:1fr}.exgrid,.exgrid.small{grid-template-columns:repeat(2,1fr)}}
