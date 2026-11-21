@@ -51,7 +51,7 @@ if (form && emailInput && companyInput && submitButton) {
 
     // honeypot: bots fill the hidden "company" field — silently accept, do nothing
     if (companyInput.value) {
-      setStatus("You're on the list. We'll be in touch.", 'success');
+      setStatus("You're on the list. Your first Ora Updates email is on the way, and we'll email you when your beta spot opens.", 'success');
       return;
     }
 
@@ -81,7 +81,7 @@ if (form && emailInput && companyInput && submitButton) {
 
       if (res.ok) {
         form.reset();
-        setStatus("You're on the list. We'll email you about beta access — no spam.", 'success');
+        setStatus("You're on the list. Your first Ora Updates email is on the way, and we'll email you when your beta spot opens.", 'success');
         submitButton.textContent = 'Joined ✓';
         // leave disabled to prevent double-submits
       } else {
