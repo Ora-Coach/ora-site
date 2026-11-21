@@ -12,133 +12,22 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Roboto:wght@400;500;700&family=Luckiest+Guy&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/home/page.css?v=2026-11-15">
+<link rel="stylesheet" href="/assets/tools/tools.css?v=2026-11-21">
 <script type="application/ld+json">[
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Ora","item":"https://oracoach.app/"},{"@type":"ListItem","position":2,"name":"1RM Calculator","item":"https://oracoach.app/tools/1rm-calculator/"}]},
 {"@context":"https://schema.org","@type":"WebApplication","name":"Ora 1RM Calculator","url":"https://oracoach.app/tools/1rm-calculator/","applicationCategory":"HealthApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Orbi Labs LLC"}},
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-{"@type":"Question","name":"How accurate is a 1RM calculator?","acceptedAnswer":{"@type":"Answer","text":"It's an estimate. 1RM formulas are most accurate for sets of about 10 reps or fewer taken close to failure. Your true max on a given day can be a few percent higher or lower."}},
-{"@type":"Question","name":"Which 1RM formula is best?","acceptedAnswer":{"@type":"Answer","text":"For sets under about 10 reps the common formulas (Epley, Brzycki, Lombardi and others) land within a few percent of each other. They spread apart at higher reps, where every formula gets less reliable."}},
-{"@type":"Question","name":"What is RPE and RIR?","acceptedAnswer":{"@type":"Answer","text":"RPE rates how hard a set was on a 1-10 scale. RIR (reps in reserve) is how many more reps you could have done. RPE 8 means about 2 reps in reserve."}},
-{"@type":"Question","name":"Should I test my 1RM?","acceptedAnswer":{"@type":"Answer","text":"You don't need to. Estimating from a hard set of 2-6 reps is safer and accurate enough to plan training. Test a true max only when healthy and warmed up, ideally with a spotter."}},
-{"@type":"Question","name":"How do I warm up for a 1RM attempt?","acceptedAnswer":{"@type":"Answer","text":"Ramp up over 5-6 sets with fewer reps as the weight climbs, for example 40% for 5, 60% for 3, 75% for 2, 85% for 1 and 92% for 1, resting longer before heavier sets."}},
-{"@type":"Question","name":"How often should my 1RM go up?","acceptedAnswer":{"@type":"Answer","text":"Beginners can see their estimated max rise every week or two. Intermediate and advanced lifters often progress over months, which is why tracking the trend matters more than any single estimate."}}
-]}]</script>
-<style>
-.calc{padding:22px;border-radius:24px;background:linear-gradient(180deg,#156cf626,#156cf60a);border:1px solid #3d8bff55;margin:22px 0}
-.lifts{display:grid;grid-template-columns:repeat(6,1fr);gap:4px;background:#ffffff08;border:1px solid #ffffff14;border-radius:14px;padding:4px;margin-bottom:12px}
-.lifts button{border:0;background:none;color:var(--sub);font:600 14px Roboto;padding:10px 4px;border-radius:10px;cursor:pointer;white-space:nowrap}
-.lifts button:hover{color:#fff;background:#ffffff0d}
-.lifts button.on{background:linear-gradient(180deg,#3D8BFF,#156CF6);color:#fff;box-shadow:0 2px 10px #156cf655}
-.inputs{display:grid;grid-template-columns:1.35fr 1fr 1fr;gap:12px}
-.box{background:#0b1424;border:1px solid #ffffff1f;border-radius:18px;padding:12px 14px 14px}
-.box:focus-within{border-color:var(--blue2);box-shadow:0 0 0 3px #3d8bff33}
-.bl{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px;min-height:26px}
-.bl span{font-size:12.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;text-transform:uppercase}
-.bl em{font-style:normal;font-size:12.5px;color:#6f84a6}
-.seg{display:flex;background:#ffffff10;border-radius:999px;padding:3px}
-.seg button{border:0;background:none;color:var(--sub);font:700 12.5px Roboto;padding:4px 11px;border-radius:999px;cursor:pointer}
-.seg button.on{background:var(--blue);color:#fff}
-.stepper{display:flex;align-items:center;gap:8px}
-.stepper input{flex:1;min-width:0;width:100%;background:none;border:0;outline:none;color:#fff;font:700 30px/1 Fredoka;text-align:center;padding:4px 0;-moz-appearance:textfield}
-.stepper input::-webkit-outer-spin-button,.stepper input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
-.stepper.big input{font-size:38px}
-.stepper.plain input{text-align:left;padding-left:4px}.stepper input::placeholder{color:#4d6080;font-size:24px}
-.stepper .u{color:#6f84a6;font:600 16px Roboto}
-.st{flex:none;width:40px;height:40px;border-radius:12px;border:1px solid #ffffff22;background:#ffffff0d;color:#fff;font:600 22px/1 Roboto;cursor:pointer}
-.st:hover{background:#156cf640;border-color:#3d8bff77}
-.rpebox{grid-column:1/-1}
-.ns{border:1px solid #ffffff26;background:#ffffff08;color:var(--sub);font:600 12.5px Roboto;padding:5px 12px;border-radius:999px;cursor:pointer}
-.ns.on{background:#fff;color:#05080F;border-color:#fff}
-.read{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
-.read b{font:700 30px/1 Fredoka;color:#fff}.read span{color:var(--sub);font-size:15px}
-.track{position:relative;height:44px;margin:12px 14px 0}
-.rail{position:absolute;left:0;right:0;top:16px;height:12px;border-radius:999px;background:linear-gradient(90deg,#1f9a55,#7cc242 30%,#e8b20c 58%,#f07b22 80%,#e0352b)}
-.track.off .rail{filter:saturate(.25) brightness(.7)}
-.thumb{position:absolute;top:4px;width:36px;height:36px;margin-left:-18px;border-radius:50%;background:#fff;box-shadow:0 4px 14px #0008,0 0 0 6px #ffffff22;transition:left .12s;display:flex;align-items:center;justify-content:center;gap:3px}
-.thumb i{width:5px;height:5px;border-radius:50%;background:#156cf6}.thumb i.x{background:#e0352b;width:8px;height:8px}
-.track.off .thumb{opacity:.35}
-#rng{position:absolute;inset:-6px -14px;opacity:0;cursor:pointer;width:calc(100% + 28px);margin:0}
-.ticks{position:relative;height:18px;margin:2px 14px 0}
-.ticks span{position:absolute;transform:translateX(-50%);font:600 12px Roboto;color:#6f84a6;cursor:pointer}
-.ticks span.on{color:#fff}
-.zones{display:flex;justify-content:space-between;margin:10px 0 0;color:#6f84a6;font-size:12.5px;font-weight:600}
-.thumb{font:700 13px Roboto;color:#05080F}
-.ticks b{display:block;font:700 15px Fredoka;color:#c9d6ec}
-@media (max-width:680px){.lifts{grid-template-columns:repeat(3,1fr)}.inputs{grid-template-columns:1fr 1fr}.wbox{grid-column:1/-1}.read b{font-size:26px}}
-.res{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:18px;margin-top:18px;padding:18px 20px;border-radius:18px;background:#05080Fcc;border:1px solid var(--line)}
-.res img{width:70px}
-.res small{display:block;font:400 13px 'Luckiest Guy';letter-spacing:1.4px;color:var(--blue2)}
-.res b{display:block;font:700 48px/1 Fredoka;color:#fff;margin:4px 0}
-.res .sub{color:var(--sub);font-size:14px}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
-.chip{font-size:13px;font-weight:600;color:#cfe0ff;background:#156cf62e;border:1px solid #3d8bff44;border-radius:999px;padding:4px 10px}
-.share{border:1px solid #ffffff33;background:#ffffff10;color:#fff;font:700 14px Roboto;padding:10px 14px;border-radius:12px;cursor:pointer;white-space:nowrap}
-.hint{color:#7f93b4;font-size:13.5px;margin:10px 2px 0}
-.bar{margin:16px 0 0;background:radial-gradient(70% 90% at 50% 100%,#156cf61f,transparent 70%);border-radius:16px}.bar svg{display:block;width:100%;height:auto}
-.tabs{display:flex;gap:6px;margin:6px 0 12px;flex-wrap:wrap}
-.tabs button{border:1px solid #ffffff26;background:#ffffff0a;color:var(--sub);font:600 14px Roboto;padding:8px 14px;border-radius:12px;cursor:pointer}
-.tabs button.on{background:#fff;color:#05080F;border-color:#fff}
-.plan{display:flex;flex-wrap:wrap;align-items:center;gap:10px 12px;padding:16px 18px;border-radius:18px;background:#0b1424;border:1px solid #3d8bff44;margin:6px 0 14px}
-.pq{color:#cfe0ff;font-size:16px}
-.stepper.sm{gap:6px}.stepper.sm input{width:52px;flex:none;font-size:24px}.stepper.sm .st{width:34px;height:34px;font-size:18px}
-.seg2{display:flex;background:#ffffff0d;border-radius:12px;padding:3px}
-.seg2 button{border:0;background:none;color:var(--sub);font:700 15px Roboto;width:38px;height:34px;border-radius:9px;cursor:pointer}
-.seg2 button.on{background:var(--blue);color:#fff}
-.pans{margin-left:auto;text-align:right}.pans small{display:block;font:400 12px 'Luckiest Guy';letter-spacing:1.3px;color:var(--blue2)}.pans b{font:700 30px/1 Fredoka;color:#fff}
-th small{display:block;font:500 11px Roboto;letter-spacing:0;text-transform:none;color:#6f84a6;margin-top:2px}
-.tbl{max-height:470px;overflow:auto;border:1px solid var(--line);border-radius:16px}
-table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
-th,td{padding:10px 12px;text-align:center;border-bottom:1px solid var(--line)}
-th{position:sticky;top:0;font:700 12px Roboto;letter-spacing:.6px;color:var(--sub);text-transform:uppercase;background:#0d1728}
-tr:last-child td{border-bottom:0}
-td:first-child,th:first-child{text-align:left;color:#fff;font-weight:700}
-td.hi{background:#156cf640;color:#fff;font-weight:700}
-td.mu{color:#7f93b4}
-.pct{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:10px 0}
-.pct div{padding:12px;border-radius:14px;background:#ffffff0a;border:1px solid var(--line);text-align:center}
-.pct div b{display:block;font:700 20px Fredoka;color:#fff}.pct div span{font-size:12.5px;color:var(--sub)}
-.wu{display:grid;gap:8px;margin:10px 0}
-.wu div{display:grid;grid-template-columns:70px 1fr auto;align-items:center;gap:12px;padding:12px 16px;border-radius:14px;background:#ffffff0a;border:1px solid var(--line)}
-.wu .n{font:700 13px Roboto;color:var(--blue2)}.wu b{font:700 19px Fredoka;color:#fff}.wu span{color:var(--sub);font-size:14px}
-.wu div.max{background:linear-gradient(90deg,#156cf640,#156cf610);border-color:#3d8bff66}
-.cmp{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:10px 0}
-.cmp div{padding:12px 14px;border-radius:14px;background:#ffffff0a;border:1px solid var(--line)}
-.cmp div b{display:block;font:700 20px Fredoka;color:#fff}.cmp div span{font-size:13px;color:var(--sub)}
-.cmp div.us{border-color:#3d8bff88;background:#156cf622}
-.cmp div{display:flex;flex-direction:column;align-items:center;text-align:center}
-.cmp div i{width:10px;height:10px;border-radius:50%;margin-bottom:8px}
-.fsum{padding:18px 20px;border-radius:18px;background:linear-gradient(135deg,#0a1f4a,#156cf6aa);border:1px solid #3d8bff66;margin:12px 0}
-.fsum .top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
-.fsum small{font:400 12.5px 'Luckiest Guy';letter-spacing:1.3px;color:#a9c8ff}.fsum b{display:block;font:700 34px/1.1 Fredoka;color:#fff}
-.fsum .rg{color:#dce8ff;font-size:14px}
-.rangebar{position:relative;height:30px;margin:14px 8px 0}
-.rangebar .ln{position:absolute;left:0;right:0;top:13px;height:4px;border-radius:2px;background:#ffffff33}
-.rangebar i{position:absolute;top:8px;width:14px;height:14px;margin-left:-7px;border-radius:50%;border:2px solid #0a1f4a}
-.rangebar .avg{position:absolute;top:2px;width:3px;height:26px;margin-left:-1.5px;background:#fff;border-radius:2px}
-.rangebar .end{position:absolute;top:22px;font-size:11.5px;color:#a9c8ff;transform:translateX(-50%)}
-.cta-card{display:flex;align-items:center;gap:20px;padding:22px 24px;border-radius:22px;background:linear-gradient(135deg,#0a1f4a,#156cf6);margin:30px 0}
-.cta-card img{width:96px;flex:none}
-.cta-card b{font:700 22px Fredoka;display:block;color:#fff}
-.cta-card p{color:#dce8ff;margin:4px 0 12px}
-.cta-card .cta{background:#fff;color:#0b47c2!important}
-.formula{font:600 16.5px/1.5 ui-monospace,Menlo,monospace;background:#0b1424;border:1px solid var(--line);border-radius:14px;padding:14px 16px;color:#fff}
-.more{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:12px 0}
-.more a{display:block;padding:14px 16px;border-radius:16px;background:#ffffff0a;border:1px solid var(--line);text-decoration:none;color:#fff;font-weight:700}
-.more a span{display:block;color:var(--sub);font-weight:400;font-size:13px}
-.src{font-size:13px;color:#7f93b4}.src li{margin:3px 0}
-@media (max-width:680px){.row{grid-template-columns:1fr 1fr}.res{grid-template-columns:auto 1fr}.res .share{grid-column:1/-1}.pct,.cmp,.more{grid-template-columns:repeat(2,1fr)}.res b{font-size:40px}.cta-card{flex-direction:column;text-align:center}th,td{padding:9px 6px;font-size:14px}}
-.unused-mockbar{position:fixed;bottom:12px;left:50%;transform:translateX(-50%);z-index:30;background:#ffd84a;color:#2a1c00;font:700 12.5px Roboto;padding:7px 14px;border-radius:999px}
-</style></head><body>
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How accurate is a 1RM calculator?","acceptedAnswer":{"@type":"Answer","text":"It's an estimate. 1RM formulas are most accurate for sets of about 10 reps or fewer taken close to failure. Your true max on a given day can be a few percent higher or lower."}},{"@type":"Question","name":"Which 1RM formula is best?","acceptedAnswer":{"@type":"Answer","text":"For sets under about 10 reps the common formulas (Epley, Brzycki, Lombardi and others) land within a few percent of each other. They spread apart at higher reps, where every formula gets less reliable."}},{"@type":"Question","name":"What is RPE and RIR?","acceptedAnswer":{"@type":"Answer","text":"RPE rates how hard a set was on a 1-10 scale. RIR (reps in reserve) is how many more reps you could have done. RPE 8 means about 2 reps in reserve."}},{"@type":"Question","name":"Should I test my 1RM?","acceptedAnswer":{"@type":"Answer","text":"You don't need to. Estimating from a hard set of 2-6 reps is safer and accurate enough to plan training. Test a true max only when healthy and warmed up, ideally with a spotter."}},{"@type":"Question","name":"How do I warm up for a 1RM attempt?","acceptedAnswer":{"@type":"Answer","text":"Ramp up over 5-6 sets with fewer reps as the weight climbs, for example 40% for 5, 60% for 3, 75% for 2, 85% for 1 and 92% for 1, resting longer before heavier sets."}},{"@type":"Question","name":"How often should my 1RM go up?","acceptedAnswer":{"@type":"Answer","text":"Beginners can see their estimated max rise every week or two. Intermediate and advanced lifters often progress over months, which is why tracking the trend matters more than any single estimate."}}]}]</script>
+</head><body data-lift="any">
 <a class="skip" href="#main">Skip to content</a>
 <nav><a href="/"><img src="/assets/home/ora_logo.webp" alt="Ora home"></a><a class="l" href="/privacy/">Privacy</a><a class="l" href="/support/">Support</a><a class="cta" href="/#join">Get early access</a></nav><a class="login" href="https://app.oracoach.app/app/">Login</a>
 <main id="main" tabindex="-1">
 <div class="head"><img src="/assets/home/chibi_thinking.webp" alt="" width="120" height="120"><div>
 <div class="kicker">FREE TOOL</div>
-<h1><span id="liftName">1RM</span> <span class="grad">Calculator</span></h1>
+<h1>1RM <span class="grad">Calculator</span></h1>
 <p class="lead">Estimate your one rep max from any set, with RPE if you know it. Then see what to lift for 1-30 reps, how to load the bar and how to warm up for a max.</p></div></div>
 
 <section class="calc" aria-label="1RM calculator">
- <div class="lifts" id="lifts" role="radiogroup" aria-label="Lift"></div>
+ <div class="lifts" id="lifts" role="group" aria-label="Lift"><a href="/tools/1rm-calculator/" data-k="any" class="on" aria-current="page">Any lift</a><a href="/tools/1rm-calculator/bench-press/" data-k="bench">Bench press</a><a href="/tools/1rm-calculator/squat/" data-k="squat">Squat</a><a href="/tools/1rm-calculator/deadlift/" data-k="deadlift">Deadlift</a><a href="/tools/1rm-calculator/overhead-press/" data-k="ohp">Overhead press</a><a href="/tools/1rm-calculator/barbell-row/" data-k="row">Barbell row</a></div>
  <div class="inputs">
   <div class="box wbox"><div class="bl"><span>Weight lifted</span><div class="seg"><button type="button" id="lb" class="on">lb</button><button type="button" id="kg">kg</button></div></div>
    <div class="stepper big"><button type="button" class="st" data-t="w" data-d="-1" aria-label="Less weight">−</button><input id="w" type="number" inputmode="decimal" value="225" min="0" step="any" aria-label="Weight lifted"><span class="u" id="wu1">lb</span><button type="button" class="st" data-t="w" data-d="1" aria-label="More weight">+</button></div></div>
@@ -173,7 +62,7 @@ td.mu{color:#7f93b4}
   <div class="pq">in the tank.</div>
   <div class="pans"><small>LIFT</small><b id="pAns">-</b></div>
  </div>
- <p>Or look it up: find how many reps you want on the left, then how many you want to leave in the tank. The highlighted cell is the set you entered above.</p>
+ <p>Or look it up: find how many reps you want on the left, then how many you want to leave in the tank. The highlighted cell is the set you entered above. The full chart is on the <a href="/tools/rpe-chart/">RPE chart</a>.</p>
  <div class="tbl"><table id="gridRpe"></table></div></div>
 <div id="tab-reps" hidden><p>The most you could likely lift for each number of reps, all-out. Past about 12 reps every formula gets less reliable, so treat those rows as rough.</p><div class="tbl"><table id="gridReps"></table></div></div>
 <div id="tab-pct" hidden><p>Common training percentages of your estimated max, rounded to plates you can load.</p><div class="pct" id="pct"></div></div>
@@ -194,12 +83,15 @@ td.mu{color:#7f93b4}
 <p>RIR (reps in reserve) is how many more reps you could have done. If you pick an RPE, RIR is 10 − RPE, so a set at RPE 8 counts as about 2 reps left. If you pick "Not sure", the calculator assumes the set was all-out, which gives a conservative estimate. A true single at RPE 10 is your max as lifted.</p>
 
 <h2>Questions</h2>
-<details><summary>How accurate is a 1RM calculator?</summary><p>It's an estimate. 1RM formulas are most accurate for sets of about 10 reps or fewer taken close to failure. Your true max on a given day can be a few percent higher or lower.</p></details>
+<details><summary>How accurate is a 1RM calculator?</summary><p>It&#x27;s an estimate. 1RM formulas are most accurate for sets of about 10 reps or fewer taken close to failure. Your true max on a given day can be a few percent higher or lower.</p></details>
 <details><summary>Which 1RM formula is best?</summary><p>For sets under about 10 reps the common formulas (Epley, Brzycki, Lombardi and others) land within a few percent of each other. They spread apart at higher reps, where every formula gets less reliable.</p></details>
 <details><summary>What is RPE and RIR?</summary><p>RPE rates how hard a set was on a 1-10 scale. RIR (reps in reserve) is how many more reps you could have done. RPE 8 means about 2 reps in reserve.</p></details>
-<details><summary>Should I test my 1RM?</summary><p>You don't need to. Estimating from a hard set of 2-6 reps is safer and accurate enough to plan training. Test a true max only when healthy and warmed up, ideally with a spotter.</p></details>
+<details><summary>Should I test my 1RM?</summary><p>You don&#x27;t need to. Estimating from a hard set of 2-6 reps is safer and accurate enough to plan training. Test a true max only when healthy and warmed up, ideally with a spotter.</p></details>
 <details><summary>How do I warm up for a 1RM attempt?</summary><p>Ramp up over 5-6 sets with fewer reps as the weight climbs, for example 40% for 5, 60% for 3, 75% for 2, 85% for 1 and 92% for 1, resting longer before heavier sets.</p></details>
 <details><summary>How often should my 1RM go up?</summary><p>Beginners can see their estimated max rise every week or two. Intermediate and advanced lifters often progress over months, which is why tracking the trend matters more than any single estimate.</p></details>
+
+<h2>More free tools</h2>
+<div class="more"><a href="/tools/rpe-chart/">RPE Chart<span>Percent of max for every rep and RPE</span></a><a href="/tools/plate-calculator/">Plate Calculator<span>What to put on each side of the bar</span></a><a href="/tools/1rm-calculator/bench-press/">Bench Press 1RM<span>Plus squat, deadlift and press</span></a></div>
 
 <h3>Sources</h3>
 <ul class="src">
@@ -210,126 +102,6 @@ td.mu{color:#7f93b4}
 <p class="meta">Training guidance, not medical advice. Stop a set if something hurts.</p>
 </main>
 <footer><span>© 2026 Orbi Labs LLC · oracoach.app</span><div><a href="/">Home</a><a href="/wiki/">Wiki</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/health-data/">Consumer Health Data Privacy Policy</a><a href="/accessibility/">Accessibility</a><a href="/team/">Team</a><a href="/tools/1rm-calculator/">1RM Calculator</a><a href="/support/">Support</a></div></footer>
-<script>
-const $=id=>document.getElementById(id);
-const LIFTS=[['any','Any lift','1RM'],['bench','Bench press','Bench Press 1RM'],['squat','Squat','Squat 1RM'],['deadlift','Deadlift','Deadlift 1RM'],['ohp','Overhead press','Overhead Press 1RM'],['row','Barbell row','Barbell Row 1RM']];
-let unit='lb',lift='any';
-$('lifts').innerHTML=LIFTS.map(([k,n])=>`<button type="button" role="radio" data-k="${k}" class="${k==='any'?'on':''}">${n}</button>`).join('');
-const WORD=v=>v>=10?'max':v>=9?'very hard':v>=8?'hard':v>=7?'moderate':'easy';
-const RPEVALS=['6','6.5','7','7.5','8','8.5','9','9.5','10',''];
-function setRpe(v){$('p').value=v;const off=v==='';$('track').classList.toggle('off',off);$('ns').classList.toggle('on',off);
- if(off){$('rLeft').textContent='Not sure';$('rRpe').textContent='treated as all-out';render();return}
- const n=+v,left=10-n;$('rng').value=n;$('thumb').style.left=((n-6)/4*100)+'%';
- $('thumb').textContent=n;
- $('rLeft').textContent='RPE '+n;document.querySelectorAll('#ticks span').forEach(t=>t.classList.toggle('on',t.dataset.v===String(n)));$('rRpe').textContent=left===0?'nothing left':left===0.5?'about half a rep left':`about ${left%1?Math.floor(left)+'½':left} rep${left===1?'':'s'} left`;render()}
-$('rng').oninput=e=>setRpe(e.target.value);
-$('ticks').onclick=e=>{const t=e.target.closest('span');if(t)setRpe(t.dataset.v)};
-$('ns').onclick=()=>setRpe($('ns').classList.contains('on')?'8':'');
-document.querySelectorAll('.st').forEach(b=>b.onclick=()=>{const el=$(b.dataset.t),d=+b.dataset.d;let v=parseFloat(el.value)||0;
- if(b.dataset.t==='w')v=Math.max(0,Math.round((v+d*step())/step())*step());else v=Math.min(30,Math.max(1,Math.round(v)+d));el.value=v;render()});
-const step=()=>unit==='lb'?5:2.5;
-const round=x=>Math.round(x/step())*step();
-const fmt=x=>(Math.round(x*10)/10).toLocaleString();
-const shown=m=>unit==='kg'?Math.round(m*2)/2:Math.round(m);
-// Epley with reps in reserve; a true single is the max itself (as in Ora).
-const e1rm=(w,reps,rir)=>reps+rir<=1?w:w*(1+(reps+rir)/30);
-const target=(m,reps,rir)=>reps+rir<=1?m:m/(1+(reps+rir)/30);
-const FORMULAS={Epley:(w,n)=>n<=1?w:w*(1+n/30),Brzycki:(w,n)=>w*36/(37-n),Lombardi:(w,n)=>w*Math.pow(n,0.10),Mayhew:(w,n)=>100*w/(52.2+41.9*Math.exp(-0.055*n)),"O'Conner":(w,n)=>w*(1+0.025*n),Wathan:(w,n)=>100*w/(48.8+53.8*Math.exp(-0.075*n))};
-// Real proportions: diameter (mm) and thickness (mm) per plate.
-const PLATES={lb:[[45,'#1f5fd6',450,56],[35,'#e8b20c',400,48],[25,'#1f9a55',330,40],[10,'#e9edf3',260,30],[5,'#d23b30',215,24],[2.5,'#525c6e',165,18]],
- kg:[[25,'#d32f2f',450,54],[20,'#1f5fd6',450,46],[15,'#e8b20c',450,40],[10,'#1f9a55',450,34],[5,'#e9edf3',230,26],[2.5,'#2b2f38',210,20],[1.25,'#b9c1cc',160,16]]};
-function plates(total){
- const bar=unit==='lb'?45:20;let side=(total-bar)/2;if(side<-1e-9)return null;const out=[];
- for(const pl of PLATES[unit]){while(side>=pl[0]-1e-9){out.push(pl);side-=pl[0]}}
- return {out,left:side,bar};
-}
-function shade(hex,amt){const n=parseInt(hex.slice(1),16);let r=n>>16,g=n>>8&255,b=n&255;const f=x=>Math.max(0,Math.min(255,Math.round(x+amt)));return `rgb(${f(r)},${f(g)},${f(b)})`}
-function drawBar(list){
- const W=680,k=0.42; // px per mm
- const big=Math.max(160,...list.map(x=>x[2])),H=Math.round(big*k+34),cy=H-14-big*k/2; // the bar rests on its biggest plates
- const sleeveL=168,collarW=14,shaftL=W-2*(sleeveL+collarW+12);
- const thick=list.map(p=>Math.max(9,p[3]*k*1.25)),fit=Math.min(1,(sleeveL-14)/(thick.reduce((a,b)=>a+b+1,0)||1));
- const xS=12+sleeveL+collarW, xE=xS+shaftL;
- let defs='',g='';
- // shaft with knurl
- defs+='<linearGradient id="steel" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#eef2f7"/><stop offset=".45" stop-color="#a9b3c2"/><stop offset="1" stop-color="#5d6676"/></linearGradient>';
- defs+='<pattern id="knurl" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="5" height="5" fill="url(#steel)"/><path d="M0 0V5" stroke="#00000022" stroke-width="1"/></pattern>';
- g+=`<rect x="${xS}" y="${cy-6}" width="${shaftL}" height="12" rx="3" fill="url(#steel)"/>`;
- g+=`<rect x="${xS+40}" y="${cy-6}" width="${shaftL/2-70}" height="12" fill="url(#knurl)"/><rect x="${xS+shaftL/2+30}" y="${cy-6}" width="${shaftL/2-70}" height="12" fill="url(#knurl)"/>`;
- const sides=[-1,1];
- for(const s of sides){
-  const inner=s<0?xS:xE; // collar position
-  const cx=s<0?inner-collarW:inner;
-  g+=`<rect x="${cx}" y="${cy-17}" width="${collarW}" height="34" rx="3" fill="url(#steel)" stroke="#00000040"/>`;
-  const sx=s<0?cx-sleeveL:cx+collarW;
-  g+=`<rect x="${sx}" y="${cy-11}" width="${sleeveL}" height="22" rx="4" fill="url(#steel)" stroke="#00000030"/>`;
-  // plates from the collar outward
-  let pos=s<0?cx:cx+collarW;
-  list.forEach(([wt,col,dia,th],i)=>{
-   const h=dia*k,t=thick[i]*fit,x=s<0?pos-t:pos,y=cy-h/2,id=`p${s}${i}`;
-   defs+=`<linearGradient id="${id}" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="${shade(col,-45)}"/><stop offset=".35" stop-color="${shade(col,25)}"/><stop offset=".7" stop-color="${col}"/><stop offset="1" stop-color="${shade(col,-55)}"/></linearGradient>`;
-   g+=`<rect x="${x}" y="${y}" width="${t}" height="${h}" rx="${Math.min(5,t/2)}" fill="url(#${id})" stroke="${shade(col,-70)}" stroke-width="1"/>`;
-   g+=`<rect x="${x+1.5}" y="${y+3}" width="${t-3}" height="5" rx="2" fill="#ffffff2a"/>`;
-   if(h>70&&s>0){const light=col==='#e9edf3'||col==='#e8b20c'||col==='#b9c1cc';g+=`<text x="${x+t/2}" y="${cy}" fill="${light?'#1d2433':'#ffffffd9'}" font-family="Roboto,Arial" font-weight="700" font-size="${Math.min(11,t-2)}" text-anchor="middle" dominant-baseline="middle" transform="rotate(-90 ${x+t/2} ${cy})">${wt}</text>`}
-   pos+=s<0?-t-1:t+1;
-  });
-  // spring clip
-  const clipX=s<0?pos-8:pos;g+=`<rect x="${clipX}" y="${cy-14}" width="8" height="28" rx="3" fill="#2b2f38" stroke="#000" stroke-opacity=".4"/>`;
- }
- // floor shadow
- const shadow=`<ellipse cx="${W/2}" cy="${H-10}" rx="${W/2-30}" ry="6" fill="#000" opacity=".35"/>`;
- return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Barbell loaded with the plates listed below"><defs>${defs}</defs>${shadow}${g}</svg>`;
-}
-function render(){
- const w=parseFloat($('w').value),reps=Math.min(30,Math.max(1,Math.round(+$('r').value||1))),rpeBlank=$('p').value==='',rpe=rpeBlank?10:+$('p').value,rir=10-rpe;
- if(!(w>0)){$('out').textContent='-';$('note').textContent='Enter the weight you lifted.';return}
- const m=e1rm(w,reps,rir);
- $('out').textContent=fmt(shown(m))+' '+unit;
- $('note').textContent=`From ${fmt(w)} ${unit} × ${reps} at RPE ${rpe}`+(rpeBlank?' (assumed all-out)':'');
- const chips=[];const bw=parseFloat($('bw').value);
- if(bw>0)chips.push(`${(m/bw).toFixed(2)}× bodyweight`);
- chips.push(`${Math.round(w/m*100)}% of max on this set`);
- if(reps+rir>12)chips.push('High reps: rough estimate');
- $('chips').innerHTML=chips.map(c=>`<span class="chip">${c}</span>`).join('');
- const tgt=round(m),pl=plates(tgt);
- if(pl){$('bar').innerHTML=drawBar(pl.out);
-  $('barNote').textContent=`To load ${fmt(tgt)} ${unit}: a ${pl.bar} ${unit} bar plus ${pl.out.length?pl.out.map(x=>x[0]).join(' + ')+' '+unit+' on each side':'no plates'}.`;}
- else{$('bar').innerHTML='';$('barNote').textContent='Lighter than an empty bar.';}
- const lefts=[[0,'All-out'],[1,'1 left'],[2,'2 left'],[3,'3 left']];
- let h='<tr><th>Reps</th>'+lefts.map(([l,t])=>`<th>${t}<small>RPE ${10-l}</small></th>`).join('')+'</tr>';
- for(let n=1;n<=12;n++)h+=`<tr><td>${n} rep${n>1?'s':''}</td>`+lefts.map(([l])=>`<td class="${n===reps&&l===rir?'hi':''}">${fmt(round(target(m,n,l)))}</td>`).join('')+'</tr>';
- planM=m;plan();
- $('gridRpe').innerHTML=h;
- h='<tr><th>Reps</th><th>Weight</th><th>% of 1RM</th></tr>';
- for(let n=1;n<=30;n++){const t=target(m,n,0);h+=`<tr><td>${n}</td><td class="${n===reps&&rir===0?'hi':''}${n>12?' mu':''}">${fmt(round(t))} ${unit}</td><td class="${n>12?'mu':''}">${Math.round(t/m*100)}%</td></tr>`}
- $('gridReps').innerHTML=h;
- $('pct').innerHTML=[95,90,85,80,75,70,65,60].map(p=>`<div><b>${fmt(round(m*p/100))}</b><span>${p}% · ${unit}</span></div>`).join('');
- const bar=unit==='lb'?45:20;
- const W=[['Bar',bar,10],['40%',Math.max(bar,round(m*.4)),5],['60%',round(m*.6),3],['75%',round(m*.75),2],['85%',round(m*.85),1],['92%',round(m*.92),1]];
- $('wu').innerHTML=W.map(([n,x,r],i)=>`<div><span class="n">Set ${i+1}</span><b>${fmt(x)} ${unit}</b><span>${n} · ${r} rep${r>1?'s':''}</span></div>`).join('')+`<div class="max"><span class="n">Attempt</span><b>${fmt(tgt)} ${unit}</b><span>Your estimated max · 1 rep</span></div>`;
- const nf=reps+rir;const vals=Object.entries(FORMULAS).map(([k,f])=>[k,f(w,nf)]);
- const avg=vals.reduce((a,[,v])=>a+v,0)/vals.length;
- const COLS={Epley:'#3d8bff',Brzycki:'#1f9a55',Lombardi:'#e8b20c',Mayhew:'#f07b22',"O'Conner":'#c56cf0',Wathan:'#e0352b'};
- const lo=Math.min(...vals.map(x=>x[1])),hi=Math.max(...vals.map(x=>x[1])),span=Math.max(1e-9,hi-lo),pos=v=>((v-lo)/span*100).toFixed(1);
- $('fsum').innerHTML=`<div class="top"><div><small>AVERAGE OF ${vals.length} FORMULAS</small><b>${fmt(shown(avg))} ${unit}</b></div><div class="rg">All within ${fmt(shown(hi-lo))} ${unit} (${fmt(shown(lo))} to ${fmt(shown(hi))})</div></div>
-  <div class="rangebar"><div class="ln"></div><div class="avg" style="left:${pos(avg)}%"></div>${vals.map(([k,v])=>`<i title="${k}" style="left:${pos(v)}%;background:${COLS[k]}"></i>`).join('')}<span class="end" style="left:0%">${fmt(shown(lo))}</span><span class="end" style="left:100%">${fmt(shown(hi))}</span></div>`;
- $('cmp').innerHTML=vals.map(([k,v])=>`<div class="${k==='Epley'?'us':''}"><i style="background:${COLS[k]}"></i><b>${fmt(shown(v))} ${unit}</b><span>${k}${k==='Epley'?' · used above':''}</span></div>`).join('');
- history.replaceState(null,'',`?lift=${lift}&w=${w}&u=${unit}&r=${reps}&rpe=${$('p').value}`+(bw>0?`&bw=${bw}`:''));
-}
-['w','r','bw'].forEach(id=>$(id).addEventListener('input',render));
-let planM=0,planL=2;
-function plan(){const n=Math.min(12,Math.max(1,Math.round(+$('pr').value||1)));$('pAns').textContent=planM?fmt(round(target(planM,n,planL)))+' '+unit:'-'}
-$('pr').oninput=plan;$('pr-').onclick=()=>{$('pr').value=Math.max(1,(+$('pr').value||1)-1);plan()};$('pr+').onclick=()=>{$('pr').value=Math.min(12,(+$('pr').value||1)+1);plan()};
-$('pl').onclick=e=>{const b=e.target.closest('button');if(!b)return;planL=+b.dataset.l;document.querySelectorAll('#pl button').forEach(x=>x.classList.toggle('on',x===b));plan()};
-$('lifts').onclick=e=>{const b=e.target.closest('button');if(!b)return;lift=b.dataset.k;document.querySelectorAll('#lifts button').forEach(x=>x.classList.toggle('on',x===b));$('liftName').textContent=LIFTS.find(l=>l[0]===lift)[2];render()};
-function setUnit(u){if(unit===u)return;const f=u==='kg'?1/2.20462:2.20462;['w','bw'].forEach(id=>{const v=parseFloat($(id).value);if(v>0)$(id).value=fmt(id==='w'?Math.round(v*f/(u==='kg'?2.5:5))*(u==='kg'?2.5:5):Math.round(v*f))});unit=u;$('wu1').textContent=$('wu2').textContent=u;$('lb').classList.toggle('on',u==='lb');$('kg').classList.toggle('on',u==='kg');render()}
-$('lb').onclick=()=>setUnit('lb');$('kg').onclick=()=>setUnit('kg');
-document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tabs button').forEach(x=>x.classList.toggle('on',x===b));['rpe','reps','pct'].forEach(t=>$('tab-'+t).hidden=t!==b.dataset.t)});
-$('share').onclick=async()=>{try{await navigator.clipboard.writeText(location.href);$('share').textContent='Copied'}catch(_){$('share').textContent='Copy the address bar'}setTimeout(()=>$('share').textContent='Copy link',1600)};
-const q=new URLSearchParams(location.search);
-if(q.get('u')==='kg'){unit='kg';$('kg').classList.add('on');$('lb').classList.remove('on');$('wu1').textContent=$('wu2').textContent='kg'}
-if(q.get('w'))$('w').value=q.get('w');if(q.get('r'))$('r').value=q.get('r');const rpeQ=q.has('rpe')?q.get('rpe'):null;if(q.get('bw'))$('bw').value=q.get('bw');
-if(q.get('lift')&&LIFTS.some(l=>l[0]===q.get('lift'))){lift=q.get('lift');document.querySelectorAll('#lifts button').forEach(x=>x.classList.toggle('on',x.dataset.k===lift));$('liftName').textContent=LIFTS.find(l=>l[0]===lift)[2]}
-setRpe(rpeQ!==null&&RPEVALS.includes(rpeQ)?rpeQ:'8');
-</script>
+<script src="/assets/tools/barbell.js?v=2026-11-21"></script>
+<script src="/assets/tools/1rm.js?v=2026-11-21"></script>
 <script src="/assets/stats.js" defer></script></body></html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Overhead Press 1RM Calculator: Your Press Max from Any Set | Ora</title>
+<meta name="description" content="Estimate your overhead press one rep max from any set, with RPE. See press weights for 1-30 reps, plates to load, a warm-up and notes on strict vs push press and small jumps. Pounds or kilograms.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://oracoach.app/tools/1rm-calculator/overhead-press/">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Ora">
+<meta property="og:title" content="Overhead Press 1RM Calculator | Ora"><meta property="og:description" content="Find your overhead press max from any set, with RPE. Weights for 1-30 reps, plates to load and a warm-up.">
+<meta property="og:image" content="/assets/gen/og-home.png">
+<meta name="theme-color" content="#05080F">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/ora-icon-32.png?v=2"><link rel="icon" type="image/png" sizes="192x192" href="/assets/ora-icon-192.png?v=2"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Roboto:wght@400;500;700&family=Luckiest+Guy&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/home/page.css?v=2026-11-15">
+<link rel="stylesheet" href="/assets/tools/tools.css?v=2026-11-21">
+<script type="application/ld+json">[
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Ora","item":"https://oracoach.app/"},{"@type":"ListItem","position":2,"name":"1RM Calculator","item":"https://oracoach.app/tools/1rm-calculator/"},{"@type":"ListItem","position":3,"name":"Overhead Press","item":"https://oracoach.app/tools/1rm-calculator/overhead-press/"}]},
+{"@context":"https://schema.org","@type":"WebApplication","name":"Ora Overhead Press 1RM Calculator","url":"https://oracoach.app/tools/1rm-calculator/overhead-press/","applicationCategory":"HealthApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Orbi Labs LLC"}},
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I find my overhead press max without testing it?","acceptedAnswer":{"@type":"Answer","text":"Press a set you can do for 2-6 strict reps, note how many you had left (RPE), and enter it above."}},{"@type":"Question","name":"Is a push press max higher than a strict press max?","acceptedAnswer":{"@type":"Answer","text":"Yes. The leg drive lets you move more, so track them as separate lifts and enter strict reps for a strict max."}},{"@type":"Question","name":"Why does my overhead press go up so slowly?","acceptedAnswer":{"@type":"Answer","text":"It uses smaller muscles than the squat or bench, so the same jump in pounds is a bigger share of your max. Smaller jumps with fractional plates keep it moving."}},{"@type":"Question","name":"Does this work for dumbbell shoulder press?","acceptedAnswer":{"@type":"Answer","text":"Yes for the estimate: enter the weight of one dumbbell. Ignore the plate loading, which is for a barbell."}},{"@type":"Question","name":"What is RPE and RIR?","acceptedAnswer":{"@type":"Answer","text":"RPE rates how hard a set was on a 1-10 scale. RIR (reps in reserve) is how many more reps you could have done. RPE 8 means about 2 reps in reserve."}},{"@type":"Question","name":"How accurate is a 1RM calculator?","acceptedAnswer":{"@type":"Answer","text":"It's an estimate. 1RM formulas are most accurate for sets of about 10 reps or fewer taken close to failure. Your true max on a given day can be a few percent higher or lower."}}]}]</script>
+</head><body data-lift="ohp">
+<a class="skip" href="#main">Skip to content</a>
+<nav><a href="/"><img src="/assets/home/ora_logo.webp" alt="Ora home"></a><a class="l" href="/privacy/">Privacy</a><a class="l" href="/support/">Support</a><a class="cta" href="/#join">Get early access</a></nav><a class="login" href="https://app.oracoach.app/app/">Login</a>
+<main id="main" tabindex="-1">
+<div class="head"><img src="/assets/home/chibi_lifting.webp" alt="" width="120" height="120"><div>
+<div class="kicker">FREE TOOL</div>
+<h1>Overhead Press <span class="grad">1RM Calculator</span></h1>
+<p class="lead">Enter a recent overhead press set to estimate your max. Then see what to press for any number of reps, how to load the bar and how to warm up for a max attempt.</p></div></div>
+
+<section class="calc" aria-label="1RM calculator">
+ <div class="lifts" id="lifts" role="group" aria-label="Lift"><a href="/tools/1rm-calculator/" data-k="any">Any lift</a><a href="/tools/1rm-calculator/bench-press/" data-k="bench">Bench press</a><a href="/tools/1rm-calculator/squat/" data-k="squat">Squat</a><a href="/tools/1rm-calculator/deadlift/" data-k="deadlift">Deadlift</a><a href="/tools/1rm-calculator/overhead-press/" data-k="ohp" class="on" aria-current="page">Overhead press</a><a href="/tools/1rm-calculator/barbell-row/" data-k="row">Barbell row</a></div>
+ <div class="inputs">
+  <div class="box wbox"><div class="bl"><span>Weight lifted</span><div class="seg"><button type="button" id="lb" class="on">lb</button><button type="button" id="kg">kg</button></div></div>
+   <div class="stepper big"><button type="button" class="st" data-t="w" data-d="-1" aria-label="Less weight">−</button><input id="w" type="number" inputmode="decimal" value="95" min="0" step="any" aria-label="Weight lifted"><span class="u" id="wu1">lb</span><button type="button" class="st" data-t="w" data-d="1" aria-label="More weight">+</button></div></div>
+  <div class="box"><div class="bl"><span>Reps</span></div>
+   <div class="stepper"><button type="button" class="st" data-t="r" data-d="-1" aria-label="Fewer reps">−</button><input id="r" type="number" inputmode="numeric" value="5" min="1" max="30" aria-label="Reps"><button type="button" class="st" data-t="r" data-d="1" aria-label="More reps">+</button></div></div>
+  <div class="box"><div class="bl"><span>Bodyweight</span><em>Optional</em></div>
+   <div class="stepper plain"><input id="bw" type="number" inputmode="decimal" placeholder="e.g. 180" min="0" step="any" aria-label="Bodyweight"><span class="u" id="wu2">lb</span></div></div>
+  <div class="box rpebox"><div class="bl"><span>How hard was it?</span><button type="button" class="ns" id="ns">Not sure</button></div>
+   <div class="read"><b id="rLeft">RPE 8</b><span id="rRpe">about 2 reps left</span></div>
+   <div class="track" id="track"><div class="rail"></div><div class="thumb" id="thumb"></div><input type="range" min="6" max="10" step="0.5" value="8" id="rng" aria-label="Reps left (RPE)"></div>
+   <div class="ticks" id="ticks"><span data-v="6" style="left:0%">6</span><span data-v="7" style="left:25%">7</span><span data-v="8" style="left:50%">8</span><span data-v="9" style="left:75%">9</span><span data-v="10" style="left:100%">10</span></div>
+   <div class="zones"><span>Easy</span><span>Hard</span><span>All-out</span></div>
+   <input type="hidden" id="p" value="8"></div>
+ </div>
+ <div class="res"><img src="/assets/home/chibi_coach.webp" alt=""><div><small id="resLabel">ESTIMATED 1RM</small><b id="out">-</b><span class="sub" id="note"></span><div class="chips" id="chips"></div></div><button class="share" id="share" type="button">Copy link</button></div>
+ <div class="bar" id="bar" aria-label="Plates per side"></div>
+ <p class="hint" id="barNote"></p>
+</section>
+
+<h2>Your numbers</h2>
+<div class="tabs" role="tablist">
+ <button class="on" data-t="rpe">Plan a set</button>
+ <button data-t="reps">Rep max (1-30 reps)</button>
+ <button data-t="pct">Percentages</button>
+</div>
+<div id="tab-rpe">
+ <div class="plan">
+  <div class="pq">I want to do</div>
+  <div class="stepper sm"><button type="button" class="st" id="pr-" aria-label="Fewer reps">−</button><input id="pr" type="number" value="8" min="1" max="12" aria-label="Reps for the set"><button type="button" class="st" id="pr+" aria-label="More reps">+</button></div>
+  <div class="pq">reps, leaving</div>
+  <div class="seg2" id="pl"><button type="button" data-l="0">0</button><button type="button" data-l="1">1</button><button type="button" data-l="2" class="on">2</button><button type="button" data-l="3">3</button></div>
+  <div class="pq">in the tank.</div>
+  <div class="pans"><small>LIFT</small><b id="pAns">-</b></div>
+ </div>
+ <p>Or look it up: find how many reps you want on the left, then how many you want to leave in the tank. The highlighted cell is the set you entered above. The full chart is on the <a href="/tools/rpe-chart/">RPE chart</a>.</p>
+ <div class="tbl"><table id="gridRpe"></table></div></div>
+<div id="tab-reps" hidden><p>The most you could likely lift for each number of reps, all-out. Past about 12 reps every formula gets less reliable, so treat those rows as rough.</p><div class="tbl"><table id="gridReps"></table></div></div>
+<div id="tab-pct" hidden><p>Common training percentages of your estimated max, rounded to plates you can load.</p><div class="pct" id="pct"></div></div>
+<h2>Getting a good press estimate</h2>
+<ul>
+<li><strong>Strict and push press are different lifts.</strong> A push press uses your legs and moves more weight. Enter strict reps for a strict max.</li>
+<li><strong>Watch the lean.</strong> Leaning far back turns the lift into something closer to an incline press. Reps where you leaned more as the set went on make the estimate read high.</li>
+<li><strong>Standing and seated differ.</strong> Estimate each one on its own.</li>
+<li><strong>Small jumps matter here.</strong> The press is a small lift, so 5 lb is a big jump. Fractional plates (1.25 lb or 0.5 kg) let you keep adding weight. The <a href="/tools/plate-calculator/">plate calculator</a> can include them.</li>
+</ul>
+<h2>Warm up for a max attempt</h2>
+<p>Pressing a max? Ramp up like this. Rest 2-3 minutes before the heavier sets and 3-5 before the attempt.</p>
+<div class="wu" id="wu"></div>
+
+<h2>How the formulas compare</h2>
+<p>Different formulas give slightly different answers. For sets under about 10 reps they stay within a few percent of each other.</p>
+<div class="fsum" id="fsum"></div><div class="cmp" id="cmp"></div>
+
+<div class="cta-card"><img src="/assets/home/chibi_thumbsup.webp" alt=""><div><b>Ora does this for every set</b><p>Log a set in two taps and Ora sets up your next one from how hard it felt, and tracks your estimated max as it climbs. Tap Why on any set to see where the number came from.</p><a class="cta" href="/#join">Get early access</a></div></div>
+
+<h2>How the calculator works</h2>
+<p>The main estimate uses the Epley formula with reps in reserve, the same math Ora uses in the app:</p>
+<p class="formula">1RM = weight × (1 + (reps + RIR) ÷ 30)</p>
+<p>RIR (reps in reserve) is how many more reps you could have done. If you pick an RPE, RIR is 10 − RPE, so a set at RPE 8 counts as about 2 reps left. If you pick "Not sure", the calculator assumes the set was all-out, which gives a conservative estimate. A true single at RPE 10 is your max as lifted.</p>
+
+<h2>Questions</h2>
+<details><summary>How do I find my overhead press max without testing it?</summary><p>Press a set you can do for 2-6 strict reps, note how many you had left (RPE), and enter it above.</p></details>
+<details><summary>Is a push press max higher than a strict press max?</summary><p>Yes. The leg drive lets you move more, so track them as separate lifts and enter strict reps for a strict max.</p></details>
+<details><summary>Why does my overhead press go up so slowly?</summary><p>It uses smaller muscles than the squat or bench, so the same jump in pounds is a bigger share of your max. Smaller jumps with fractional plates keep it moving.</p></details>
+<details><summary>Does this work for dumbbell shoulder press?</summary><p>Yes for the estimate: enter the weight of one dumbbell. Ignore the plate loading, which is for a barbell.</p></details>
+<details><summary>What is RPE and RIR?</summary><p>RPE rates how hard a set was on a 1-10 scale. RIR (reps in reserve) is how many more reps you could have done. RPE 8 means about 2 reps in reserve.</p></details>
+<details><summary>How accurate is a 1RM calculator?</summary><p>It&#x27;s an estimate. 1RM formulas are most accurate for sets of about 10 reps or fewer taken close to failure. Your true max on a given day can be a few percent higher or lower.</p></details>
+
+<h2>More free tools</h2>
+<div class="more"><a href="/tools/1rm-calculator/">1RM Calculator<span>For any lift</span></a><a href="/tools/rpe-chart/">RPE Chart<span>Percent of max for every rep and RPE</span></a><a href="/tools/plate-calculator/">Plate Calculator<span>What to put on each side of the bar</span></a></div>
+
+<h3>Sources</h3>
+<ul class="src">
+<li>Epley B. Poundage chart. Boyd Epley Workout, 1985.</li>
+<li>Brzycki M. Strength testing: predicting a one-rep max from reps-to-fatigue. JOPERD, 1993.</li>
+<li>Zourdos MC et al. Novel resistance training-specific RPE scale measuring repetitions in reserve. J Strength Cond Res, 2016.</li>
+</ul>
+<p class="meta">Training guidance, not medical advice. Stop a set if something hurts.</p>
+</main>
+<footer><span>© 2026 Orbi Labs LLC · oracoach.app</span><div><a href="/">Home</a><a href="/wiki/">Wiki</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/health-data/">Consumer Health Data Privacy Policy</a><a href="/accessibility/">Accessibility</a><a href="/team/">Team</a><a href="/tools/1rm-calculator/">1RM Calculator</a><a href="/support/">Support</a></div></footer>
+<script src="/assets/tools/barbell.js?v=2026-11-21"></script>
+<script src="/assets/tools/1rm.js?v=2026-11-21"></script>
+<script src="/assets/stats.js" defer></script></body></html>
