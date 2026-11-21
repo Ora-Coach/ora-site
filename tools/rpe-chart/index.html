@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RPE Chart: Percent of 1RM for Every Rep and RPE (with RIR) | Ora</title>
+<meta name="description" content="Free interactive RPE chart. See the percent of your one rep max for 1-12 reps at RPE 6-10, add your max to get weights in pounds or kilograms, and learn what each RPE and RIR means.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://oracoach.app/tools/rpe-chart/">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Ora">
+<meta property="og:title" content="RPE Chart | Ora"><meta property="og:description" content="Percent of your max for every rep count and RPE. Add your max to see the weights.">
+<meta property="og:image" content="/assets/gen/og-home.png">
+<meta name="theme-color" content="#05080F">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/ora-icon-32.png?v=2"><link rel="icon" type="image/png" sizes="192x192" href="/assets/ora-icon-192.png?v=2"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Roboto:wght@400;500;700&family=Luckiest+Guy&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/home/page.css?v=2026-11-15">
+<link rel="stylesheet" href="/assets/tools/tools.css?v=2026-11-21">
+<script type="application/ld+json">[
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Ora","item":"https://oracoach.app/"},{"@type":"ListItem","position":2,"name":"RPE Chart","item":"https://oracoach.app/tools/rpe-chart/"}]},
+{"@context":"https://schema.org","@type":"WebApplication","name":"Ora RPE Chart","url":"https://oracoach.app/tools/rpe-chart/","applicationCategory":"HealthApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Orbi Labs LLC"}},
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What does RPE 8 mean?","acceptedAnswer":{"@type":"Answer","text":"RPE 8 means you finished the set with about 2 more good reps in you. On this chart, 5 reps at RPE 8 is about 81% of your one rep max."}},
+{"@type":"Question","name":"What is the difference between RPE and RIR?","acceptedAnswer":{"@type":"Answer","text":"They describe the same thing from two sides. RIR (reps in reserve) counts the reps you had left, and RPE rates the effort out of 10. For hard sets, RPE = 10 − RIR, so 2 reps in reserve is RPE 8."}},
+{"@type":"Question","name":"What RPE should I train at?","acceptedAnswer":{"@type":"Answer","text":"Most programs keep the bulk of their working sets around RPE 7-9, a few reps short of failure, with all-out sets used sparingly. Lighter technique work can sit around RPE 6."}},
+{"@type":"Question","name":"Is RPE 10 the same as failing a rep?","acceptedAnswer":{"@type":"Answer","text":"Not quite. RPE 10 means you couldn't have done another rep with good form. You finished the last one; there just wasn't another in you."}},
+{"@type":"Question","name":"How do I get better at rating RPE?","acceptedAnswer":{"@type":"Answer","text":"Write down the RPE right after each set and compare it with what happens on later sets. People tend to judge reps left more accurately the closer they are to failure, so ratings of 8-10 are usually more reliable than ratings of 6."}},
+{"@type":"Question","name":"Why do RPE charts give different percentages?","acceptedAnswer":{"@type":"Answer","text":"Each chart comes from a different formula or data set, so they can differ by a percent or two. Treat any chart as a starting weight and adjust from how the first set feels."}}
+]}]</script>
+</head><body>
+<a class="skip" href="#main">Skip to content</a>
+<nav><a href="/"><img src="/assets/home/ora_logo.webp" alt="Ora home"></a><a class="l" href="/privacy/">Privacy</a><a class="l" href="/support/">Support</a><a class="cta" href="/#join">Get early access</a></nav><a class="login" href="https://app.oracoach.app/app/">Login</a>
+<main id="main" tabindex="-1">
+<div class="head"><img src="/assets/home/chibi_thinking.webp" alt="" width="120" height="120"><div>
+<div class="kicker">FREE TOOL</div>
+<h1>RPE <span class="grad">Chart</span></h1>
+<p class="lead">The percent of your max for every rep count and RPE. Add your max to turn it into weights, then tap any cell to see the set.</p></div></div>
+
+<section class="calc" aria-label="RPE chart">
+ <div class="inputs two">
+  <div class="box"><div class="bl"><span>Your 1RM</span><div class="seg"><button type="button" id="lb" class="on">lb</button><button type="button" id="kg">kg</button></div></div>
+   <div class="stepper big"><button type="button" class="st" data-d="-1" aria-label="Less weight">−</button><input id="m" type="number" inputmode="decimal" placeholder="e.g. 315" min="0" step="any" aria-label="Your one rep max"><span class="u" id="mu">lb</span><button type="button" class="st" data-d="1" aria-label="More weight">+</button></div>
+   <p class="hint">Don't know it? <a href="/tools/1rm-calculator/">Estimate it from any set</a>.</p></div>
+  <div class="box"><div class="bl"><span>Chart</span></div>
+   <div class="opts"><span>Show</span><div class="seg" id="show"><button type="button" data-v="pct" class="on">%</button><button type="button" data-v="w">Weight</button></div></div>
+   <div class="opts"><span>Half steps</span><div class="seg" id="half"><button type="button" data-v="0">Off</button><button type="button" data-v="1" class="on">On</button></div></div></div>
+ </div>
+ <div class="res"><img src="/assets/home/chibi_coach.webp" alt=""><div><small id="selLabel">THIS SET</small><b id="selOut">-</b><span class="sub" id="selNote"></span><div class="chips" id="selChips"></div></div><button class="share" id="share" type="button">Copy link</button></div>
+ <div class="tbl rpe"><table id="grid" aria-label="Percent of one rep max by reps and RPE"></table></div>
+ <p class="hint">Rows are reps in the set, columns are how hard it was. Tap a cell to see that set above.</p>
+</section>
+
+<h2>The RPE scale</h2>
+<p>RPE (rating of perceived exertion) rates a set by how many more good reps you could have done. This is the reps-in-reserve version used in strength training.</p>
+<div class="tbl"><table class="scale">
+<tr><th>RPE</th><th>Reps left</th><th>What it feels like</th></tr>
+<tr><td>10</td><td>0</td><td>Max effort. No more reps possible.</td></tr>
+<tr><td>9.5</td><td>0</td><td>No more reps, but a little more weight might have gone.</td></tr>
+<tr><td>9</td><td>1</td><td>One more rep in the tank.</td></tr>
+<tr><td>8.5</td><td>1-2</td><td>Definitely one more, maybe two.</td></tr>
+<tr><td>8</td><td>2</td><td>Two more reps in the tank.</td></tr>
+<tr><td>7.5</td><td>2-3</td><td>Definitely two more, maybe three.</td></tr>
+<tr><td>7</td><td>3</td><td>Three more reps. The bar moves fast.</td></tr>
+<tr><td>5-6</td><td>4-6</td><td>Warm-up or technique weight.</td></tr>
+<tr><td>1-4</td><td>Lots</td><td>Very light to light effort.</td></tr>
+</table></div>
+
+<h2>How to use RPE in training</h2>
+<ul>
+<li><strong>Pick a target, not just a weight.</strong> "5 reps at RPE 8" means a set of 5 that leaves about 2 in the tank. The chart gives the starting weight.</li>
+<li><strong>Adjust after the first set.</strong> If 5 reps felt like RPE 9, take a little off. If they felt like RPE 7, add a little. That's the point of RPE: it follows how strong you are that day.</li>
+<li><strong>Rate it right away.</strong> Say the number as soon as you rack the bar, before you talk yourself up or down.</li>
+<li><strong>Expect to get better at it.</strong> Most people are unsure at first. Ratings near failure (8-10) tend to be the most accurate.</li>
+</ul>
+
+<div class="cta-card"><img src="/assets/home/chibi_thumbsup.webp" alt=""><div><b>Ora asks how each set felt</b><p>Rate a set in one tap and Ora sets your next weight from it, so a heavy day and a great day each get the right load. Tap Why on any set to see where the number came from.</p><a class="cta" href="/#join">Get early access</a></div></div>
+
+<h2>How the chart is built</h2>
+<p>Each cell uses the Epley formula with reps in reserve, the same math as our <a href="/tools/1rm-calculator/">1RM calculator</a> and the Ora app:</p>
+<p class="formula">% of 1RM = 100 ÷ (1 + (reps + RIR) ÷ 30)</p>
+<p>RIR is 10 − RPE. A single at RPE 10 is 100%, your max as lifted. Other published RPE charts can differ by a percent or two, since each comes from a different formula or data set. Use the chart for your first set, then adjust.</p>
+
+<h2>Questions</h2>
+<details><summary>What does RPE 8 mean?</summary><p>RPE 8 means you finished the set with about 2 more good reps in you. On this chart, 5 reps at RPE 8 is about 81% of your one rep max.</p></details>
+<details><summary>What is the difference between RPE and RIR?</summary><p>They describe the same thing from two sides. RIR (reps in reserve) counts the reps you had left, and RPE rates the effort out of 10. For hard sets, RPE = 10 − RIR, so 2 reps in reserve is RPE 8.</p></details>
+<details><summary>What RPE should I train at?</summary><p>Most programs keep the bulk of their working sets around RPE 7-9, a few reps short of failure, with all-out sets used sparingly. Lighter technique work can sit around RPE 6.</p></details>
+<details><summary>Is RPE 10 the same as failing a rep?</summary><p>Not quite. RPE 10 means you couldn't have done another rep with good form. You finished the last one; there just wasn't another in you.</p></details>
+<details><summary>How do I get better at rating RPE?</summary><p>Write down the RPE right after each set and compare it with what happens on later sets. People tend to judge reps left more accurately the closer they are to failure, so ratings of 8-10 are usually more reliable than ratings of 6.</p></details>
+<details><summary>Why do RPE charts give different percentages?</summary><p>Each chart comes from a different formula or data set, so they can differ by a percent or two. Treat any chart as a starting weight and adjust from how the first set feels.</p></details>
+
+<h2>More free tools</h2>
+<div class="more"><a href="/tools/1rm-calculator/">1RM Calculator<span>Your max from any set, with RPE</span></a><a href="/tools/plate-calculator/">Plate Calculator<span>What to put on each side of the bar</span></a><a href="/tools/1rm-calculator/squat/">Squat 1RM<span>Plus bench, deadlift and press</span></a></div>
+
+<h3>Sources</h3>
+<ul class="src">
+<li>Zourdos MC et al. Novel resistance training-specific RPE scale measuring repetitions in reserve. J Strength Cond Res, 2016.</li>
+<li>Helms ER, Cronin J, Storey A, Zourdos MC. Application of the repetitions in reserve-based rating of perceived exertion scale for resistance training. Strength Cond J, 2016.</li>
+<li>Epley B. Poundage chart. Boyd Epley Workout, 1985.</li>
+</ul>
+<p class="meta">Training guidance, not medical advice. Stop a set if something hurts.</p>
+</main>
+<footer><span>© 2026 Orbi Labs LLC · oracoach.app</span><div><a href="/">Home</a><a href="/wiki/">Wiki</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/health-data/">Consumer Health Data Privacy Policy</a><a href="/accessibility/">Accessibility</a><a href="/team/">Team</a><a href="/tools/1rm-calculator/">1RM Calculator</a><a href="/support/">Support</a></div></footer>
+<script>
+(() => {
+const $ = id => document.getElementById(id);
+let unit = 'lb', show = 'pct', half = matchMedia('(max-width:680px)').matches ? 0 : 1, sel = [5, 8];
+const pct = (reps, rpe) => { const rir = 10 - rpe; return reps + rir <= 1 ? 100 : 100 / (1 + (reps + rir) / 30); };
+const step = () => unit === 'lb' ? 5 : 2.5;
+const round = x => Math.round(x / step()) * step();
+const fmt = x => (Math.round(x * 10) / 10).toLocaleString();
+const max = () => { const v = parseFloat($('m').value); return v > 0 ? v : 0; };
+const left = rpe => { const l = 10 - rpe; return l === 0 ? 'nothing left' : l === 0.5 ? 'maybe a little more weight' : `about ${l % 1 ? Math.floor(l) + '-' + Math.ceil(l) : l} rep${l === 1 ? '' : 's'} left`; };
+function seg(id, v) { document.querySelectorAll(`#${id} button`).forEach(b => b.classList.toggle('on', b.dataset.v === String(v))); }
+function render() {
+  const m = max(), useW = show === 'w' && m;
+  const cols = []; for (let r = 10; r >= 6; r -= half ? 0.5 : 1) cols.push(r);
+  if (!cols.includes(sel[1])) sel[1] = Math.round(sel[1]);
+  let h = '<tr><th>Reps</th>' + cols.map(c => { const l = 10 - c; return `<th>RPE ${c}<small>${l % 1 ? Math.floor(l) + '-' + Math.ceil(l) : l} left</small></th>`; }).join('') + '</tr>';
+  for (let n = 1; n <= 12; n++) {
+    h += `<tr><td>${n}</td>` + cols.map(c => {
+      const p = pct(n, c), v = useW ? fmt(round(m * p / 100)) : (Math.round(p * 10) / 10).toFixed(1) + '%';
+      const on = n === sel[0] && c === sel[1];
+      return `<td class="cell${on ? ' hi' : ''}" data-n="${n}" data-c="${c}" tabindex="0" role="button" aria-pressed="${on}" aria-label="${n} reps at RPE ${c}">${v}</td>`;
+    }).join('') + '</tr>';
+  }
+  $('grid').innerHTML = h;
+  const [n, c] = sel, p = pct(n, c);
+  $('selLabel').textContent = `${n} REP${n > 1 ? 'S' : ''} AT RPE ${c}`;
+  $('selOut').textContent = m ? `${fmt(round(m * p / 100))} ${unit}` : `${(Math.round(p * 10) / 10).toFixed(1)}%`;
+  $('selNote').textContent = m ? `${(Math.round(p * 10) / 10).toFixed(1)}% of your ${fmt(m)} ${unit} max` : 'of your one rep max. Add your max to see the weight.';
+  $('selChips').innerHTML = [left(c), c >= 9 ? 'Very hard' : c >= 8 ? 'Hard' : c >= 7 ? 'Moderate' : 'Easy'].map(x => `<span class="chip">${x}</span>`).join('');
+  history.replaceState(null, '', `?${m ? `m=${m}&` : ''}u=${unit}&reps=${n}&rpe=${c}`);
+}
+$('grid').addEventListener('click', e => { const td = e.target.closest('td.cell'); if (!td) return; sel = [+td.dataset.n, +td.dataset.c]; render(); $('grid').querySelector(`td[data-n="${sel[0]}"][data-c="${sel[1]}"]`).focus(); });
+$('grid').addEventListener('keydown', e => { if ((e.key === 'Enter' || e.key === ' ') && e.target.matches('td.cell')) { e.preventDefault(); e.target.click(); } });
+$('m').addEventListener('input', () => { if (max() && show === 'pct' && !$('m').dataset.touched) { show = 'w'; seg('show', 'w'); } $('m').dataset.touched = 1; render(); });
+document.querySelectorAll('.calc .st').forEach(b => b.onclick = () => { const v = max() || (unit === 'lb' ? 225 : 100) - +b.dataset.d * step(); $('m').value = Math.max(0, round(v + +b.dataset.d * step())); if (show === 'pct') { show = 'w'; seg('show', 'w'); } render(); });
+$('show').onclick = e => { const b = e.target.closest('button'); if (!b) return; show = b.dataset.v; seg('show', show); if (show === 'w' && !max()) $('m').focus(); render(); };
+$('half').onclick = e => { const b = e.target.closest('button'); if (!b) return; half = +b.dataset.v; seg('half', half); render(); };
+function setUnit(u) {
+  if (unit === u) return; const v = max();
+  if (v) $('m').value = Math.round(v * (u === 'kg' ? 1 / 2.20462 : 2.20462) / (u === 'kg' ? 2.5 : 5)) * (u === 'kg' ? 2.5 : 5);
+  unit = u; $('mu').textContent = u; $('lb').classList.toggle('on', u === 'lb'); $('kg').classList.toggle('on', u === 'kg'); render();
+}
+$('lb').onclick = () => setUnit('lb'); $('kg').onclick = () => setUnit('kg');
+$('share').onclick = async () => { try { await navigator.clipboard.writeText(location.href); $('share').textContent = 'Copied'; } catch (_) { $('share').textContent = 'Copy the address bar'; } setTimeout(() => $('share').textContent = 'Copy link', 1600); };
+const q = new URLSearchParams(location.search);
+if (q.get('u') === 'kg') { unit = 'kg'; $('mu').textContent = 'kg'; $('kg').classList.add('on'); $('lb').classList.remove('on'); }
+if (parseFloat(q.get('m')) > 0) { $('m').value = q.get('m'); show = 'w'; $('m').dataset.touched = 1; }
+const qr = Math.round(+q.get('reps')), qc = +q.get('rpe');
+if (qr >= 1 && qr <= 12) sel[0] = qr;
+if (qc >= 6 && qc <= 10 && qc * 2 === Math.round(qc * 2)) { sel[1] = qc; if (qc % 1) half = 1; }
+seg('show', show); seg('half', half);
+render();
+})();
+</script>
+<script src="/assets/stats.js" defer></script></body></html>

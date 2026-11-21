@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Plate Calculator: What Plates to Put on a Barbell (lb and kg) | Ora</title>
+<meta name="description" content="Free barbell plate calculator. Type a weight and see which plates go on each side, for any bar and the plates your gym has. Or tap plates to add up what's on the bar. Pounds or kilograms.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://oracoach.app/tools/plate-calculator/">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Ora">
+<meta property="og:title" content="Plate Calculator | Ora"><meta property="og:description" content="Type a weight and see exactly which plates go on each side of the bar. Pounds or kilograms.">
+<meta property="og:image" content="/assets/gen/og-home.png">
+<meta name="theme-color" content="#05080F">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/ora-icon-32.png?v=2"><link rel="icon" type="image/png" sizes="192x192" href="/assets/ora-icon-192.png?v=2"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Roboto:wght@400;500;700&family=Luckiest+Guy&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/home/page.css?v=2026-11-15">
+<link rel="stylesheet" href="/assets/tools/tools.css?v=2026-11-21">
+<script type="application/ld+json">[
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Ora","item":"https://oracoach.app/"},{"@type":"ListItem","position":2,"name":"Plate Calculator","item":"https://oracoach.app/tools/plate-calculator/"}]},
+{"@context":"https://schema.org","@type":"WebApplication","name":"Ora Plate Calculator","url":"https://oracoach.app/tools/plate-calculator/","applicationCategory":"HealthApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Orbi Labs LLC"}},
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"How do I work out what plates to put on the bar?","acceptedAnswer":{"@type":"Answer","text":"Take the bar's weight away from the total, then halve what's left. That's the weight for each side. Load it with the biggest plates first. For 225 lb on a 45 lb bar: 225 − 45 = 180, so 90 lb a side, which is two 45s."}},
+{"@type":"Question","name":"How much does a barbell weigh?","acceptedAnswer":{"@type":"Answer","text":"A standard men's Olympic bar weighs 20 kg (44 lb), which US gyms count as 45 lb. A women's Olympic bar weighs 15 kg (33 lb), often counted as 35 lb. Technique, EZ curl, trap and Smith machine bars vary, so check the label."}},
+{"@type":"Question","name":"Is a 45 lb plate the same as a 20 kg plate?","acceptedAnswer":{"@type":"Answer","text":"Close, but not the same. A 20 kg plate is about 44.1 lb and a 45 lb plate is about 20.4 kg. Over several plates the difference adds up, so don't mix them on one bar."}},
+{"@type":"Question","name":"Why can't I load the exact weight I want?","acceptedAnswer":{"@type":"Answer","text":"Plates go on in pairs, so the smallest jump is twice your smallest plate: 5 lb with 2.5 lb plates, or 2.5 kg with 1.25 kg plates. The calculator shows the closest weights you can load with the plates you have."}},
+{"@type":"Question","name":"How much do barbell collars weigh?","acceptedAnswer":{"@type":"Answer","text":"Spring clips weigh almost nothing. Competition collars used in powerlifting weigh 2.5 kg each, 5 kg for the pair, and count toward the total."}}
+]}]</script>
+</head><body>
+<a class="skip" href="#main">Skip to content</a>
+<nav><a href="/"><img src="/assets/home/ora_logo.webp" alt="Ora home"></a><a class="l" href="/privacy/">Privacy</a><a class="l" href="/support/">Support</a><a class="cta" href="/#join">Get early access</a></nav><a class="login" href="https://app.oracoach.app/app/">Login</a>
+<main id="main" tabindex="-1">
+<div class="head"><img src="/assets/home/chibi_lifting.webp" alt="" width="120" height="120"><div>
+<div class="kicker">FREE TOOL</div>
+<h1>Plate <span class="grad">Calculator</span></h1>
+<p class="lead">Type the weight you want on the bar and see exactly what goes on each side. Or tap plates to add up what's already loaded.</p></div></div>
+
+<section class="calc" aria-label="Plate calculator">
+ <div class="lifts modes" role="tablist" aria-label="Mode"><button type="button" role="tab" id="mTo" class="on" aria-selected="true">Weight → plates</button><button type="button" role="tab" id="mFrom" aria-selected="false">Plates → weight</button></div>
+ <div class="inputs two">
+  <div class="box" id="tbox"><div class="bl"><span>Weight on the bar</span><div class="seg"><button type="button" id="lb" class="on">lb</button><button type="button" id="kg">kg</button></div></div>
+   <div class="stepper big"><button type="button" class="st" data-d="-1" aria-label="Less weight">−</button><input id="t" type="number" inputmode="decimal" value="225" min="0" step="any" aria-label="Total weight"><span class="u" id="tu">lb</span><button type="button" class="st" data-d="1" aria-label="More weight">+</button></div></div>
+  <div class="box"><div class="bl"><span>Bar</span><em id="barNote2"></em></div>
+   <div class="pills" id="bars"></div>
+   <div class="stepper plain" id="cbarWrap" hidden><input id="cbar" type="number" inputmode="decimal" min="0" step="any" aria-label="Bar weight"><span class="u" id="cbu">lb</span></div></div>
+  <div class="box full"><div class="bl"><span id="plLabel">Plates you have</span><button type="button" class="ns" id="clear" hidden>Clear</button></div>
+   <div class="pills plates" id="plates"></div>
+   <label class="chk" id="collarRow"><input type="checkbox" id="collars"> Competition collars (2.5 kg each)</label></div>
+ </div>
+ <div class="res"><img src="/assets/home/chibi_coach.webp" alt=""><div><small id="resLabel">EACH SIDE</small><b id="out">-</b><span class="sub" id="note"></span><div class="chips" id="chips"></div></div><button class="share" id="share" type="button">Copy link</button></div>
+ <div class="bar" id="bar" aria-label="Plates per side"></div>
+</section>
+
+<h2>How to load a barbell</h2>
+<ul>
+<li><strong>Take off the bar, then halve it.</strong> Subtract the bar's weight from the total and split the rest between the two sides.</li>
+<li><strong>Biggest plates go on first.</strong> Heavy plates sit closest to the collar and smaller ones go outside them. It keeps the bar steady and makes the load easy to read.</li>
+<li><strong>Load both sides the same.</strong> Count each side out loud. An extra 10 on one side is easy to miss and hard to balance.</li>
+<li><strong>Use clips.</strong> Plates slide on the sleeves, especially on presses and when a bar tilts. Clips stop that.</li>
+</ul>
+
+<h2>How much does the bar weigh?</h2>
+<div class="tbl"><table class="scale">
+<tr><th>Bar</th><th>Weight</th><th>Notes</th></tr>
+<tr><td>Men's Olympic bar</td><td>20 kg / 44 lb</td><td>The standard bar in most gyms. US gyms count it as 45 lb.</td></tr>
+<tr><td>Women's Olympic bar</td><td>15 kg / 33 lb</td><td>Thinner grip. Often counted as 35 lb.</td></tr>
+<tr><td>Technique bar</td><td>Varies</td><td>Light bars for learning, often 15 lb or 5-10 kg.</td></tr>
+<tr><td>EZ curl, trap and Smith machine bars</td><td>Varies</td><td>These differ by model. Check the label or ask the gym.</td></tr>
+</table></div>
+
+<h2>Pound and kilogram plates</h2>
+<p>1 kg is 2.2046 lb. Kilogram plates are color-coded in competition: 25 kg red, 20 kg blue, 15 kg yellow, 10 kg green and 5 kg white. Pound plates don't have a standard color, so read the number on the plate.</p>
+<div class="pct conv" id="conv"></div>
+
+<div class="cta-card"><img src="/assets/home/chibi_thumbsup.webp" alt=""><div><b>Ora picks weights your gym can load</b><p>Ora sets your next weight from how the last set felt, then rounds it to the smallest jump your bars, dumbbells and machines allow. You set those once and every suggestion fits your gym.</p><a class="cta" href="/#join">Get early access</a></div></div>
+
+<h2>Questions</h2>
+<details><summary>How do I work out what plates to put on the bar?</summary><p>Take the bar's weight away from the total, then halve what's left. That's the weight for each side. Load it with the biggest plates first. For 225 lb on a 45 lb bar: 225 − 45 = 180, so 90 lb a side, which is two 45s.</p></details>
+<details><summary>How much does a barbell weigh?</summary><p>A standard men's Olympic bar weighs 20 kg (44 lb), which US gyms count as 45 lb. A women's Olympic bar weighs 15 kg (33 lb), often counted as 35 lb. Technique, EZ curl, trap and Smith machine bars vary, so check the label.</p></details>
+<details><summary>Is a 45 lb plate the same as a 20 kg plate?</summary><p>Close, but not the same. A 20 kg plate is about 44.1 lb and a 45 lb plate is about 20.4 kg. Over several plates the difference adds up, so don't mix them on one bar.</p></details>
+<details><summary>Why can't I load the exact weight I want?</summary><p>Plates go on in pairs, so the smallest jump is twice your smallest plate: 5 lb with 2.5 lb plates, or 2.5 kg with 1.25 kg plates. The calculator shows the closest weights you can load with the plates you have.</p></details>
+<details><summary>How much do barbell collars weigh?</summary><p>Spring clips weigh almost nothing. Competition collars used in powerlifting weigh 2.5 kg each, 5 kg for the pair, and count toward the total.</p></details>
+
+<h2>More free tools</h2>
+<div class="more"><a href="/tools/1rm-calculator/">1RM Calculator<span>Your max from any set, with RPE</span></a><a href="/tools/rpe-chart/">RPE Chart<span>Percent of max for every rep and RPE</span></a><a href="/tools/1rm-calculator/deadlift/">Deadlift 1RM<span>Plus squat, bench and press</span></a></div>
+
+<h3>Sources</h3>
+<ul class="src">
+<li>International Powerlifting Federation. Technical Rules Book (bars, discs and collars).</li>
+<li>International Weightlifting Federation. Technical and Competition Rules (disc colors).</li>
+</ul>
+<p class="meta">Check plate labels: gym plates can be off by a little from their marked weight.</p>
+</main>
+<footer><span>© 2026 Orbi Labs LLC · oracoach.app</span><div><a href="/">Home</a><a href="/wiki/">Wiki</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/health-data/">Consumer Health Data Privacy Policy</a><a href="/accessibility/">Accessibility</a><a href="/team/">Team</a><a href="/tools/1rm-calculator/">1RM Calculator</a><a href="/support/">Support</a></div></footer>
+<script src="/assets/tools/barbell.js?v=2026-11-21"></script>
+<script>
+(() => {
+const $ = id => document.getElementById(id);
+const BARS = { lb: [[45, 'Standard 45'], [35, "Women's 35"], [15, 'Technique 15'], ['c', 'Other']], kg: [[20, 'Standard 20'], [15, "Women's 15"], [10, 'Technique 10'], ['c', 'Other']] };
+let unit = 'lb', mode = 'to', barSel = 45, have = OraBar.defaults('lb'), loaded = [];
+const fmt = x => (Math.round(x * 100) / 100).toLocaleString();
+const bar = () => barSel === 'c' ? Math.max(0, parseFloat($('cbar').value) || 0) : barSel;
+const collars = () => unit === 'kg' && $('collars').checked ? 5 : 0;
+const smallest = () => Math.min(...have) * 2;
+const plate = w => OraBar.PLATES[unit].find(p => p[0] === w);
+function pills() {
+  $('bars').innerHTML = BARS[unit].map(([v, n]) => `<button type="button" data-v="${v}" class="${String(v) === String(barSel) ? 'on' : ''}">${n}</button>`).join('');
+  $('cbarWrap').hidden = barSel !== 'c';
+  $('plates').innerHTML = OraBar.PLATES[unit].map(([w, col]) => {
+    const on = mode === 'to' ? have.includes(w) : false, n = loaded.filter(x => x === w).length;
+    return `<button type="button" data-w="${w}" class="pl${on ? ' on' : ''}" aria-pressed="${on}"><i style="background:${col}"></i>${w}${mode === 'from' && n ? `<b>×${n}</b>` : ''}</button>`;
+  }).join('');
+  $('plLabel').textContent = mode === 'to' ? 'Plates you have' : 'Tap to add a pair (one each side)';
+  $('clear').hidden = mode === 'to' || !loaded.length;
+  $('collarRow').hidden = unit !== 'kg';
+}
+function render() {
+  pills();
+  const b = bar(), c = collars();
+  $('barNote2').textContent = barSel === 'c' ? `${fmt(b)} ${unit}` : '';
+  let list, chips = [];
+  if (mode === 'to') {
+    const t = parseFloat($('t').value);
+    if (!(t > 0)) { $('out').textContent = '-'; $('note').textContent = 'Enter the weight you want on the bar.'; $('bar').innerHTML = ''; $('chips').innerHTML = ''; return; }
+    if (!have.length) { $('out').textContent = '-'; $('note').textContent = 'Pick at least one plate size you have.'; $('bar').innerHTML = ''; $('chips').innerHTML = ''; return; }
+    const pl = OraBar.load(t - c, unit, b, have);
+    if (!pl) { $('out').textContent = 'Bar only'; $('note').textContent = `${fmt(t)} ${unit} is lighter than the ${fmt(b + c)} ${unit} bar${c ? ' and collars' : ''}.`; $('bar').innerHTML = OraBar.draw([]); $('chips').innerHTML = ''; return; }
+    list = pl.out;
+    $('resLabel').textContent = 'EACH SIDE';
+    $('out').textContent = list.length ? list.map(p => p[0]).join(' + ') : 'No plates';
+    const side = list.reduce((a, p) => a + p[0], 0);
+    $('note').textContent = `${fmt(b)} ${unit} bar${c ? ' + 5 kg collars' : ''} + ${fmt(side)} ${unit} each side = ${fmt(b + c + 2 * side)} ${unit}`;
+    if (pl.left > 1e-9) {
+      const nr = OraBar.nearest(t - c, unit, b, have);
+      $('resLabel').textContent = 'CLOSEST YOU CAN LOAD';
+      chips.push(`Can't make ${fmt(t)} ${unit} exactly`);
+      [nr.below, nr.above].filter(x => x != null && x >= b).forEach(x => chips.push(`<button type="button" class="chip go" data-t="${x + c}">Load ${fmt(x + c)} ${unit}</button>`));
+    } else {
+      chips.push(`${list.length * 2} plate${list.length === 1 ? '' : 's'} in all`);
+      chips.push(`Smallest jump: ${fmt(smallest())} ${unit}`);
+    }
+    history.replaceState(null, '', `?t=${t}&u=${unit}&bar=${barSel === 'c' ? 'c' + b : b}` + (c ? '&collars=1' : ''));
+  } else {
+    list = loaded.slice().sort((x, y) => y - x).map(plate);
+    const side = loaded.reduce((a, w) => a + w, 0), total = b + c + 2 * side;
+    $('resLabel').textContent = 'TOTAL ON THE BAR';
+    $('out').textContent = `${fmt(total)} ${unit}`;
+    $('note').textContent = loaded.length ? `${fmt(b)} ${unit} bar${c ? ' + 5 kg collars' : ''} + ${list.map(p => p[0]).join(' + ')} each side` : 'Tap the plates on one side of the bar.';
+    chips.push(`≈ ${fmt(Math.round((unit === 'lb' ? total / 2.20462 : total * 2.20462) * 10) / 10)} ${unit === 'lb' ? 'kg' : 'lb'}`);
+  }
+  $('chips').innerHTML = chips.map(x => x.startsWith('<button') ? x : `<span class="chip">${x}</span>`).join('');
+  $('bar').innerHTML = OraBar.draw(list);
+}
+$('chips').onclick = e => { const g = e.target.closest('.go'); if (g) { $('t').value = g.dataset.t; render(); } };
+$('bars').onclick = e => { const btn = e.target.closest('button'); if (!btn) return; barSel = btn.dataset.v === 'c' ? 'c' : +btn.dataset.v; if (barSel === 'c' && !$('cbar').value) $('cbar').value = unit === 'lb' ? 25 : 10; render(); if (barSel === 'c') $('cbar').focus(); };
+$('plates').onclick = e => {
+  const btn = e.target.closest('button'); if (!btn) return; const w = +btn.dataset.w;
+  if (mode === 'to') have = have.includes(w) ? have.filter(x => x !== w) : [...have, w];
+  else loaded.push(w);
+  render();
+};
+$('clear').onclick = () => { loaded = []; render(); };
+['t', 'cbar'].forEach(id => $(id).addEventListener('input', render));
+$('collars').onchange = render;
+document.querySelectorAll('.calc .st').forEach(b => b.onclick = () => { const s = unit === 'lb' ? 5 : 2.5; $('t').value = Math.max(0, Math.round(((parseFloat($('t').value) || 0) + +b.dataset.d * s) / s) * s); render(); });
+function setMode(m) {
+  mode = m; $('mTo').classList.toggle('on', m === 'to'); $('mFrom').classList.toggle('on', m === 'from');
+  $('mTo').setAttribute('aria-selected', m === 'to'); $('mFrom').setAttribute('aria-selected', m === 'from');
+  $('tbox').hidden = m === 'from'; render();
+}
+$('mTo').onclick = () => setMode('to'); $('mFrom').onclick = () => setMode('from');
+function setUnit(u) {
+  if (unit === u) return; const t = parseFloat($('t').value), f = u === 'kg' ? 1 / 2.20462 : 2.20462, s = u === 'kg' ? 2.5 : 5;
+  if (t > 0) $('t').value = Math.round(t * f / s) * s;
+  unit = u; have = OraBar.defaults(u); loaded = [];
+  if (barSel !== 'c') barSel = BARS[u][[...BARS[unit === 'kg' ? 'lb' : 'kg']].findIndex(x => x[0] === barSel)]?.[0] ?? BARS[u][0][0];
+  $('tu').textContent = $('cbu').textContent = u; $('lb').classList.toggle('on', u === 'lb'); $('kg').classList.toggle('on', u === 'kg'); render();
+}
+$('lb').onclick = () => setUnit('lb'); $('kg').onclick = () => setUnit('kg');
+$('share').onclick = async () => { try { await navigator.clipboard.writeText(location.href); $('share').textContent = 'Copied'; } catch (_) { $('share').textContent = 'Copy the address bar'; } setTimeout(() => $('share').textContent = 'Copy link', 1600); };
+$('conv').innerHTML = [[45, 'lb'], [25, 'lb'], [20, 'kg'], [10, 'kg']].map(([w, u]) => `<div><b>${w} ${u}</b><span>≈ ${fmt(Math.round((u === 'lb' ? w / 2.20462 : w * 2.20462) * 10) / 10)} ${u === 'lb' ? 'kg' : 'lb'}</span></div>`).join('');
+const q = new URLSearchParams(location.search);
+if (q.get('u') === 'kg') { unit = 'kg'; have = OraBar.defaults('kg'); barSel = 20; $('tu').textContent = $('cbu').textContent = 'kg'; $('kg').classList.add('on'); $('lb').classList.remove('on'); }
+if (parseFloat(q.get('t')) > 0) $('t').value = q.get('t');
+const qb = q.get('bar') || '';
+if (qb.startsWith('c') && parseFloat(qb.slice(1)) >= 0) { barSel = 'c'; $('cbar').value = parseFloat(qb.slice(1)); }
+else if (BARS[unit].some(x => String(x[0]) === qb)) barSel = +qb;
+if (q.get('collars') === '1') $('collars').checked = true;
+render();
+})();
+</script>
+<script src="/assets/stats.js" defer></script></body></html>
