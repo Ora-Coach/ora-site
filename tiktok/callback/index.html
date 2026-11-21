@@ -20,6 +20,9 @@
 (function () {
   var q = new URLSearchParams(location.search), t = document.getElementById('t'), m = document.getElementById('m');
   if (q.get('error')) { t.textContent = 'TikTok sign-in was cancelled'; m.textContent = q.get('error_description') || q.get('error'); return; }
+  // Coach Orbi Studio runs on Eric's Mac: a state of "l<port>.<nonce>" means hand the result to that local port.
+  var st = q.get('state') || '', m8 = /^l(\d{4,5})\./.exec(st);
+  if (m8 && (q.get('code') || q.get('error'))) { location.replace('http://127.0.0.1:' + m8[1] + '/callback' + location.search); return; }
   var code = q.get('code');
   if (!code) { t.textContent = 'Nothing to connect'; m.textContent = 'Open this page from Coach Orbi Studio\'s TikTok sign-in.'; return; }
   history.replaceState(null, '', location.pathname);
