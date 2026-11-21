@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DOTS Calculator with Wilks and IPF GL Points (lb and kg) | Ora</title>
+<meta name="description" content="Free DOTS calculator that also shows Wilks and IPF GL points. Enter your bodyweight and powerlifting total or bench press, in pounds or kilograms, for raw or equipped lifting, and compare lifters across weight classes.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://oracoach.app/tools/dots-calculator/">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Ora">
+<meta property="og:title" content="DOTS, Wilks and IPF GL Calculator | Ora"><meta property="og:description" content="Your DOTS, Wilks and IPF GL points from bodyweight and total, raw or equipped, in pounds or kilograms.">
+<meta property="og:url" content="https://oracoach.app/tools/dots-calculator/">
+<meta property="og:image" content="https://oracoach.app/assets/gen/og-tools/dots-calculator.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#05080F">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/ora-icon-32.png?v=2"><link rel="icon" type="image/png" sizes="192x192" href="/assets/ora-icon-192.png?v=2"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Roboto:wght@400;500;700&family=Luckiest+Guy&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/home/page.css?v=2026-11-15">
+<link rel="stylesheet" href="/assets/tools/tools.css?v=2026-11-22">
+<script type="application/ld+json">[
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Ora","item":"https://oracoach.app/"},{"@type":"ListItem","position":2,"name":"Lifting Tools","item":"https://oracoach.app/tools/"},{"@type":"ListItem","position":3,"name":"DOTS Calculator","item":"https://oracoach.app/tools/dots-calculator/"}]},
+{"@context":"https://schema.org","@type":"WebApplication","name":"Ora DOTS, Wilks and IPF GL Calculator","url":"https://oracoach.app/tools/dots-calculator/","applicationCategory":"HealthApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Orbi Labs LLC"}},
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What is a DOTS score?","acceptedAnswer":{"@type":"Answer","text":"DOTS is a formula that adjusts a powerlifting total for bodyweight, so lifters of different sizes can be compared. Your total is multiplied by a coefficient that gets smaller as bodyweight goes up."}},
+{"@type":"Question","name":"What is the difference between DOTS, Wilks and IPF GL?","acceptedAnswer":{"@type":"Answer","text":"All three adjust for bodyweight using different curves. Wilks is the oldest and was the IPF's formula for decades. DOTS is a newer formula many meets use. IPF GL points are what the IPF uses now, with separate curves for raw and equipped lifting and for the bench press alone."}},
+{"@type":"Question","name":"Why is my IPF GL score so much lower than my DOTS?","acceptedAnswer":{"@type":"Answer","text":"They're on different scales. DOTS and Wilks land in the hundreds, while IPF GL points are scaled so that top international lifters score around 100. Compare a lifter's DOTS with other DOTS scores, and GL with GL."}},
+{"@type":"Question","name":"Does the calculator use pounds or kilograms?","acceptedAnswer":{"@type":"Answer","text":"Either. The formulas are defined in kilograms, so pounds are converted before calculating. The score is the same whichever unit you enter."}},
+{"@type":"Question","name":"Can I use it for a single lift?","acceptedAnswer":{"@type":"Answer","text":"IPF GL has its own curves for the bench press alone, which the Bench only option uses. DOTS and Wilks were made for full totals, so a single-lift score from them is only a rough comparison."}}
+]}]</script>
+</head><body>
+<a class="skip" href="#main">Skip to content</a>
+<nav><a href="/"><img src="/assets/home/ora_logo.webp" alt="Ora home"></a><a class="l" href="/privacy/">Privacy</a><a class="l" href="/support/">Support</a><a class="cta" href="/#join">Get early access</a></nav><a class="login" href="https://app.oracoach.app/app/">Login</a>
+<main id="main" tabindex="-1">
+<div class="head"><img src="/assets/home/chibi_lifting.webp" alt="" width="120" height="120"><div>
+<div class="kicker">FREE TOOL</div>
+<h1>DOTS <span class="grad">Calculator</span></h1>
+<p class="lead">Your DOTS, Wilks and IPF GL points from bodyweight and total, so you can compare lifters of any size. Raw or equipped, pounds or kilograms.</p></div></div>
+
+<section class="calc" aria-label="DOTS, Wilks and IPF GL calculator">
+ <div class="inputs two">
+  <div class="box"><div class="bl"><span>Lifter</span><div class="seg"><button type="button" id="lb" class="on">lb</button><button type="button" id="kg">kg</button></div></div>
+   <div class="opts"><span>Sex</span><div class="seg" id="sex"><button type="button" data-v="M" class="on">Male</button><button type="button" data-v="F">Female</button></div></div>
+   <div class="opts"><span>Event</span><div class="seg" id="event"><button type="button" data-v="SBD" class="on">Total</button><button type="button" data-v="B">Bench only</button></div></div>
+   <div class="opts"><span>Equipment</span><div class="seg" id="equip"><button type="button" data-v="raw" class="on">Raw</button><button type="button" data-v="eq">Equipped</button></div></div></div>
+  <div class="box"><div class="bl"><span>Bodyweight</span></div>
+   <div class="stepper big"><button type="button" class="st" data-t="bw" data-d="-1" aria-label="Less bodyweight">−</button><input id="bw" type="number" inputmode="decimal" value="198" min="0" step="any" aria-label="Bodyweight"><span class="u" id="u1">lb</span><button type="button" class="st" data-t="bw" data-d="1" aria-label="More bodyweight">+</button></div>
+   <div class="bl" style="margin-top:12px"><span id="totLabel">Total</span><button type="button" class="ns" id="split">Add up lifts</button></div>
+   <div class="stepper big"><button type="button" class="st" data-t="tot" data-d="-1" aria-label="Less weight">−</button><input id="tot" type="number" inputmode="decimal" value="1200" min="0" step="any" aria-label="Total"><span class="u" id="u2">lb</span><button type="button" class="st" data-t="tot" data-d="1" aria-label="More weight">+</button></div>
+   <div class="sbd" id="sbd" hidden><label>Squat<input id="s" type="number" inputmode="decimal" min="0" step="any"></label><label>Bench<input id="b" type="number" inputmode="decimal" min="0" step="any"></label><label>Deadlift<input id="d" type="number" inputmode="decimal" min="0" step="any"></label></div></div>
+ </div>
+ <div class="cmp scores" id="scores"></div>
+ <div class="res"><img src="/assets/home/chibi_coach.webp" alt=""><div><small id="resLabel">DOTS</small><b id="out">-</b><span class="sub" id="note"></span><div class="chips" id="chips"></div></div><button class="share" id="share" type="button">Copy link</button></div>
+</section>
+
+<h2>What the three scores are</h2>
+<ul>
+<li><strong>DOTS</strong> multiplies your total by a coefficient from a curve fit to bodyweight. Scores land in the hundreds. Many meets use it to pick the best lifter.</li>
+<li><strong>Wilks</strong> works the same way with an older curve. It was the IPF's formula for decades, so you'll still see it in records and older results.</li>
+<li><strong>IPF GL points</strong> are what the IPF uses now. They have separate curves for raw and equipped lifting, and for the bench press alone, and are scaled so top international lifters score around 100.</li>
+</ul>
+<p>For example, an IPF lifter at the 2019 World Open Championships scored 112.85 GL points with a 1,035 kg equipped total at 92.04 kg bodyweight. Put those numbers in above and you'll get the same score.</p>
+
+<h2>The formulas</h2>
+<p>Bodyweight (BW) and total are in kilograms.</p>
+<p class="formula">DOTS = total × 500 ÷ (a·BW⁴ + b·BW³ + c·BW² + d·BW + e)</p>
+<p class="formula">Wilks = total × 500 ÷ (a + b·BW + c·BW² + d·BW³ + e·BW⁴ + f·BW⁵)</p>
+<p class="formula">IPF GL = total × 100 ÷ (A − B·e<sup>−C·BW</sup>)</p>
+<p>Each has its own constants for men and women, and IPF GL has a set for each event and equipment. This calculator uses the published constants, the same ones OpenPowerlifting uses. DOTS limits bodyweight to 40-210 kg for men and 40-150 kg for women, and Wilks to 40-201.9 kg and 26.51-154.53 kg, so very light or very heavy lifters get the score for the nearest limit.</p>
+
+<div class="cta-card"><img src="/assets/home/chibi_thumbsup.webp" alt=""><div><b>Training for a meet?</b><p>Ora plans each set from how the last one felt and tracks your estimated max on every lift, so you can see your total climb before meet day.</p><a class="cta" href="/#join">Get early access</a></div></div>
+
+<h2>Questions</h2>
+<details><summary>What is a DOTS score?</summary><p>DOTS is a formula that adjusts a powerlifting total for bodyweight, so lifters of different sizes can be compared. Your total is multiplied by a coefficient that gets smaller as bodyweight goes up.</p></details>
+<details><summary>What is the difference between DOTS, Wilks and IPF GL?</summary><p>All three adjust for bodyweight using different curves. Wilks is the oldest and was the IPF's formula for decades. DOTS is a newer formula many meets use. IPF GL points are what the IPF uses now, with separate curves for raw and equipped lifting and for the bench press alone.</p></details>
+<details><summary>Why is my IPF GL score so much lower than my DOTS?</summary><p>They're on different scales. DOTS and Wilks land in the hundreds, while IPF GL points are scaled so that top international lifters score around 100. Compare a lifter's DOTS with other DOTS scores, and GL with GL.</p></details>
+<details><summary>Does the calculator use pounds or kilograms?</summary><p>Either. The formulas are defined in kilograms, so pounds are converted before calculating. The score is the same whichever unit you enter.</p></details>
+<details><summary>Can I use it for a single lift?</summary><p>IPF GL has its own curves for the bench press alone, which the Bench only option uses. DOTS and Wilks were made for full totals, so a single-lift score from them is only a rough comparison.</p></details>
+
+<h2>More free tools</h2>
+<div class="more"><a href="/tools/1rm-calculator/">1RM Calculator<span>Your max from any set, with RPE</span></a><a href="/tools/plate-calculator/">Plate Calculator<span>What to put on each side of the bar</span></a><a href="/tools/">All Lifting Tools<span>Volume, RPE and more</span></a></div>
+
+<h3>Sources</h3>
+<ul class="src">
+<li>International Powerlifting Federation. IPF GL Coefficients (2020).</li>
+<li>OpenPowerlifting. Points formulas (DOTS, Wilks, IPF GL), opl-data coefficients.</li>
+<li>Wilks R. The Wilks formula (original coefficients).</li>
+</ul>
+<p class="meta">Scores are for comparison only. Federations may round or apply their own rules.</p>
+</main>
+<footer><span>© 2026 Orbi Labs LLC · oracoach.app</span><div><a href="/">Home</a><a href="/wiki/">Wiki</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/health-data/">Consumer Health Data Privacy Policy</a><a href="/accessibility/">Accessibility</a><a href="/team/">Team</a><a href="/tools/">Lifting Tools</a><a href="/support/">Support</a></div></footer>
+<script src="/assets/tools/points.js?v=2026-11-22"></script>
+<script>
+(() => {
+const $ = id => document.getElementById(id);
+const LB = 2.20462;
+let unit = 'lb', sex = 'M', event = 'SBD', equip = 'raw', split = false;
+const kg = v => unit === 'kg' ? v : v / LB;
+const fmt = (x, d = 2) => x.toLocaleString(undefined, { minimumFractionDigits: d, maximumFractionDigits: d });
+function seg(id, v) { document.querySelectorAll(`#${id} button`).forEach(b => b.classList.toggle('on', b.dataset.v === v)); }
+function render() {
+  if (split) {
+    const parts = event === 'B' ? ['b'] : ['s', 'b', 'd'];
+    const sum = parts.reduce((a, id) => a + (parseFloat($(id).value) || 0), 0);
+    $('tot').value = sum ? Math.round(sum * 10) / 10 : '';
+  }
+  const bw = parseFloat($('bw').value), tot = parseFloat($('tot').value);
+  if (!(bw > 0) || !(tot > 0)) { $('scores').innerHTML = ''; $('out').textContent = '-'; $('note').textContent = 'Enter bodyweight and total.'; $('chips').innerHTML = ''; return; }
+  const b = kg(bw), t = kg(tot);
+  const P = window.OraPoints;
+  const s = { DOTS: P.dots(sex, b, t), 'IPF GL': P.goodlift(sex, event, equip, b, t), Wilks: P.wilks(sex, b, t) };
+  $('scores').innerHTML = Object.entries(s).map(([k, v]) => `<div class="${k === 'DOTS' ? 'us' : ''}"><b>${v ? fmt(v) : '-'}</b><span>${k}${k === 'IPF GL' ? ` · ${equip === 'raw' ? 'raw' : 'equipped'} ${event === 'B' ? 'bench' : 'total'}` : ''}</span></div>`).join('');
+  $('resLabel').textContent = 'DOTS';
+  $('out').textContent = fmt(s.DOTS);
+  $('note').textContent = `${fmt(tot, unit === 'kg' ? 1 : 0)} ${unit} ${event === 'B' ? 'bench' : 'total'} at ${fmt(bw, 1)} ${unit} bodyweight` + (unit === 'lb' ? ` (${fmt(t, 1)} kg at ${fmt(b, 1)} kg)` : '');
+  const chips = [`${fmt(tot / bw)}× bodyweight`];
+  if (event === 'B') chips.push('DOTS and Wilks are made for totals');
+  $('chips').innerHTML = chips.map(x => `<span class="chip">${x}</span>`).join('');
+  history.replaceState(null, '', `?bw=${bw}&t=${tot}&u=${unit}&sex=${sex}&ev=${event}&eq=${equip}`);
+}
+['bw', 'tot', 's', 'b', 'd'].forEach(id => $(id).addEventListener('input', () => { if (id === 'tot') { split = false; $('sbd').hidden = true; $('split').classList.remove('on'); } render(); }));
+document.querySelectorAll('.calc .st').forEach(btn => btn.onclick = () => {
+  const el = $(btn.dataset.t), step = btn.dataset.t === 'bw' ? (unit === 'lb' ? 1 : 0.5) : (unit === 'lb' ? 5 : 2.5);
+  el.value = Math.max(0, Math.round(((parseFloat(el.value) || 0) + +btn.dataset.d * step) / step) * step);
+  if (btn.dataset.t === 'tot') { split = false; $('sbd').hidden = true; $('split').classList.remove('on'); }
+  render();
+});
+for (const [id, set] of [['sex', v => sex = v], ['event', v => event = v], ['equip', v => equip = v]]) {
+  $(id).onclick = e => { const btn = e.target.closest('button'); if (!btn) return; set(btn.dataset.v); seg(id, btn.dataset.v); syncSplit(); render(); };
+}
+function syncSplit() {
+  $('totLabel').textContent = event === 'B' ? 'Bench press' : 'Total';
+  $('split').hidden = event === 'B';
+  if (event === 'B' && split) { split = false; $('sbd').hidden = true; $('split').classList.remove('on'); }
+}
+$('split').onclick = () => { split = !split; $('sbd').hidden = !split; $('split').classList.toggle('on', split); render(); };
+function setUnit(u) {
+  if (unit === u) return; const f = u === 'kg' ? 1 / LB : LB;
+  ['bw', 'tot', 's', 'b', 'd'].forEach(id => { const v = parseFloat($(id).value); if (v > 0) $(id).value = Math.round(v * f * 10) / 10; });
+  unit = u; $('u1').textContent = $('u2').textContent = u; $('lb').classList.toggle('on', u === 'lb'); $('kg').classList.toggle('on', u === 'kg'); render();
+}
+$('lb').onclick = () => setUnit('lb'); $('kg').onclick = () => setUnit('kg');
+$('share').onclick = async () => { try { await navigator.clipboard.writeText(location.href); $('share').textContent = 'Copied'; } catch (_) { $('share').textContent = 'Copy the address bar'; } setTimeout(() => $('share').textContent = 'Copy link', 1600); };
+const q = new URLSearchParams(location.search);
+if (q.get('u') === 'kg') { unit = 'kg'; $('u1').textContent = $('u2').textContent = 'kg'; $('kg').classList.add('on'); $('lb').classList.remove('on'); }
+if (parseFloat(q.get('bw')) > 0) $('bw').value = q.get('bw');
+if (parseFloat(q.get('t')) > 0) $('tot').value = q.get('t');
+if (q.get('sex') === 'F') sex = 'F';
+if (q.get('ev') === 'B') event = 'B';
+if (q.get('eq') === 'eq') equip = 'eq';
+seg('sex', sex); seg('event', event); seg('equip', equip); syncSplit();
+render();
+})();
+</script>
+<script src="/assets/stats.js" defer></script></body></html>

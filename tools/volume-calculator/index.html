@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Training Volume Calculator: Weekly Sets per Muscle Group | Ora</title>
+<meta name="description" content="Free training volume calculator. Add your exercises and weekly sets to see hard sets per muscle group, counted direct and indirect, against the 10-20 sets a week most research points to. Presets for full body, upper/lower and push/pull/legs.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://oracoach.app/tools/volume-calculator/">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Ora">
+<meta property="og:title" content="Training Volume Calculator | Ora"><meta property="og:description" content="Weekly hard sets per muscle group from your exercises, against the 10-20 sets most research points to.">
+<meta property="og:url" content="https://oracoach.app/tools/volume-calculator/">
+<meta property="og:image" content="https://oracoach.app/assets/gen/og-tools/volume-calculator.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#05080F">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/ora-icon-32.png?v=2"><link rel="icon" type="image/png" sizes="192x192" href="/assets/ora-icon-192.png?v=2"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Roboto:wght@400;500;700&family=Luckiest+Guy&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/home/page.css?v=2026-11-15">
+<link rel="stylesheet" href="/assets/tools/tools.css?v=2026-11-22">
+<script type="application/ld+json">[
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Ora","item":"https://oracoach.app/"},{"@type":"ListItem","position":2,"name":"Lifting Tools","item":"https://oracoach.app/tools/"},{"@type":"ListItem","position":3,"name":"Training Volume Calculator","item":"https://oracoach.app/tools/volume-calculator/"}]},
+{"@context":"https://schema.org","@type":"WebApplication","name":"Ora Training Volume Calculator","url":"https://oracoach.app/tools/volume-calculator/","applicationCategory":"HealthApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Orbi Labs LLC"}},
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"How many sets per muscle per week should I do?","acceptedAnswer":{"@type":"Answer","text":"Most research on muscle growth finds that about 10 or more hard sets per muscle per week tends to beat fewer, and many lifters grow well in the 10-20 range. Beginners can grow on less. More than 20 can work, but only if you recover from it."}},
+{"@type":"Question","name":"What counts as a hard set?","acceptedAnswer":{"@type":"Answer","text":"A working set taken close to failure, usually within about 3 reps of it (RPE 7 or higher). Warm-up sets and easy sets don't count."}},
+{"@type":"Question","name":"Do compound lifts count for the smaller muscles?","acceptedAnswer":{"@type":"Answer","text":"Partly. A common rule of thumb counts a set as a full set for the main muscle and half a set for muscles that help, like the triceps in a bench press. That's what this calculator does."}},
+{"@type":"Question","name":"Is it better to split a muscle's sets across the week?","acceptedAnswer":{"@type":"Answer","text":"Spreading them over two or more sessions makes each session more manageable and keeps the sets higher quality. Research suggests weekly volume matters more than how often you train a muscle, as long as the sets are hard."}},
+{"@type":"Question","name":"What if a muscle is way above 20 sets?","acceptedAnswer":{"@type":"Answer","text":"That's a lot of work for one muscle. If you're recovering well and still progressing, it may be fine. If the lifts stall or joints ache, move some of those sets to muscles that are lower."}}
+]}]</script>
+</head><body>
+<a class="skip" href="#main">Skip to content</a>
+<nav><a href="/"><img src="/assets/home/ora_logo.webp" alt="Ora home"></a><a class="l" href="/privacy/">Privacy</a><a class="l" href="/support/">Support</a><a class="cta" href="/#join">Get early access</a></nav><a class="login" href="https://app.oracoach.app/app/">Login</a>
+<main id="main" tabindex="-1">
+<div class="head"><img src="/assets/home/chibi_thinking.webp" alt="" width="120" height="120"><div>
+<div class="kicker">FREE TOOL</div>
+<h1>Training Volume <span class="grad">Calculator</span></h1>
+<p class="lead">Add the exercises you do in a week and how many hard sets. See the sets each muscle gets, and which ones are low or high.</p></div></div>
+
+<section class="calc" aria-label="Training volume calculator">
+ <div class="presets"><span>Start from</span><div class="pills" id="presets"></div></div>
+ <div class="vol first" id="vol" aria-label="Weekly sets per muscle"></div>
+ <div class="legend"><span><i class="lo"></i>Under 10</span><span><i class="ok"></i>10-20, where most lifters grow</span><span><i class="hi"></i>Over 20</span></div>
+ <div class="res"><img src="/assets/home/chibi_coach.webp" alt=""><div><small>YOUR WEEK</small><b id="out">-</b><span class="sub" id="note"></span><div class="chips" id="chips"></div></div><button class="share" id="share" type="button">Copy link</button></div>
+ <div class="box full weekbox"><div class="bl"><span>Your week</span><em>Hard sets per week</em></div>
+  <div id="rows"></div>
+  <div class="addrow"><select id="addSel" aria-label="Exercise to add"></select><button type="button" class="share" id="add">Add exercise</button></div></div>
+</section>
+
+<h2>How the sets are counted</h2>
+<ul>
+<li><strong>Hard sets only.</strong> Count working sets taken within about 3 reps of failure (RPE 7 or higher). Warm-ups don't count.</li>
+<li><strong>Full set for the main muscle, half for helpers.</strong> A set of bench press is 1 set for chest and ½ for triceps and shoulders. A set of curls is 1 for biceps. This is a common rule of thumb, not an exact measure.</li>
+<li><strong>Per week, not per workout.</strong> Add up every session. Squatting 3 sets on Monday and 3 on Thursday is 6 sets a week.</li>
+</ul>
+
+<h2>How much volume do you need?</h2>
+<p>Research on muscle growth finds more weekly sets tend to build more muscle, up to a point. A 2017 meta-analysis found that 10 or more sets per muscle per week led to more growth than fewer sets. Many lifters do well between 10 and 20.</p>
+<ul>
+<li><strong>Beginners</strong> grow on less. 6-10 hard sets per muscle is plenty while every week brings new strength.</li>
+<li><strong>Stalling with good sleep and food?</strong> Add a few sets to the muscles that lag, a couple at a time.</li>
+<li><strong>Above 20</strong> can work for some muscles and some people, but it's easy to dig a recovery hole. Watch whether your lifts still go up.</li>
+</ul>
+
+<div class="cta-card"><img src="/assets/home/chibi_thumbsup.webp" alt=""><div><b>Ora shows this in your plan</b><p>Ora's training blocks show the sets each muscle gets every week, so you can see where a plan is light before it costs you progress. Tap Why on any set to see where the number came from.</p><a class="cta" href="/#join">Get early access</a></div></div>
+
+<h2>Questions</h2>
+<details><summary>How many sets per muscle per week should I do?</summary><p>Most research on muscle growth finds that about 10 or more hard sets per muscle per week tends to beat fewer, and many lifters grow well in the 10-20 range. Beginners can grow on less. More than 20 can work, but only if you recover from it.</p></details>
+<details><summary>What counts as a hard set?</summary><p>A working set taken close to failure, usually within about 3 reps of it (RPE 7 or higher). Warm-up sets and easy sets don't count.</p></details>
+<details><summary>Do compound lifts count for the smaller muscles?</summary><p>Partly. A common rule of thumb counts a set as a full set for the main muscle and half a set for muscles that help, like the triceps in a bench press. That's what this calculator does.</p></details>
+<details><summary>Is it better to split a muscle's sets across the week?</summary><p>Spreading them over two or more sessions makes each session more manageable and keeps the sets higher quality. Research suggests weekly volume matters more than how often you train a muscle, as long as the sets are hard.</p></details>
+<details><summary>What if a muscle is way above 20 sets?</summary><p>That's a lot of work for one muscle. If you're recovering well and still progressing, it may be fine. If the lifts stall or joints ache, move some of those sets to muscles that are lower.</p></details>
+
+<h2>More free tools</h2>
+<div class="more"><a href="/tools/1rm-calculator/">1RM Calculator<span>Your max from any set, with RPE</span></a><a href="/tools/rpe-chart/">RPE Chart<span>Percent of max for every rep and RPE</span></a><a href="/tools/">All Lifting Tools<span>Plates, DOTS and more</span></a></div>
+
+<h3>Sources</h3>
+<ul class="src">
+<li>Schoenfeld BJ, Ogborn D, Krieger JW. Dose-response relationship between weekly resistance training volume and increases in muscle mass: a systematic review and meta-analysis. J Sports Sci, 2017.</li>
+<li>Schoenfeld BJ, Grgic J, Krieger J. How many times per week should a muscle be trained to maximize muscle hypertrophy? A systematic review and meta-analysis. J Sports Sci, 2019.</li>
+<li>Zourdos MC et al. Novel resistance training-specific RPE scale measuring repetitions in reserve. J Strength Cond Res, 2016.</li>
+</ul>
+<p class="meta">Training guidance, not medical advice. Stop a set if something hurts.</p>
+</main>
+<footer><span>© 2026 Orbi Labs LLC · oracoach.app</span><div><a href="/">Home</a><a href="/wiki/">Wiki</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/health-data/">Consumer Health Data Privacy Policy</a><a href="/accessibility/">Accessibility</a><a href="/team/">Team</a><a href="/tools/">Lifting Tools</a><a href="/support/">Support</a></div></footer>
+<script>
+(() => {
+const $ = id => document.getElementById(id);
+const MUSCLES = ['Chest', 'Back', 'Shoulders', 'Biceps', 'Triceps', 'Quads', 'Hamstrings', 'Glutes', 'Calves', 'Abs'];
+// key: [name, main muscles (1 set), helpers (½ set)]. A common rule of thumb, not an exact measure.
+const EX = {
+  bench: ['Bench press', ['Chest'], ['Triceps', 'Shoulders']],
+  incline: ['Incline bench press', ['Chest'], ['Shoulders', 'Triceps']],
+  dbbench: ['Dumbbell bench press', ['Chest'], ['Triceps', 'Shoulders']],
+  pushup: ['Push-up', ['Chest'], ['Triceps', 'Shoulders']],
+  fly: ['Chest fly or pec deck', ['Chest'], []],
+  dip: ['Dip', ['Chest', 'Triceps'], ['Shoulders']],
+  ohp: ['Overhead press', ['Shoulders'], ['Triceps']],
+  lateral: ['Lateral raise', ['Shoulders'], []],
+  reardelt: ['Rear delt fly', ['Shoulders'], ['Back']],
+  facepull: ['Face pull', ['Shoulders'], ['Back']],
+  pullup: ['Pull-up or chin-up', ['Back'], ['Biceps']],
+  pulldown: ['Lat pulldown', ['Back'], ['Biceps']],
+  row: ['Barbell row', ['Back'], ['Biceps']],
+  cablerow: ['Seated cable row', ['Back'], ['Biceps']],
+  dbrow: ['Dumbbell row', ['Back'], ['Biceps']],
+  deadlift: ['Deadlift', ['Glutes', 'Hamstrings'], ['Back', 'Quads']],
+  rdl: ['Romanian deadlift', ['Hamstrings'], ['Glutes', 'Back']],
+  squat: ['Squat', ['Quads'], ['Glutes']],
+  frontsquat: ['Front squat', ['Quads'], ['Glutes']],
+  legpress: ['Leg press', ['Quads'], ['Glutes']],
+  splitsquat: ['Split squat or lunge', ['Quads'], ['Glutes']],
+  legext: ['Leg extension', ['Quads'], []],
+  legcurl: ['Leg curl', ['Hamstrings'], []],
+  hipthrust: ['Hip thrust', ['Glutes'], ['Hamstrings']],
+  calf: ['Calf raise', ['Calves'], []],
+  curl: ['Biceps curl', ['Biceps'], []],
+  hammer: ['Hammer curl', ['Biceps'], []],
+  pushdown: ['Triceps pushdown', ['Triceps'], []],
+  skull: ['Skull crusher or overhead extension', ['Triceps'], []],
+  cgbench: ['Close-grip bench press', ['Triceps'], ['Chest']],
+  crunch: ['Crunch or cable crunch', ['Abs'], []],
+  legraise: ['Hanging leg raise', ['Abs'], []],
+  plank: ['Plank', ['Abs'], []],
+};
+const PRESETS = {
+  'Full body 3×': [['squat', 9], ['bench', 9], ['row', 9], ['rdl', 6], ['ohp', 6], ['curl', 6], ['pushdown', 6], ['calf', 6]],
+  'Upper/lower 4×': [['bench', 6], ['incline', 6], ['row', 6], ['ohp', 6], ['pulldown', 6], ['lateral', 6], ['curl', 6], ['pushdown', 6], ['squat', 6], ['rdl', 6], ['legpress', 6], ['legcurl', 6], ['calf', 8], ['crunch', 6]],
+  'Push/pull/legs 6×': [['bench', 8], ['incline', 6], ['ohp', 6], ['lateral', 8], ['pushdown', 6], ['pullup', 8], ['row', 8], ['facepull', 6], ['curl', 8], ['squat', 8], ['rdl', 6], ['legpress', 6], ['legcurl', 6], ['calf', 8]],
+};
+let rows = [];
+const fmt = x => Number.isInteger(x) ? String(x) : x.toFixed(1).replace('.5', '½').replace(/^0½$/, '½');
+$('presets').innerHTML = Object.keys(PRESETS).map(n => `<button type="button" data-p="${n}">${n}</button>`).join('') + '<button type="button" data-p="">Empty</button>';
+$('addSel').innerHTML = Object.entries(EX).map(([k, [n]]) => `<option value="${k}">${n}</option>`).join('');
+function count() {
+  const c = Object.fromEntries(MUSCLES.map(m => [m, { direct: 0, helper: 0 }]));
+  for (const [k, sets] of rows) {
+    const [, main, help] = EX[k];
+    main.forEach(m => c[m].direct += sets);
+    help.forEach(m => c[m].helper += sets);
+  }
+  return c;
+}
+function render() {
+  $('rows').innerHTML = rows.length ? rows.map(([k, sets], i) => `<div class="vrow"><span class="vn">${EX[k][0]}<small>${EX[k][1].join(', ')}${EX[k][2].length ? ` · ½ ${EX[k][2].join(', ')}` : ''}</small></span>
+    <div class="stepper sm"><button type="button" class="st" data-i="${i}" data-d="-1" aria-label="Fewer sets of ${EX[k][0]}">−</button><input type="number" min="0" max="40" value="${sets}" data-i="${i}" aria-label="Sets per week of ${EX[k][0]}"><button type="button" class="st" data-i="${i}" data-d="1" aria-label="More sets of ${EX[k][0]}">+</button></div>
+    <button type="button" class="vx" data-x="${i}" aria-label="Remove ${EX[k][0]}">×</button></div>`).join('') : '<p class="hint">No exercises yet. Pick a starting week above or add your own.</p>';
+  const c = count(), MAX = 30;
+  let low = [], high = [], total = 0;
+  $('vol').innerHTML = MUSCLES.map(m => {
+    const v = c[m].direct + c[m].helper / 2; total += c[m].direct;
+    const zone = v < 10 ? 'lo' : v <= 20 ? 'ok' : 'hi';
+    if (v < 10) low.push(m); else if (v > 20) high.push(m);
+    const w = Math.min(100, v / MAX * 100);
+    return `<div class="vb"><span class="vm">${m}</span><div class="vt"><i class="z1"></i><i class="z2"></i><b class="${zone}" style="width:${w}%"></b></div><span class="vv">${fmt(v)}<small>${!v ? '' : !c[m].helper ? 'direct' : !c[m].direct ? 'from helpers' : `${fmt(c[m].direct)} + ${fmt(c[m].helper / 2)} helper`}</small></span></div>`;
+  }).join('');
+  $('out').textContent = rows.length ? `${MUSCLES.length - low.length - high.length} of ${MUSCLES.length} in range` : '-';
+  $('note').textContent = rows.length ? `${total} hard sets a week across ${rows.length} exercise${rows.length === 1 ? '' : 's'}` : 'Add exercises to see your week.';
+  const chips = [];
+  if (low.length) chips.push(`Low: ${low.join(', ')}`);
+  if (high.length) chips.push(`High: ${high.join(', ')}`);
+  $('chips').innerHTML = chips.map(x => `<span class="chip">${x}</span>`).join('');
+  history.replaceState(null, '', rows.length ? '?w=' + rows.map(([k, s]) => `${k}.${s}`).join('-') : location.pathname);
+}
+$('presets').onclick = e => { const b = e.target.closest('button'); if (!b) return; rows = b.dataset.p ? PRESETS[b.dataset.p].map(r => r.slice()) : []; render(); };
+$('add').onclick = () => { const k = $('addSel').value; const i = rows.findIndex(r => r[0] === k); if (i >= 0) rows[i][1] += 3; else rows.push([k, 6]); render(); };
+$('rows').addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b) return;
+  if (b.dataset.x !== undefined) { rows.splice(+b.dataset.x, 1); render(); return; }
+  const i = +b.dataset.i; rows[i][1] = Math.max(0, Math.min(40, rows[i][1] + +b.dataset.d)); render();
+});
+$('rows').addEventListener('change', e => { const t = e.target; if (t.matches('input')) { rows[+t.dataset.i][1] = Math.max(0, Math.min(40, Math.round(+t.value || 0))); render(); } });
+$('share').onclick = async () => { try { await navigator.clipboard.writeText(location.href); $('share').textContent = 'Copied'; } catch (_) { $('share').textContent = 'Copy the address bar'; } setTimeout(() => $('share').textContent = 'Copy link', 1600); };
+const q = new URLSearchParams(location.search).get('w');
+if (q) rows = q.split('-').map(p => p.split('.')).filter(([k, s]) => EX[k] && +s >= 0).map(([k, s]) => [k, Math.min(40, Math.round(+s))]).slice(0, 40);
+else rows = PRESETS['Upper/lower 4×'].map(r => r.slice());
+render();
+})();
+</script>
+<script src="/assets/stats.js" defer></script></body></html>
