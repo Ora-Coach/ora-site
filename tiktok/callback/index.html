@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TikTok sign-in | Coach Orbi Studio</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/ora-icon-32.png?v=2">
+<link rel="stylesheet" href="/assets/home/page.css?v=2026-11-15">
+</head><body>
+<main id="main">
+<div class="kicker">Coach Orbi Studio</div>
+<h1 id="t">Connecting TikTok…</h1>
+<p class="lead" id="m">One moment.</p>
+<div class="card" id="box" hidden><p>Copy this code back into Coach Orbi Studio. It works once and expires in a few minutes.</p>
+<p><code id="code" style="word-break:break-all"></code></p>
+<p><button id="copy" type="button">Copy code</button></p></div>
+</main>
+<script>
+// TikTok's OAuth redirect lands here (redirect URIs must be https). The page never sends the code anywhere:
+// it only shows it so the studio on Eric's Mac can exchange it for a token.
+(function () {
+  var q = new URLSearchParams(location.search), t = document.getElementById('t'), m = document.getElementById('m');
+  if (q.get('error')) { t.textContent = 'TikTok sign-in was cancelled'; m.textContent = q.get('error_description') || q.get('error'); return; }
+  var code = q.get('code');
+  if (!code) { t.textContent = 'Nothing to connect'; m.textContent = 'Open this page from Coach Orbi Studio\'s TikTok sign-in.'; return; }
+  history.replaceState(null, '', location.pathname);
+  t.textContent = 'TikTok is connected'; m.textContent = 'Signed in with scopes: ' + (q.get('scopes') || '—');
+  document.getElementById('code').textContent = code + '|' + (q.get('state') || '');
+  document.getElementById('box').hidden = false;
+  document.getElementById('copy').onclick = function () { navigator.clipboard.writeText(document.getElementById('code').textContent); this.textContent = 'Copied'; };
+})();
+</script>
+</body></html>
