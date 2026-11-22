@@ -330,7 +330,7 @@ main:focus{outline:none}
 .chathead .ava{width:36px;height:36px;border-radius:50%;background:radial-gradient(circle at 40% 35%,#2a6fe8,#0b2a6b);display:grid;place-items:center}
 .chathead .ava img{width:26px;height:26px}
 .chathead b{display:block;font:700 15px Fredoka}.chathead .on{font-size:12px;color:#7CF2B0;display:flex;align-items:center;gap:5px}.chathead .on:before{content:'';width:7px;height:7px;border-radius:50%;background:#7CF2B0}
-.chathead .pro{margin-left:auto;font:400 11px 'Luckiest Guy';letter-spacing:1px;padding:4px 8px;border-radius:999px;background:#ffd45c;color:#3a2500}
+.chathead .protag{margin-left:auto}
 .msgs{height:312px;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#3d8bff55 transparent;padding:14px;display:flex;flex-direction:column;gap:8px}
 .m{max-width:86%;padding:10px 13px;border-radius:18px;font-size:14px;line-height:1.45;transform-origin:bottom left}
 .m.me{align-self:flex-end;background:linear-gradient(180deg,#3D8BFF,#156CF6);border-bottom-right-radius:6px;transform-origin:bottom right}
@@ -525,6 +525,16 @@ footer .consent{max-width:640px;margin:2px auto 0;line-height:1.55;text-wrap:bal
  .faq{margin-top:12px}.faq details{padding:7px 4px}
  .links.cols{margin-top:12px;gap:6px 56px;font-size:13px}.links.cols div{gap:3px}
 }
+
+/* The real PRO tag (app logo option 4, Platinum Tag: OraProColors + OraProTag) */
+.protag{display:inline-flex;align-items:center;justify-content:center;height:1.35em;padding:0 .38em;border-radius:.35em;border:max(1px,.09em) solid #4F5A67;
+ background:linear-gradient(180deg,#FFFFFF 0%,#E4E9EF 22%,#B7C1CC 48%,#808B98 50%,#C9D2DC 72%,#F5F8FB 100%);
+ color:#0F1F2E;font:700 .9em/1 Fredoka,Roboto,sans-serif;letter-spacing:.03em;vertical-align:middle;box-shadow:0 2px 8px #0006}
+.chathead .protag{font-size:13px}
+.prolock{display:flex;align-items:center;gap:8px}
+.prolock img{height:30px;width:auto;display:block}
+.pn.prolock .protag{font:700 19px/1 Fredoka,Roboto,sans-serif;color:#0F1F2E;margin-left:2px}
+.prolock span:last-child{font:500 15px Roboto;color:var(--sub);margin-left:4px}
 </style></head><body>
 <a class="skip" href="#main">Skip to content</a>
 <script>(function(){function f(){var b=innerWidth<=860?1:Math.max(1,Math.min(innerWidth/1500,innerHeight/940,1.8));document.documentElement.style.setProperty('--big',b.toFixed(3))}f();addEventListener('resize',f)})()</script>
@@ -552,7 +562,7 @@ footer .consent{max-width:640px;margin:2px auto 0;line-height:1.55;text-wrap:bal
   <h2>A private coach <span class="grad">in your pocket.</span></h2>
   <p class="lead">Orbi knows every set you've logged, your goals, injuries and equipment. It plans, adjusts while you lift, and explains every change. You always have the last word. Try asking it something.</p>
   <div class="chatwin" id="chatwin">
-    <div class="chathead"><div class="ava"><img src="/assets/home/icons/orbi.webp" alt=""></div><div><b>Orbi</b><span class="on">Online</span></div><span class="pro">PRO</span></div>
+    <div class="chathead"><div class="ava"><img src="/assets/home/icons/orbi.webp" alt=""></div><div><b>Orbi</b><span class="on">Online</span></div><span class="protag" aria-label="Ora Pro">PRO</span></div>
     <div class="msgs" id="msgs" aria-live="polite"></div>
     <div class="asks" id="asks"></div>
   </div>
@@ -671,7 +681,7 @@ footer .consent{max-width:640px;margin:2px auto 0;line-height:1.55;text-wrap:bal
   <div class="plans">
     <div class="plan reveal"><div class="pn">Ora</div><div class="pp">Free</div>
       <ul><li>Two-tap logging and 1,800+ exercises</li><li>Progress, PRs and strength trends</li><li>XP, ranks, badges, titles and gear</li><li>Friends, duels, leagues and weekly ranks</li></ul></div>
-    <div class="plan pro reveal"><div class="tag">Founding offer</div><div class="pn">Ora Pro <span>with Orbi</span></div>
+    <div class="plan pro reveal"><div class="tag">Founding offer</div><div class="pn prolock"><img src="/assets/home/ora_logo.webp" alt="Ora"><span class="protag">PRO</span><span>with Orbi</span></div>
       <div class="pp">$79.99<small>/yr or $12.99/mo</small></div>
       <ul><li><b>Everything in Free</b></li><li>Orbi, your AI training coach</li><li>Smart programs that adapt to how training goes</li><li>Weekly check-ins and in-session adjustments</li><li>Founding Member badge</li></ul>
       <div class="alt">14-day free trial on both. Your price is kept while your subscription stays active. Available Nov 30 – Dec 31, 2026, while the first 1,000 spots last.</div>
