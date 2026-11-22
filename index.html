@@ -477,11 +477,59 @@ main:focus{outline:none}
    --big is 1 up to laptop size and up to 1.8 on large monitors (set below). */
 .stage{scale:var(--big,1)}
 #social .board{scale:var(--big,1);transform-origin:50% 0}
+
+/* plan + free sections, grouped footer (2026-11-22) */
+.ticks{list-style:none;padding:0;margin:20px 0 0;display:grid;gap:10px}
+.ticks li{position:relative;padding:12px 14px 12px 44px;border-radius:14px;background:#ffffff0a;border:1px solid #ffffff14;color:var(--sub);font-size:15px;line-height:1.45}
+.ticks li b{color:#fff}
+.ticks li:before{content:'✓';position:absolute;left:14px;top:12px;width:20px;height:20px;border-radius:50%;background:#156CF6;color:#fff;font:700 12px/20px Roboto;text-align:center}
+.stage.plain .phone{animation:bob 6s ease-in-out infinite}
+#free{grid-template-columns:1fr}
+.copy.ctr{max-width:980px;margin:0 auto;text-align:center}
+.copy.ctr .lead{margin-left:auto;margin-right:auto;max-width:620px}
+.copy.ctr h2{margin-left:auto;margin-right:auto}
+.freegrid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:28px;text-align:left}
+.freegrid a{display:flex;flex-direction:column;gap:4px;padding:16px;border-radius:18px;background:#ffffff0a;border:1px solid #ffffff1a;text-decoration:none;color:var(--ink);transition:border-color .2s,transform .2s}
+.freegrid a:hover{border-color:#3d8bff99;transform:translateY(-2px)}
+.freegrid .oi{width:34px;height:34px;margin-bottom:6px}
+.freegrid b{font:700 17px Fredoka;color:#fff}.freegrid span{font-size:13.5px;color:var(--sub);line-height:1.4}
+.freegrid a.all{justify-content:center;align-items:center;background:linear-gradient(180deg,#3D8BFF,#156CF6);border-color:#3D8BFF}
+.freegrid a.all b{font-size:16px}
+.links.cols{display:grid;grid-template-columns:repeat(4,auto);justify-content:center;gap:10px 56px;text-align:left;font-size:13.5px}
+.links.cols div{display:flex;flex-direction:column;gap:7px}
+.links.cols b{color:#fff;font-size:13px;letter-spacing:.3px;margin-bottom:2px}
+@media (max-width:900px){.freegrid{grid-template-columns:repeat(2,1fr)}.links.cols{grid-template-columns:repeat(2,auto);gap:22px 40px}}
+.slot.peek{position:absolute;aspect-ratio:1;z-index:2}
+.planpeek{width:max(150px,min(14vw,22vh));left:50%;bottom:4%;transform:translateX(-50%)}
+#free .copy.ctr{position:relative}
+.freeslot{width:max(110px,min(9vw,15vh));aspect-ratio:1;margin:0 auto 6px}
+@media (max-width:860px){.planpeek{left:auto;right:0;bottom:auto;top:-40px;width:var(--side)}.freeslot{width:min(34vw,120px)}}
+
+/* footer: stacked as before, a little more compact so Orbi clears the top bar (owner, 2026-11-22) */
+@media (min-width:861px){
+ footer{padding-top:96px;padding-bottom:24px}
+ footer .slot{width:max(130px,min(14vw,19vh));margin-bottom:-6px}
+ footer h2{margin-bottom:8px}
+ .faq{margin-top:18px}.faq details{padding:9px 4px}
+ .links.cols{margin-top:16px;gap:8px 56px}.links.cols div{gap:5px}
+}
+footer .wl{max-width:680px}footer .wl .wlrow{max-width:520px;margin-left:auto;margin-right:auto}
+footer .form-status{font-weight:600;color:#9DB2D3}
+footer .consent{max-width:640px;margin:2px auto 0;line-height:1.55;text-wrap:balance}
+@media (min-width:861px) and (max-height:840px){
+ footer{padding-top:84px;padding-bottom:10px}
+ footer .slot{width:max(100px,15vh);margin-bottom:-8px}
+ footer h2{font-size:clamp(34px,3.6vw,48px);margin-bottom:4px}
+ footer p.lead{font-size:16px;margin-bottom:12px}
+ footer .goals{margin-top:8px}footer .form-status{margin-top:4px}
+ .faq{margin-top:12px}.faq details{padding:7px 4px}
+ .links.cols{margin-top:12px;gap:6px 56px;font-size:13px}.links.cols div{gap:3px}
+}
 </style></head><body>
 <a class="skip" href="#main">Skip to content</a>
 <script>(function(){function f(){var b=innerWidth<=860?1:Math.max(1,Math.min(innerWidth/1500,innerHeight/940,1.8));document.documentElement.style.setProperty('--big',b.toFixed(3))}f();addEventListener('resize',f)})()</script>
 <div class="bg" aria-hidden="true"><i class="b1"></i><i class="b2"></i><i class="b3"></i></div><canvas id="dust" aria-hidden="true"></canvas><div class="grain" aria-hidden="true"></div>
-<nav><a href="/" class="home"><img src="/assets/home/ora_logo.webp" alt="Ora"></a><a class="l" href="#coach">Orbi</a><a class="l" href="#science">Science</a><a class="l" href="#rewards">Rewards</a><a class="l" href="#pro">Pricing</a><a class="cta" href="#join">Get early access</a></nav><a class="login" href="https://app.oracoach.app/app/">Login</a>
+<nav><a href="/" class="home"><img src="/assets/home/ora_logo.webp" alt="Ora"></a><a class="l" href="#coach">Orbi</a><a class="l" href="#science">Science</a><a class="l" href="#rewards">Rewards</a><a class="l" href="#plan">Plans</a><a class="l" href="#pro">Pricing</a><a class="l" href="#free">Free Tools</a><a class="cta" href="#join">Get early access</a></nav><a class="login" href="https://app.oracoach.app/app/">Login</a>
 <div id="orbi" role="img" aria-label="Orbi, Ora's coach. Drag to spin him, tap to make him hop."></div>
 
 <main id="main" tabindex="-1">
@@ -492,8 +540,8 @@ main:focus{outline:none}
   <div class="btns"><a class="cta" href="#join">Get early access</a><a class="cta ghost" href="#coach">Meet Orbi</a></div>
   <div class="micro">Free on iPhone during the beta · No credit card</div>
   <div class="stats">
-    <div class="stat"><img src="/assets/home/chibi_lifting.webp" alt=""><b data-count="1700" data-suffix="+">1,700+</b><span>exercises</span></div>
-    <div class="stat"><img src="/assets/home/badge_founding_member.webp" alt=""><b data-count="43">43</b><span>badges to unlock</span></div>
+    <div class="stat"><img src="/assets/home/chibi_lifting.webp" alt=""><b data-count="1800" data-suffix="+">1,800+</b><span>exercises</span></div>
+    <div class="stat"><img src="/assets/home/badge_founding_member.webp" alt=""><b data-count="47">47</b><span>badges to unlock</span></div>
     <div class="stat"><img src="/assets/home/chibi_thumbsup.webp" alt=""><b data-count="2">2</b><span>taps per set</span></div>
   </div>
   <span class="hint" id="hint">Psst, drag Orbi to spin him · tap to make him hop</span>
@@ -535,6 +583,10 @@ main:focus{outline:none}
 <tr><th scope="row">Adjusts during your session</th><td><span class="ic n" aria-label="No">✕</span></td><td><span class="part">In person only</span></td><td class="us"><span class="ic y" aria-label="Yes">✓</span></td></tr>
 <tr><th scope="row">Explains the why</th><td><span class="ic n" aria-label="No">✕</span></td><td><span class="ic y" aria-label="Yes">✓</span></td><td class="us"><span class="ic y" aria-label="Yes">✓</span></td></tr>
 <tr><th scope="row">Available 24/7</th><td><span class="ic y" aria-label="Yes">✓</span></td><td><span class="ic n" aria-label="No">✕</span></td><td class="us"><span class="ic y" aria-label="Yes">✓</span></td></tr>
+<tr><th scope="row">Plans your whole block</th><td><span class="part">Fixed templates</span></td><td><span class="ic y" aria-label="Yes">✓</span></td><td class="us"><span class="ic y" aria-label="Yes">✓</span></td></tr>
+<tr><th scope="row">Shows the research behind it</th><td><span class="ic n" aria-label="No">✕</span></td><td><span class="part">Sometimes</span></td><td class="us"><span class="ic y" aria-label="Yes">✓</span></td></tr>
+<tr><th scope="row">Tracks weekly sets per muscle</th><td><span class="part">Some apps</span></td><td><span class="ic y" aria-label="Yes">✓</span></td><td class="us"><span class="ic y" aria-label="Yes">✓</span></td></tr>
+<tr><th scope="row">Friends, duels and leagues</th><td><span class="part">Some apps</span></td><td><span class="ic n" aria-label="No">✕</span></td><td class="us"><span class="ic y" aria-label="Yes">✓</span></td></tr>
 <tr><th scope="row">Makes training fun</th><td><span class="ic n" aria-label="No">✕</span></td><td><span class="ic n" aria-label="No">✕</span></td><td class="us"><span class="ic y" aria-label="Yes">✓</span></td></tr>
 <tr class="price"><th scope="row">Price</th><td>$0–15<small>/mo</small></td><td>$100+<small>/mo, often</small></td><td class="us">$12.99<small>/mo</small></td></tr>
 </tbody></table></div>
@@ -547,17 +599,31 @@ main:focus{outline:none}
   <p class="lead">Next-set targets, rest timers and quick swaps keep up with your session instead of slowing it down. Your progress builds itself.</p>
   <a class="cta ghost" href="#rewards">See what you earn →</a>
   <div class="screens" id="screenNames" role="group" aria-label="Show a screen"><button class="on">Training</button><button>Workout</button><button>Orbi</button><button>Progress</button><button>Profile</button><button>Social</button></div>
-  <div class="fine">Beta screens.</div>
-  <div class="slot logslot" data-slot></div>
+    <div class="slot logslot" data-slot></div>
 </div><div class="stage" id="stage"><div class="tilt" id="tilt">
-  <div class="phone p1"><div class="scr"><img class="on" src="/assets/home/app_training.webp" alt="Ora's Training tab: today's workout, steps and this week's sessions" data-name="Training" data-tap="50,40"><img src="/assets/home/app_workout.webp" alt="A workout in progress: last week's numbers, the next-set target and rest timers" data-name="Workout" data-tap="86,20"><img src="/assets/home/app_coach.webp" alt="Orbi answering whether to go up on bench next week" data-name="Orbi" data-tap="11,94"></div><i class="tap"></i><i class="glare"></i></div>
-  <div class="phone p2"><div class="scr"><img class="on" src="/assets/home/app_progress.webp" alt="Ora's Progress tab: eight weeks of hard sets and a week of steps" data-name="Progress" data-tap="87,94"><img src="/assets/home/app_profile.webp" alt="Ora's Profile tab: an Olympus-rank card with level, badges, best lift and streak" data-name="Profile" data-tap="71,94"><img src="/assets/home/app_social.webp" alt="Ora's Social tab: friends at the gym and the weekly leaderboard" data-name="Social" data-tap="31,94"></div><i class="tap"></i><i class="glare"></i></div>
+  <div class="phone p1"><div class="scr"><img class="on" src="/assets/home/app_training.webp?v=2026-11-22" alt="Ora's Training tab: today's steps, the program, this week's sessions and the next workout" data-name="Training" data-tap="50,40"><img src="/assets/home/app_workout.webp?v=2026-11-22" alt="A workout in progress: Ora eases the next set back after a hard one and explains why" data-name="Workout" data-tap="86,20"><img src="/assets/home/app_coach.webp?v=2026-11-22" alt="Orbi answering whether to go up on bench next week" data-name="Orbi" data-tap="11,94"></div><i class="tap"></i><i class="glare"></i></div>
+  <div class="phone p2"><div class="scr"><img class="on" src="/assets/home/app_progress.webp?v=2026-11-22" alt="Ora's Progress tab: a year of workouts, volume, PRs and lifts then and now" data-name="Progress" data-tap="87,94"><img src="/assets/home/app_profile.webp?v=2026-11-22" alt="Ora's Profile tab: a Gold-rank card with level, badges, best lift and streak" data-name="Profile" data-tap="71,94"><img src="/assets/home/app_social.webp?v=2026-11-22" alt="Ora's Social tab: a Duo Streak, friends' activity and cheers" data-name="Social" data-tap="31,94"></div><i class="tap"></i><i class="glare"></i></div>
+</div></div></section>
+
+<section id="plan" data-hue="#12306e"><div class="copy">
+  <div class="kicker">Plans that think ahead</div>
+  <h2>A plan for the <span class="grad">whole block.</span></h2>
+  <p class="lead">Orbi builds your program around your goal and style, then plans the weeks ahead: build-up phases, deloads and returns.</p>
+  <ul class="ticks">
+    <li><b>Why This Set.</b> Tap Why on any set to see the reason behind the number, in plain words.</li>
+    <li><b>Test Day.</b> Measure a new max when you're ready, never after logged pain or a sick day.</li>
+    <li><b>Weekly check-ins.</b> Orbi looks at what you did and what's next, and asks before it changes anything.</li>
+    <li><b>Your style.</b> Powerlifting, bodybuilding, powerbuilding, general strength or general fitness.</li>
+  </ul>
+</div><div class="stage plain"><div class="slot peek planpeek" data-slot></div><div class="tilt">
+  <div class="phone p1"><div class="scr"><img class="on" src="/assets/home/app_block.webp?v=2026-11-22" alt="A training block plan: phases, a deload week and a Test Day"></div><i class="glare"></i></div>
+  <div class="phone p2"><div class="scr"><img class="on" src="/assets/home/app_why.webp?v=2026-11-22" alt="Why This Set: the reason behind the next set's target"></div><i class="glare"></i></div>
 </div></div></section>
 
 <section id="rewards" data-hue="#2a1b6b"><div class="slot mid" data-slot></div><div class="copy">
   <div class="kicker">Only on Ora</div>
   <h2>No other lifting app <span class="grad">plays like this.</span></h2>
-  <p class="lead">Every workout earns XP. Climb seven ranks from Newbie to Olympus, unlock 43 badges and 34 titles, and win the gear that comes with them. Tap a badge.</p>
+  <p class="lead">Every workout earns XP. Climb seven ranks from Newbie to Olympus, unlock 47 badges and 34 titles, and win the gear that comes with them. Then climb a league from Bronze to Legend, with new rewards every season. Tap a badge.</p>
   <div class="shelf" id="shelf"></div>
   <div class="ladder" id="ladder">
     <div class="lt">On the way to <b>Rank: Olympus</b> (level 50), the gear unlocks as you level</div>
@@ -577,7 +643,7 @@ main:focus{outline:none}
 <section id="social" data-hue="#0b4a5e"><div class="copy">
   <div class="kicker">Train together</div>
   <h2>Your crew, <span class="grad">at the gym now.</span></h2>
-  <p class="lead">See who's training, send a cheer, and climb your friends' weekly XP ranks. Accountability that keeps you showing up, without a feed to scroll.</p>
+  <p class="lead">See who's training and send a cheer. Duel a friend for a week, keep a Duo Streak going, or plan a Train Together day. Friends see that you trained, never your weights, sets or location.</p>
   <div class="gym" id="gym"><span class="demo">Example</span>
     <div class="friend reveal"><div class="avr"><img class="a" src="/assets/home/av/fox.webp" alt=""><img class="r" src="/assets/home/av/ring_rank_veteran.webp" alt="" style="--x:1.4167"></div>
       <div class="meta"><b>Maya</b><div>Push day · <span class="clock" data-start="2280">38:00</span></div></div><span class="live">Training now</span><button class="cheer" data-icon="streak"><img class="oi" src="/assets/home/icons/streak.webp" alt="">Cheer</button></div>
@@ -604,7 +670,7 @@ main:focus{outline:none}
   <h2>Start free. <span class="grad">Go Pro when you're ready.</span></h2>
   <div class="plans">
     <div class="plan reveal"><div class="pn">Ora</div><div class="pp">Free</div>
-      <ul><li>Two-tap logging and 1,700+ exercises</li><li>Progress, PRs and strength trends</li><li>XP, ranks, badges, titles and gear</li><li>Friends, check-ins and weekly ranks</li></ul></div>
+      <ul><li>Two-tap logging and 1,800+ exercises</li><li>Progress, PRs and strength trends</li><li>XP, ranks, badges, titles and gear</li><li>Friends, duels, leagues and weekly ranks</li></ul></div>
     <div class="plan pro reveal"><div class="tag">Founding offer</div><div class="pn">Ora Pro <span>with Orbi</span></div>
       <div class="pp">$79.99<small>/yr or $12.99/mo</small></div>
       <ul><li><b>Everything in Free</b></li><li>Orbi, your AI training coach</li><li>Smart programs that adapt to how training goes</li><li>Weekly check-ins and in-session adjustments</li><li>Founding Member badge</li></ul>
@@ -613,7 +679,26 @@ main:focus{outline:none}
   </div>
   <div class="fine">After the Founding offer: Ora Pro is $19.99/mo (no trial) or $119.99/yr with a 14-day free trial. Purchases open at launch, and beta testers get first access to Founding pricing. Subscriptions renew automatically until you cancel. A free trial becomes a paid subscription unless you cancel at least 24 hours before it ends.</div>
 </div><div class="slot mid pro-slot" data-slot></div></section>
+
+<section id="free" data-hue="#0e2f66"><div class="copy ctr">
+  <div class="slot freeslot" data-slot></div>
+  <div class="kicker">Free for every lifter</div>
+  <h2>Tools and guides, <span class="grad">no account needed.</span></h2>
+  <p class="lead">The math lifters reach for between sets, and clear guides to the lifts people ask about most.</p>
+  <div class="freegrid">
+    <a href="/tools/1rm-calculator/"><img class="oi" src="/assets/home/icons/trophy.webp" alt=""><b>1RM Calculator</b><span>Your max from any set, with RPE</span></a>
+    <a href="/tools/rpe-chart/"><img class="oi" src="/assets/home/icons/intensity.webp" alt=""><b>RPE Chart</b><span>Percent of max for every rep and RPE</span></a>
+    <a href="/tools/plate-calculator/"><img class="oi" src="/assets/home/icons/training.webp" alt=""><b>Plate Calculator</b><span>What goes on each side of the bar</span></a>
+    <a href="/tools/volume-calculator/"><img class="oi" src="/assets/home/icons/muscle.webp" alt=""><b>Volume Calculator</b><span>Weekly hard sets per muscle</span></a>
+    <a href="/tools/dots-calculator/"><img class="oi" src="/assets/home/icons/leaderboard.webp" alt=""><b>DOTS Calculator</b><span>DOTS, Wilks and IPF GL points</span></a>
+    <a href="/exercises/"><img class="oi" src="/assets/home/icons/notes.webp" alt=""><b>Exercise Guides</b><span>How to, muscles worked, sets and reps</span></a>
+    <a href="/wiki/"><img class="oi" src="/assets/home/icons/progress.webp" alt=""><b>Ora Wiki</b><span>Ranks, leagues, XP and how Ora works</span></a>
+    <a href="/tools/" class="all"><b>All Free Tools →</b></a>
+  </div>
+</div></section>
 </main>
+
+
 
 <footer id="join" data-hue="#0b2a6b"><div class="slot" data-slot></div><h2>Your next PR <span class="grad">starts here.</span></h2>
 <p class="lead">Ora is in private beta on iPhone. Get early access, and Orbi will save you a Founding spot.</p>
@@ -628,8 +713,13 @@ main:focus{outline:none}
   <details><summary>Is Orbi a real coach?</summary><p>Orbi is an AI coach. It reads your logged training and goals, and every number it suggests comes from Ora's tested training rules, which are built on published research. It explains its reasoning and never changes your plan without your OK.</p></details>
   <details><summary>Do I need Ora Pro?</summary><p>No. Logging, progress, rewards and friends are free. Pro adds Orbi's coaching, smart programs and weekly check-ins.</p></details>
   <details><summary>What about my data?</summary><p>Your training lives on your phone first. You can export it or delete it at any time, and Orbi only sees what it needs to coach you.</p></details>
+</div><div class="links cols" role="navigation" aria-label="Footer">
+  <div><b>Ora</b><a href="#coach">Orbi</a><a href="#plan">Plans</a><a href="#pro">Pricing</a><a href="https://app.oracoach.app/app/">For Coaches</a></div>
+  <div><b>Free Tools</b><a href="/tools/1rm-calculator/">1RM Calculator</a><a href="/tools/rpe-chart/">RPE Chart</a><a href="/tools/plate-calculator/">Plate Calculator</a><a href="/tools/">All Tools</a></div>
+  <div><b>Learn</b><a href="/exercises/">Exercise Guides</a><a href="/wiki/">Ora Wiki</a><a href="/support/">Support</a><a href="mailto:support@oracoach.app">support@oracoach.app</a></div>
+  <div><b>Company</b><a href="/team/">Team</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/health-data/">Consumer Health Data Privacy Policy</a><a href="/accessibility/">Accessibility</a></div>
 </div>
-<div class="links" role="navigation" aria-label="Footer"><a href="https://app.oracoach.app/app/">For coaches</a><a href="/wiki/">Wiki</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/health-data/">Consumer Health Data Privacy Policy</a><a href="/accessibility/">Accessibility</a><a href="/team/">Team</a><a href="/tools/">Lifting Tools</a><a href="/exercises/">Exercise Guides</a><a href="/support/">Support</a><a href="mailto:support@oracoach.app">support@oracoach.app</a></div>
+
 <div class="small">© 2026 Orbi Labs LLC · oracoach.app</div></footer>
 <script src="/assets/waitlist.js?v=2026-11-21" defer></script>
 
@@ -736,9 +826,14 @@ tint(at);
 function topOf(i) { return sections[i].getBoundingClientRect().top + scrollY; }
 let glide = 0; // bumps to cancel a running glide when a new one starts
 function go(n, dir = Math.sign(n - at)) {
+  const wanted = n;
   n = Math.max(0, Math.min(sections.length - 1, n));
+  // Past the first or last section: stay put. Before, a push at the very
+  // bottom glided back up to the footer's top, so its end never stayed in
+  // view (owner, 2026-11-22).
+  if (n !== wanted && n === at) return;
   const H = innerHeight, max = document.documentElement.scrollHeight - H;
-  const tall = sections[n].offsetHeight > H * 1.05;
+  const tall = sections[n].offsetHeight > (H + 4);
   // Coming up into a tall section, land on its bottom; otherwise its top.
   let y1 = dir < 0 && tall ? topOf(n) + sections[n].offsetHeight - H : topOf(n);
   y1 = Math.max(0, Math.min(max, Math.round(y1)));
@@ -760,7 +855,7 @@ function go(n, dir = Math.sign(n - at)) {
 /** In a tall section, whether there is more of it to read in [dir]. */
 function moreInside(dir) {
   const r = sections[at].getBoundingClientRect(), H = innerHeight;
-  if (r.height <= H * 1.05) return false;
+  if (r.height <= (H + 4)) return false;
   return dir > 0 ? r.bottom > H + 2 : r.top < -2;
 }
 // Wheel and trackpad. A gesture moves one section.
@@ -826,7 +921,7 @@ addEventListener('scrollend', () => {
   // back to the section it started from.
   jumpTo(sectionAtMiddle(null));
   const H = innerHeight;
-  if (sections[at].offsetHeight > H * 1.05) return;
+  if (sections[at].offsetHeight > (H + 4)) return;
   if (Math.abs(topOf(at) - scrollY) > 2) go(at, 0);
 });
 
